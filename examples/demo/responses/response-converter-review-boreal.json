@@ -1,0 +1,13 @@
+{
+  "candidate_id": "boreal",
+  "captured_at": "2026-02-11T09:30:00Z",
+  "characters": 732,
+  "content_path": "outputs/response-converter-review-boreal.md",
+  "id": "response-converter-review-boreal",
+  "latency_seconds": 55.0,
+  "notes": "Fictional output captured for the public demonstration.",
+  "sha256": "sha256:4558412a5e13abf61c9f926896f540e78104ba58e8419c6da3df14a7997f78b2",
+  "state": "captured",
+  "task_id": "converter-review",
+  "words": 100
+}

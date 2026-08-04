@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://caoshurong.github.io/frontiertrials/schemas/ballot.schema.json",
+  "title": "FrontierTrials ballot",
+  "type": "object",
+  "required": ["id", "pairing_id", "rater_id", "choice", "confidence", "left_scores", "right_scores", "rationale"],
+  "properties": {
+    "id": {"$ref": "#/$defs/id"},
+    "pairing_id": {"$ref": "#/$defs/id"},
+    "rater_id": {"$ref": "#/$defs/id"},
+    "choice": {"enum": ["left", "right", "tie", "abstain"]},
+    "confidence": {"type": "integer", "minimum": 1, "maximum": 5},
+    "left_scores": {"$ref": "#/$defs/scores"},
+    "right_scores": {"$ref": "#/$defs/scores"},
+    "rationale": {"type": "string", "minLength": 1},
+    "flags": {"type": "array", "items": {"type": "string"}},
+    "recorded_at": {"type": "string"}
+  },
+  "additionalProperties": true,
+  "$defs": {
+    "id": {"type": "string", "pattern": "^[a-z][a-z0-9]*(?:-[a-z0-9]+)*$"},
+    "scores": {"type": "object", "additionalProperties": {"type": "integer", "minimum": 1, "maximum": 5}}
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "assigned_rater_ids": [
+    "reviewer-one",
+    "reviewer-two"
+  ],
+  "id": "pair-converter-review-014",
+  "left_alias": "Birch",
+  "left_response_id": "response-converter-review-delta",
+  "order_index": 13,
+  "right_alias": "Aster",
+  "right_response_id": "response-converter-review-cinder",
+  "rubric_id": "general-quality",
+  "state": "ready",
+  "task_id": "converter-review"
+}

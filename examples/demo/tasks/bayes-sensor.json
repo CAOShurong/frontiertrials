@@ -1,0 +1,13 @@
+{
+  "category": "reasoning",
+  "context": "Treat rates as fixed for this exercise.",
+  "id": "bayes-sensor",
+  "prompt": "A fault affects 0.5% of units. A detector has 94% sensitivity and 97% specificity. Compute the probability of a fault after one positive alert, show the calculation, and explain one operational implication.",
+  "reference": "Bayes result is approximately 13.6%.",
+  "rubric_id": "general-quality",
+  "tags": [
+    "bayes",
+    "sensors"
+  ],
+  "title": "Reason about a low-base-rate sensor alert"
+}

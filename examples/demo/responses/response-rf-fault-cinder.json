@@ -1,0 +1,13 @@
+{
+  "candidate_id": "cinder",
+  "captured_at": "2026-02-11T09:30:00Z",
+  "characters": 703,
+  "content_path": "outputs/response-rf-fault-cinder.md",
+  "id": "response-rf-fault-cinder",
+  "latency_seconds": 82.0,
+  "notes": "Fictional output captured for the public demonstration.",
+  "sha256": "sha256:fe5611d305ea49191b4f553b5c00767c88d3f4eceb026bc11961d13da5ad550e",
+  "state": "captured",
+  "task_id": "rf-fault",
+  "words": 105
+}

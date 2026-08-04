@@ -1,0 +1,13 @@
+{
+  "candidate_id": "boreal",
+  "captured_at": "2026-02-11T09:30:00Z",
+  "characters": 832,
+  "content_path": "outputs/response-replication-plan-boreal.md",
+  "id": "response-replication-plan-boreal",
+  "latency_seconds": 43.0,
+  "notes": "Fictional output captured for the public demonstration.",
+  "sha256": "sha256:c1dbb4ca6ffdeb13dfb2eab20a8d069cf4560c6f3cc971a0fed940f4715cc92d",
+  "state": "captured",
+  "task_id": "replication-plan",
+  "words": 126
+}

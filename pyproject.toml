@@ -1,0 +1,45 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "frontiertrials"
+version = "0.1.0"
+description = "Reproducible blind evaluations of AI web-app outputs without API keys"
+readme = "README.md"
+requires-python = ">=3.11"
+license = "MIT"
+authors = [{ name = "Shurong Cao" }]
+dependencies = []
+keywords = ["llm-evaluation", "blind-evaluation", "human-evaluation", "no-api", "frontier-models"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Environment :: Console",
+  "Intended Audience :: Science/Research",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3 :: Only",
+  "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+
+[project.urls]
+Homepage = "https://caoshurong.github.io/frontiertrials/"
+Repository = "https://github.com/CAOShurong/frontiertrials"
+Issues = "https://github.com/CAOShurong/frontiertrials/issues"
+
+[project.scripts]
+frontiertrials = "frontiertrials.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM"]
+ignore = ["E501"]
+
+[tool.ruff.format]
+quote-style = "double"
+

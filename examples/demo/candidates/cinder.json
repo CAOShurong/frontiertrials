@@ -1,0 +1,14 @@
+{
+  "id": "cinder",
+  "label": "Cinder Chat",
+  "model": "Cinder Chat 4",
+  "notes": "Fictional candidate used only for the public demonstration.",
+  "plan": "Synthetic Standard",
+  "provider": "Fictional Ember Systems",
+  "settings": {
+    "mode": "balanced",
+    "tools": "off"
+  },
+  "surface": "desktop",
+  "version": "observed 2026-02-11"
+}

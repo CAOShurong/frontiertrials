@@ -1,0 +1,15 @@
+{
+  "assigned_rater_ids": [
+    "reviewer-one",
+    "reviewer-two"
+  ],
+  "id": "pair-bilingual-abstract-009",
+  "left_alias": "Cedar",
+  "left_response_id": "response-bilingual-abstract-aurora",
+  "order_index": 8,
+  "right_alias": "Birch",
+  "right_response_id": "response-bilingual-abstract-delta",
+  "rubric_id": "general-quality",
+  "state": "ready",
+  "task_id": "bilingual-abstract"
+}

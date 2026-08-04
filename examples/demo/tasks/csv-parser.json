@@ -1,0 +1,13 @@
+{
+  "category": "coding",
+  "context": "Input is untrusted UTF-8 text; silently dropping malformed rows is forbidden.",
+  "id": "csv-parser",
+  "prompt": "Write a dependency-free Python function that reads instrument CSV text with comment lines, units in headers, missing values, and scientific notation. Return validated rows and explicit diagnostics. Explain edge cases and tests.",
+  "reference": "The design should avoid naive comma splitting and expose line numbers.",
+  "rubric_id": "general-quality",
+  "tags": [
+    "python",
+    "data"
+  ],
+  "title": "Design a robust measurement CSV parser"
+}

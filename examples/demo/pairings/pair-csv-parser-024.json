@@ -1,0 +1,15 @@
+{
+  "assigned_rater_ids": [
+    "reviewer-one",
+    "reviewer-two"
+  ],
+  "id": "pair-csv-parser-024",
+  "left_alias": "Cedar",
+  "left_response_id": "response-csv-parser-aurora",
+  "order_index": 23,
+  "right_alias": "Birch",
+  "right_response_id": "response-csv-parser-delta",
+  "rubric_id": "general-quality",
+  "state": "ready",
+  "task_id": "csv-parser"
+}

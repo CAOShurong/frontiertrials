@@ -1,0 +1,51 @@
+name: Bug report
+description: Report a reproducible defect in the CLI, reports, packets, or evidence checks.
+title: "[Bug]: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: Thank you for helping make FrontierTrials more reliable. Remove private prompts and responses before sharing a trial excerpt.
+  - type: input
+    id: version
+    attributes:
+      label: FrontierTrials version
+      placeholder: "0.1.0"
+    validations:
+      required: true
+  - type: dropdown
+    id: stage
+    attributes:
+      label: Workflow stage
+      options:
+        - Trial setup
+        - Response capture
+        - Freeze or allocation
+        - Reviewer packet
+        - Ballot import
+        - Analysis or report
+        - Audit or seal
+        - Packaging or documentation
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Minimal reproduction
+      description: Include commands, expected behavior, actual behavior, and sanitized input.
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      placeholder: Windows 11, Python 3.13
+    validations:
+      required: true
+  - type: checkboxes
+    id: privacy
+    attributes:
+      label: Privacy check
+      options:
+        - label: I removed secrets, personal data, and unpublished model outputs.
+          required: true

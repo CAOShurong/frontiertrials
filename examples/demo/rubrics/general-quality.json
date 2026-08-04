@@ -1,0 +1,61 @@
+{
+  "criteria": [
+    {
+      "anchors": {
+        "1": "materially wrong",
+        "3": "mostly sound",
+        "5": "precise and correct"
+      },
+      "id": "correctness",
+      "label": "Correctness",
+      "question": "Are calculations, claims, and causal statements supportable?",
+      "weight": 1.5
+    },
+    {
+      "anchors": {
+        "1": "misses the task",
+        "3": "minor omissions",
+        "5": "complete"
+      },
+      "id": "instruction-fit",
+      "label": "Instruction fit",
+      "question": "Does the response satisfy every explicit constraint?",
+      "weight": 1.25
+    },
+    {
+      "anchors": {
+        "1": "overclaims",
+        "3": "mixed",
+        "5": "clear boundaries"
+      },
+      "id": "uncertainty",
+      "label": "Uncertainty discipline",
+      "question": "Does it separate evidence, assumptions, and unknowns?",
+      "weight": 1.25
+    },
+    {
+      "anchors": {
+        "1": "vague",
+        "3": "usable",
+        "5": "operational"
+      },
+      "id": "actionability",
+      "label": "Actionability",
+      "question": "Can the reader execute or verify the proposed next steps?",
+      "weight": 1.0
+    },
+    {
+      "anchors": {
+        "1": "confusing",
+        "3": "readable",
+        "5": "economical and clear"
+      },
+      "id": "clarity",
+      "label": "Clarity",
+      "question": "Is the response organized without unnecessary complexity?",
+      "weight": 0.75
+    }
+  ],
+  "id": "general-quality",
+  "title": "Engineering and research response quality"
+}

@@ -1,0 +1,13 @@
+{
+  "candidate_id": "boreal",
+  "captured_at": "2026-02-11T09:30:00Z",
+  "characters": 745,
+  "content_path": "outputs/response-rf-fault-boreal.md",
+  "id": "response-rf-fault-boreal",
+  "latency_seconds": 74.0,
+  "notes": "Fictional output captured for the public demonstration.",
+  "sha256": "sha256:f0758680f43af0ee4553fc11e369e1977501e7ebba881923fc1d6d17f2cc50ff",
+  "state": "captured",
+  "task_id": "rf-fault",
+  "words": 108
+}

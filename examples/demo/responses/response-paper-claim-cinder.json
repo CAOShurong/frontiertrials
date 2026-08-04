@@ -1,0 +1,13 @@
+{
+  "candidate_id": "cinder",
+  "captured_at": "2026-02-11T09:30:00Z",
+  "characters": 702,
+  "content_path": "outputs/response-paper-claim-cinder.md",
+  "id": "response-paper-claim-cinder",
+  "latency_seconds": 45.0,
+  "notes": "Fictional output captured for the public demonstration.",
+  "sha256": "sha256:41c912e344b143c8a4d1ac4ff5d12fb9f945961efb85135c0b9715ad36528b94",
+  "state": "captured",
+  "task_id": "paper-claim",
+  "words": 99
+}

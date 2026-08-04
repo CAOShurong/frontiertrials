@@ -1,0 +1,13 @@
+{
+  "candidate_id": "cinder",
+  "captured_at": "2026-02-11T09:30:00Z",
+  "characters": 800,
+  "content_path": "outputs/response-bilingual-abstract-cinder.md",
+  "id": "response-bilingual-abstract-cinder",
+  "latency_seconds": 45.0,
+  "notes": "Fictional output captured for the public demonstration.",
+  "sha256": "sha256:8fa5fd4ffba15fa675394dfc0e47765c2e243c5829aebc90a59945cbb73703c4",
+  "state": "captured",
+  "task_id": "bilingual-abstract",
+  "words": 111
+}

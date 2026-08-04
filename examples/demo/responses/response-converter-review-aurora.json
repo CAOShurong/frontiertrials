@@ -1,0 +1,13 @@
+{
+  "candidate_id": "aurora",
+  "captured_at": "2026-02-11T09:30:00Z",
+  "characters": 707,
+  "content_path": "outputs/response-converter-review-aurora.md",
+  "id": "response-converter-review-aurora",
+  "latency_seconds": 56.0,
+  "notes": "Fictional output captured for the public demonstration.",
+  "sha256": "sha256:ec0c1176ad3d753f02a6d21d49e3d724d238e41bfbf0281f5479140a3ee9266e",
+  "state": "captured",
+  "task_id": "converter-review",
+  "words": 96
+}

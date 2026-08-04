@@ -1,0 +1,13 @@
+{
+  "category": "research",
+  "context": "The original authors released code but no container or raw timing traces.",
+  "id": "replication-plan",
+  "prompt": "Plan a two-week replication of an edge classifier latency claim using one desktop GPU and two embedded boards. Include freeze points, randomization, failure logging, resource estimates, and a decision rule.",
+  "reference": "A good plan separates environment reconstruction from measurement.",
+  "rubric_id": "general-quality",
+  "tags": [
+    "replication",
+    "planning"
+  ],
+  "title": "Plan a small replication study"
+}

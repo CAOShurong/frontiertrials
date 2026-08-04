@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://caoshurong.github.io/frontiertrials/schemas/pairing.schema.json",
+  "title": "FrontierTrials blind pairing",
+  "type": "object",
+  "required": ["id", "task_id", "rubric_id", "left_response_id", "right_response_id", "left_alias", "right_alias"],
+  "properties": {
+    "id": {"$ref": "#/$defs/id"},
+    "task_id": {"$ref": "#/$defs/id"},
+    "rubric_id": {"$ref": "#/$defs/id"},
+    "left_response_id": {"$ref": "#/$defs/id"},
+    "right_response_id": {"$ref": "#/$defs/id"},
+    "left_alias": {"type": "string", "minLength": 1},
+    "right_alias": {"type": "string", "minLength": 1},
+    "assigned_rater_ids": {"type": "array", "items": {"$ref": "#/$defs/id"}},
+    "state": {"enum": ["ready", "retired"]},
+    "order_index": {"type": "integer", "minimum": 0}
+  },
+  "additionalProperties": true,
+  "$defs": {"id": {"type": "string", "pattern": "^[a-z][a-z0-9]*(?:-[a-z0-9]+)*$"}}
+}

@@ -1,0 +1,14 @@
+{
+  "id": "boreal",
+  "label": "Boreal Reasoner",
+  "model": "Boreal R2",
+  "notes": "Fictional candidate used only for the public demonstration.",
+  "plan": "Synthetic Pro",
+  "provider": "Fictional Borealis Research",
+  "settings": {
+    "reasoning": "extended",
+    "tools": "off"
+  },
+  "surface": "web",
+  "version": "observed 2026-02-11"
+}

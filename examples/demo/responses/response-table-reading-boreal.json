@@ -1,0 +1,13 @@
+{
+  "candidate_id": "boreal",
+  "captured_at": "2026-02-11T09:30:00Z",
+  "characters": 815,
+  "content_path": "outputs/response-table-reading-boreal.md",
+  "id": "response-table-reading-boreal",
+  "latency_seconds": 54.0,
+  "notes": "Fictional output captured for the public demonstration.",
+  "sha256": "sha256:6e903638cfa1336b1477e8a8c8449a84bf52c4ab79eb8669eb3de737e1728dbb",
+  "state": "captured",
+  "task_id": "table-reading",
+  "words": 121
+}

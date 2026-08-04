@@ -1,0 +1,211 @@
+{
+  "agreement": {
+    "agreement": 0.7708,
+    "kappa": 0.648,
+    "overlap_pairings": 48,
+    "pairs": 48
+  },
+  "bias_diagnostics": {
+    "position": {
+      "decisive_ballots": 74,
+      "interpretation": "A wide interval around 0.5 is inconclusive, not proof of no bias.",
+      "left_win_rate": 0.473,
+      "left_wins": 35,
+      "wilson_95": [
+        0.3634,
+        0.5852
+      ]
+    },
+    "verbosity": {
+      "comparable_ballots": 70,
+      "interpretation": "Association does not show that length caused the preference.",
+      "longer_response_wins": 43,
+      "longer_win_rate": 0.6143,
+      "mean_winner_minus_loser_words": 1.29
+    }
+  },
+  "category_scores": {
+    "analysis": {
+      "aurora": 0.25,
+      "boreal": 0.9167,
+      "cinder": 0.0833,
+      "delta": 0.75
+    },
+    "coding": {
+      "aurora": 0.5833,
+      "boreal": 1.0,
+      "cinder": 0.1667,
+      "delta": 0.25
+    },
+    "engineering": {
+      "aurora": 0.8333,
+      "boreal": 0.8333,
+      "cinder": 0.125,
+      "delta": 0.2083
+    },
+    "multilingual": {
+      "aurora": 0.4167,
+      "boreal": 0.3333,
+      "cinder": 0.3333,
+      "delta": 0.9167
+    },
+    "reasoning": {
+      "aurora": 0.3333,
+      "boreal": 0.6667,
+      "cinder": 0.3333,
+      "delta": 0.6667
+    },
+    "research": {
+      "aurora": 0.625,
+      "boreal": 0.7917,
+      "cinder": 0.0,
+      "delta": 0.5833
+    }
+  },
+  "head_to_head_wins": {
+    "aurora": {
+      "boreal": 2,
+      "cinder": 12,
+      "delta": 7
+    },
+    "boreal": {
+      "aurora": 9,
+      "cinder": 13,
+      "delta": 10
+    },
+    "cinder": {
+      "aurora": 1,
+      "boreal": 1
+    },
+    "delta": {
+      "aurora": 5,
+      "boreal": 3,
+      "cinder": 11
+    }
+  },
+  "ranking": [
+    {
+      "appearances": 48,
+      "bt_95": [
+        1.3456,
+        2.7957
+      ],
+      "bt_strength": 2.0142,
+      "candidate_id": "boreal",
+      "label": "Boreal Reasoner",
+      "losses": 6,
+      "model": "Boreal R2",
+      "preference_rate": 0.7708,
+      "provider": "Fictional Borealis Research",
+      "rubric": {
+        "criteria": {
+          "actionability": 4.688,
+          "clarity": 4.812,
+          "correctness": 4.875,
+          "instruction-fit": 4.812,
+          "uncertainty": 4.75
+        },
+        "rating_count": 48,
+        "weighted_mean": 4.793
+      },
+      "ties": 10,
+      "wins": 32
+    },
+    {
+      "appearances": 48,
+      "bt_95": [
+        0.5398,
+        1.3789
+      ],
+      "bt_strength": 0.9558,
+      "candidate_id": "aurora",
+      "label": "Aurora Large",
+      "losses": 15,
+      "model": "Aurora Large 2026-01",
+      "preference_rate": 0.5625,
+      "provider": "Fictional Northstar Lab",
+      "rubric": {
+        "criteria": {
+          "actionability": 4.5,
+          "clarity": 4.312,
+          "correctness": 4.188,
+          "instruction-fit": 4.25,
+          "uncertainty": 4.375
+        },
+        "rating_count": 48,
+        "weighted_mean": 4.312
+      },
+      "ties": 12,
+      "wins": 21
+    },
+    {
+      "appearances": 48,
+      "bt_95": [
+        0.2912,
+        1.6781
+      ],
+      "bt_strength": 0.8292,
+      "candidate_id": "delta",
+      "label": "Delta Studio",
+      "losses": 17,
+      "model": "Delta Studio 3.2",
+      "preference_rate": 0.5208,
+      "provider": "Fictional Delta Works",
+      "rubric": {
+        "criteria": {
+          "actionability": 4.188,
+          "clarity": 4.312,
+          "correctness": 4.0,
+          "instruction-fit": 4.562,
+          "uncertainty": 4.375
+        },
+        "rating_count": 48,
+        "weighted_mean": 4.277
+      },
+      "ties": 12,
+      "wins": 19
+    },
+    {
+      "appearances": 48,
+      "bt_95": [
+        0.0629,
+        0.3497
+      ],
+      "bt_strength": 0.2008,
+      "candidate_id": "cinder",
+      "label": "Cinder Chat",
+      "losses": 36,
+      "model": "Cinder Chat 4",
+      "preference_rate": 0.1458,
+      "provider": "Fictional Ember Systems",
+      "rubric": {
+        "criteria": {
+          "actionability": 3.812,
+          "clarity": 3.875,
+          "correctness": 3.625,
+          "instruction-fit": 3.562,
+          "uncertainty": 3.562
+        },
+        "rating_count": 48,
+        "weighted_mean": 3.663
+      },
+      "ties": 10,
+      "wins": 2
+    }
+  ],
+  "summary": {
+    "abstention_count": 0,
+    "ballot_count": 96,
+    "bootstrap_samples": 400,
+    "candidate_count": 4,
+    "decisive_or_tied_count": 96,
+    "pairing_count": 48,
+    "task_count": 8
+  },
+  "warnings": [
+    "The ranking describes this prompt set, capture protocol, and reviewer panel.",
+    "Overlapping confidence intervals should not be read as a stable total order.",
+    "Web products can change model routing, tools, system prompts, and interfaces without notice.",
+    "Human preferences do not establish factual correctness or safety."
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "ballot_completeness": {
+    "complete": true,
+    "expected": 96,
+    "missing": [],
+    "observed": 96,
+    "unexpected": []
+  },
+  "checks": [
+    "artifact validation",
+    "response matrix and SHA-256 integrity",
+    "identity leakage terms",
+    "pairing references and side balance",
+    "rater assignments and duplicate ballots",
+    "rubric score coverage",
+    "reveal timing"
+  ],
+  "counts": {
+    "artifacts": 191,
+    "ballot": 96,
+    "candidate": 4,
+    "errors": 0,
+    "pairing": 48,
+    "rater": 2,
+    "response": 32,
+    "rubric": 1,
+    "task": 8,
+    "warnings": 0
+  },
+  "issues": [],
+  "left_position_counts": {
+    "aurora": 12,
+    "boreal": 12,
+    "cinder": 12,
+    "delta": 12
+  },
+  "status": "pass",
+  "trial_state": "revealed"
+}

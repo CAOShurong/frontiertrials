@@ -1,0 +1,13 @@
+{
+  "category": "multilingual",
+  "context": "Concept: an edge fault detector adapts confidence under thermal drift; evaluation is planned but not completed.",
+  "id": "bilingual-abstract",
+  "prompt": "Rewrite the supplied concept as a 120-word English abstract followed by precise Traditional Chinese. Preserve the distinction between detection accuracy and calibration error. Do not add results.",
+  "reference": "Both languages must state that evaluation remains future work.",
+  "rubric_id": "general-quality",
+  "tags": [
+    "writing",
+    "traditional-chinese"
+  ],
+  "title": "Rewrite a bilingual technical abstract"
+}

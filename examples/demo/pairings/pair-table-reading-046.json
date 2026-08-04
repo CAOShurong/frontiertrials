@@ -1,0 +1,15 @@
+{
+  "assigned_rater_ids": [
+    "reviewer-two",
+    "reviewer-one"
+  ],
+  "id": "pair-table-reading-046",
+  "left_alias": "Aster",
+  "left_response_id": "response-table-reading-cinder",
+  "order_index": 45,
+  "right_alias": "Cedar",
+  "right_response_id": "response-table-reading-aurora",
+  "rubric_id": "general-quality",
+  "state": "ready",
+  "task_id": "table-reading"
+}

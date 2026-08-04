@@ -1,0 +1,13 @@
+{
+  "candidate_id": "cinder",
+  "captured_at": "2026-02-11T09:30:00Z",
+  "characters": 790,
+  "content_path": "outputs/response-replication-plan-cinder.md",
+  "id": "response-replication-plan-cinder",
+  "latency_seconds": 63.0,
+  "notes": "Fictional output captured for the public demonstration.",
+  "sha256": "sha256:da40c8ac22d865fe6dc2da662f9e2b8b8205e9c320e0d9ef882d8b0fa87c78f9",
+  "state": "captured",
+  "task_id": "replication-plan",
+  "words": 123
+}

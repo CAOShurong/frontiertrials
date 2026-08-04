@@ -1,0 +1,15 @@
+{
+  "assigned_rater_ids": [
+    "reviewer-one",
+    "reviewer-two"
+  ],
+  "id": "pair-replication-plan-035",
+  "left_alias": "Cedar",
+  "left_response_id": "response-replication-plan-aurora",
+  "order_index": 34,
+  "right_alias": "Birch",
+  "right_response_id": "response-replication-plan-delta",
+  "rubric_id": "general-quality",
+  "state": "ready",
+  "task_id": "replication-plan"
+}

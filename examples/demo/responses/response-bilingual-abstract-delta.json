@@ -1,0 +1,13 @@
+{
+  "candidate_id": "delta",
+  "captured_at": "2026-02-11T09:30:00Z",
+  "characters": 821,
+  "content_path": "outputs/response-bilingual-abstract-delta.md",
+  "id": "response-bilingual-abstract-delta",
+  "latency_seconds": 28.0,
+  "notes": "Fictional output captured for the public demonstration.",
+  "sha256": "sha256:dd5dafc31b16cbd9169886c7109e550ab23fe70a992cb17d590404306ff18106",
+  "state": "captured",
+  "task_id": "bilingual-abstract",
+  "words": 109
+}

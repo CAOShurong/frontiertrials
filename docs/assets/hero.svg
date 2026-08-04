@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 460" role="img" aria-labelledby="title desc">
+  <title id="title">FrontierTrials</title>
+  <desc id="desc">Anonymous AI responses are compared by human reviewers and revealed after voting.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#17162e"/>
+      <stop offset="1" stop-color="#28214b"/>
+    </linearGradient>
+    <linearGradient id="line" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#b9ef6f"/>
+      <stop offset="1" stop-color="#ffad83"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="150%">
+      <feDropShadow dx="0" dy="12" stdDeviation="13" flood-color="#090817" flood-opacity=".55"/>
+    </filter>
+  </defs>
+  <rect width="1200" height="460" rx="24" fill="url(#bg)"/>
+  <g opacity=".12" fill="none" stroke="#d5d0f2">
+    <circle cx="997" cy="225" r="155"/><circle cx="997" cy="225" r="112"/><circle cx="997" cy="225" r="68"/>
+    <path d="M0 92h1200M0 368h1200"/>
+  </g>
+  <text x="70" y="88" fill="#b9ef6f" font-family="system-ui,sans-serif" font-size="14" font-weight="800" letter-spacing="4">PRIVATE TASKS · HUMAN JUDGMENT</text>
+  <text x="68" y="164" fill="#fffaf2" font-family="Georgia,serif" font-size="70" font-weight="700">FrontierTrials</text>
+  <text x="72" y="207" fill="#c4bfdc" font-family="system-ui,sans-serif" font-size="20">Blind-test the AI products you actually use — without an API.</text>
+  <g transform="translate(70 264)" filter="url(#shadow)">
+    <rect width="250" height="112" rx="15" fill="#f8f4e9"/>
+    <text x="20" y="28" fill="#695f7b" font-family="system-ui,sans-serif" font-size="11" font-weight="800" letter-spacing="1.5">LEFT · ASTER</text>
+    <path d="M20 50h192M20 66h170M20 82h202" stroke="#bdb7ae" stroke-width="7" stroke-linecap="round"/>
+  </g>
+  <g transform="translate(500 264)" filter="url(#shadow)">
+    <rect width="250" height="112" rx="15" fill="#f8f4e9"/>
+    <text x="20" y="28" fill="#695f7b" font-family="system-ui,sans-serif" font-size="11" font-weight="800" letter-spacing="1.5">RIGHT · JUNIPER</text>
+    <path d="M20 50h205M20 66h160M20 82h190" stroke="#bdb7ae" stroke-width="7" stroke-linecap="round"/>
+  </g>
+  <path d="M320 320h180" stroke="url(#line)" stroke-width="6"/>
+  <circle cx="410" cy="320" r="36" fill="#b9ef6f"/>
+  <path d="M397 320l9 9 18-20" fill="none" stroke="#22203d" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  <g transform="translate(850 130)">
+    <rect width="284" height="205" rx="18" fill="#201c3a" stroke="#574f77"/>
+    <text x="24" y="34" fill="#b9ef6f" font-family="system-ui,sans-serif" font-size="11" font-weight="800" letter-spacing="2">REVEAL AFTER VOTING</text>
+    <text x="24" y="88" fill="#fffaf2" font-family="Georgia,serif" font-size="40" font-weight="700">2.014</text>
+    <text x="24" y="112" fill="#aba5c5" font-family="system-ui,sans-serif" font-size="12">fitted pairwise strength</text>
+    <rect x="24" y="140" width="225" height="9" rx="5" fill="#3a3456"/>
+    <rect x="24" y="140" width="184" height="9" rx="5" fill="#ffad83"/>
+    <text x="24" y="177" fill="#aba5c5" font-family="system-ui,sans-serif" font-size="11">TASK-CLUSTERED 95% INTERVAL</text>
+  </g>
+  <g transform="translate(72 408)" font-family="system-ui,sans-serif" font-size="11" font-weight="800">
+    <text fill="#b9ef6f">NO API KEYS</text><text x="130" fill="#b9ef6f">OFFLINE PACKETS</text>
+    <text x="290" fill="#b9ef6f">BALANCED ORDER</text><text x="445" fill="#b9ef6f">AUDITABLE BALLOTS</text>
+  </g>
+</svg>

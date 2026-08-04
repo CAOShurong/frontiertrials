@@ -1,0 +1,14 @@
+{
+  "id": "delta",
+  "label": "Delta Studio",
+  "model": "Delta Studio 3.2",
+  "notes": "Fictional candidate used only for the public demonstration.",
+  "plan": "Synthetic Research",
+  "provider": "Fictional Delta Works",
+  "settings": {
+    "mode": "precise",
+    "tools": "off"
+  },
+  "surface": "web",
+  "version": "observed 2026-02-11"
+}

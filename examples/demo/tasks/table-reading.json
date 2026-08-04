@@ -1,0 +1,13 @@
+{
+  "category": "analysis",
+  "context": "No confidence intervals, hardware identity, or batch size are reported.",
+  "id": "table-reading",
+  "prompt": "A table shows Model X: 88.2 accuracy, 41 ms; Model Y: 87.9 accuracy, 25 ms; Model Z: 89.0 accuracy, latency not reported. Explain what decisions the table supports, what it does not support, and which follow-up measurement has highest value.",
+  "reference": "Do not declare a universal winner.",
+  "rubric_id": "general-quality",
+  "tags": [
+    "benchmark",
+    "tradeoffs"
+  ],
+  "title": "Interpret an incomplete benchmark table"
+}

@@ -1,0 +1,13 @@
+{
+  "candidate_id": "delta",
+  "captured_at": "2026-02-11T09:30:00Z",
+  "characters": 663,
+  "content_path": "outputs/response-bayes-sensor-delta.md",
+  "id": "response-bayes-sensor-delta",
+  "latency_seconds": 32.0,
+  "notes": "Fictional output captured for the public demonstration.",
+  "sha256": "sha256:5ed947a916c5ab10d20c381c2e7fa1db7e5dc1939984050faa69cc194ac4ac92",
+  "state": "captured",
+  "task_id": "bayes-sensor",
+  "words": 104
+}

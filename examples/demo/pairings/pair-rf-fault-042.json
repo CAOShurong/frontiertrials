@@ -1,0 +1,15 @@
+{
+  "assigned_rater_ids": [
+    "reviewer-one",
+    "reviewer-two"
+  ],
+  "id": "pair-rf-fault-042",
+  "left_alias": "Cedar",
+  "left_response_id": "response-rf-fault-aurora",
+  "order_index": 41,
+  "right_alias": "Aster",
+  "right_response_id": "response-rf-fault-cinder",
+  "rubric_id": "general-quality",
+  "state": "ready",
+  "task_id": "rf-fault"
+}

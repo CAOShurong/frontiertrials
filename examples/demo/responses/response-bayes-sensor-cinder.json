@@ -1,0 +1,13 @@
+{
+  "candidate_id": "cinder",
+  "captured_at": "2026-02-11T09:30:00Z",
+  "characters": 642,
+  "content_path": "outputs/response-bayes-sensor-cinder.md",
+  "id": "response-bayes-sensor-cinder",
+  "latency_seconds": 41.0,
+  "notes": "Fictional output captured for the public demonstration.",
+  "sha256": "sha256:dd662e6b4f2815294ebea7495b060d6204dfd44d9552e6ad965a14f0890fd003",
+  "state": "captured",
+  "task_id": "bayes-sensor",
+  "words": 106
+}

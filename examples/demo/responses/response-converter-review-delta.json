@@ -1,0 +1,13 @@
+{
+  "candidate_id": "delta",
+  "captured_at": "2026-02-11T09:30:00Z",
+  "characters": 711,
+  "content_path": "outputs/response-converter-review-delta.md",
+  "id": "response-converter-review-delta",
+  "latency_seconds": 49.0,
+  "notes": "Fictional output captured for the public demonstration.",
+  "sha256": "sha256:3beaf8b3945e63857b46b3bfcb42139c46dc2da07ecbe19c426c54a7f4f6fe9d",
+  "state": "captured",
+  "task_id": "converter-review",
+  "words": 95
+}

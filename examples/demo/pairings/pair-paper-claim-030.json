@@ -1,0 +1,15 @@
+{
+  "assigned_rater_ids": [
+    "reviewer-one",
+    "reviewer-two"
+  ],
+  "id": "pair-paper-claim-030",
+  "left_alias": "Birch",
+  "left_response_id": "response-paper-claim-delta",
+  "order_index": 29,
+  "right_alias": "Cedar",
+  "right_response_id": "response-paper-claim-aurora",
+  "rubric_id": "general-quality",
+  "state": "ready",
+  "task_id": "paper-claim"
+}

@@ -1,0 +1,13 @@
+{
+  "candidate_id": "delta",
+  "captured_at": "2026-02-11T09:30:00Z",
+  "characters": 724,
+  "content_path": "outputs/response-rf-fault-delta.md",
+  "id": "response-rf-fault-delta",
+  "latency_seconds": 36.0,
+  "notes": "Fictional output captured for the public demonstration.",
+  "sha256": "sha256:40cd560e924b1f61b1d08af3c21cecfe886a9ceaf9ae4c05dc8223e53c9fa93e",
+  "state": "captured",
+  "task_id": "rf-fault",
+  "words": 103
+}

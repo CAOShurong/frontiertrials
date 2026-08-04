@@ -1,0 +1,13 @@
+{
+  "category": "engineering",
+  "context": "Lab has a spectrum analyzer, near-field probes, and a programmable supply.",
+  "id": "rf-fault",
+  "prompt": "A 2.4 GHz receiver shows a 7 dB sensitivity loss only when a nearby DC motor changes speed. Give a ranked diagnosis plan. Separate observations, hypotheses, tests, and stop conditions. Do not invent measurements.",
+  "reference": "A good answer distinguishes conducted and radiated coupling.",
+  "rubric_id": "general-quality",
+  "tags": [
+    "rf",
+    "debugging"
+  ],
+  "title": "Explain an RF anomaly without overclaiming"
+}

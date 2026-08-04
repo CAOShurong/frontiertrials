@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://caoshurong.github.io/frontiertrials/schemas/rater.schema.json",
+  "title": "FrontierTrials rater",
+  "type": "object",
+  "required": ["id", "label"],
+  "properties": {
+    "id": {"$ref": "#/$defs/id"},
+    "label": {"type": "string", "minLength": 1},
+    "expertise": {"type": "array", "items": {"type": "string"}},
+    "notes": {"type": "string"}
+  },
+  "additionalProperties": true,
+  "$defs": {"id": {"type": "string", "pattern": "^[a-z][a-z0-9]*(?:-[a-z0-9]+)*$"}}
+}

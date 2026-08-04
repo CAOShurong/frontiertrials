@@ -1,0 +1,13 @@
+{
+  "candidate_id": "aurora",
+  "captured_at": "2026-02-11T09:30:00Z",
+  "characters": 720,
+  "content_path": "outputs/response-rf-fault-aurora.md",
+  "id": "response-rf-fault-aurora",
+  "latency_seconds": 75.0,
+  "notes": "Fictional output captured for the public demonstration.",
+  "sha256": "sha256:27a287d858e622f2095207b53c67728a1c7384466dad2c3c820f69c0a6d869ba",
+  "state": "captured",
+  "task_id": "rf-fault",
+  "words": 104
+}

@@ -1,0 +1,13 @@
+{
+  "candidate_id": "boreal",
+  "captured_at": "2026-02-11T09:30:00Z",
+  "characters": 684,
+  "content_path": "outputs/response-bayes-sensor-boreal.md",
+  "id": "response-bayes-sensor-boreal",
+  "latency_seconds": 55.0,
+  "notes": "Fictional output captured for the public demonstration.",
+  "sha256": "sha256:110c836b1c929cd7578af039cd58f25fb79305f921f030c8dcd4632e9fbd0b55",
+  "state": "captured",
+  "task_id": "bayes-sensor",
+  "words": 109
+}

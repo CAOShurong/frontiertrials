@@ -1,0 +1,31 @@
+{
+  "created_at": "2026-02-11T09:30:00Z",
+  "default_rubric_id": "general-quality",
+  "description": "Every candidate, provider, response, ballot, timing, and result is fictional. The dataset demonstrates workflow mechanics only.",
+  "exclusions": [
+    "tool use",
+    "web search",
+    "file uploads",
+    "multi-turn repair"
+  ],
+  "format_version": "1",
+  "frozen_at": "2026-02-11T09:30:00Z",
+  "owner": "Synthetic demonstration",
+  "protocol": {
+    "analysis_unit": "ballot with task-clustered bootstrap",
+    "blinding": "candidate identity hidden during rating",
+    "order_policy": "balanced deterministic pair order",
+    "tie_policy": "ties contribute half a win to each candidate"
+  },
+  "question": "Which fictional assistant best supports careful engineering and research decisions across a small private task set?",
+  "reviews_per_pair": 2,
+  "seed_fingerprint": "be2a0608c5387967",
+  "state": "revealed",
+  "tags": [
+    "synthetic-demo",
+    "electrical-engineering",
+    "research",
+    "no-api"
+  ],
+  "title": "Private EE & AI Task Trial"
+}

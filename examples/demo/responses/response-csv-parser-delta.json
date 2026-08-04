@@ -1,0 +1,13 @@
+{
+  "candidate_id": "delta",
+  "captured_at": "2026-02-11T09:30:00Z",
+  "characters": 736,
+  "content_path": "outputs/response-csv-parser-delta.md",
+  "id": "response-csv-parser-delta",
+  "latency_seconds": 68.0,
+  "notes": "Fictional output captured for the public demonstration.",
+  "sha256": "sha256:aa46606bec576a27e6d0f36e52cd098312deea940b160a8efd21caf280430edc",
+  "state": "captured",
+  "task_id": "csv-parser",
+  "words": 103
+}

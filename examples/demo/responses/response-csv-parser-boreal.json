@@ -1,0 +1,13 @@
+{
+  "candidate_id": "boreal",
+  "captured_at": "2026-02-11T09:30:00Z",
+  "characters": 757,
+  "content_path": "outputs/response-csv-parser-boreal.md",
+  "id": "response-csv-parser-boreal",
+  "latency_seconds": 70.0,
+  "notes": "Fictional output captured for the public demonstration.",
+  "sha256": "sha256:e83d6716bc08d9e6a0dedb94c0abb0919eb44b654783977d0affd803d6b9cf22",
+  "state": "captured",
+  "task_id": "csv-parser",
+  "words": 108
+}

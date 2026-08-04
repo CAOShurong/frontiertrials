@@ -1,0 +1,13 @@
+{
+  "candidate_id": "aurora",
+  "captured_at": "2026-02-11T09:30:00Z",
+  "characters": 807,
+  "content_path": "outputs/response-replication-plan-aurora.md",
+  "id": "response-replication-plan-aurora",
+  "latency_seconds": 65.0,
+  "notes": "Fictional output captured for the public demonstration.",
+  "sha256": "sha256:0b2f973da231a411ff431a7dd67eebb4d6c055c9845dd35a49ef3fd22d9cb88f",
+  "state": "captured",
+  "task_id": "replication-plan",
+  "words": 122
+}

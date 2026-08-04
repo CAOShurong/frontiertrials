@@ -1,0 +1,13 @@
+{
+  "category": "research",
+  "context": "No raw traces, board calibration record, or repeated-run table is available.",
+  "id": "paper-claim",
+  "prompt": "A paper reports '23% lower inference energy' from one board and one workload, without uncertainty bars. Draft a concise review that separates what is supported, what is unknown, and the minimum additional evidence needed.",
+  "reference": "Avoid converting a relative point estimate into a general hardware claim.",
+  "rubric_id": "general-quality",
+  "tags": [
+    "review",
+    "uncertainty"
+  ],
+  "title": "Audit a paper claim from limited evidence"
+}

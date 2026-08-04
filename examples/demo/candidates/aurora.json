@@ -1,0 +1,14 @@
+{
+  "id": "aurora",
+  "label": "Aurora Large",
+  "model": "Aurora Large 2026-01",
+  "notes": "Fictional candidate used only for the public demonstration.",
+  "plan": "Synthetic Plus",
+  "provider": "Fictional Northstar Lab",
+  "settings": {
+    "reasoning": "standard",
+    "tools": "off"
+  },
+  "surface": "web",
+  "version": "observed 2026-02-11"
+}

@@ -1,0 +1,13 @@
+{
+  "candidate_id": "cinder",
+  "captured_at": "2026-02-11T09:30:00Z",
+  "characters": 761,
+  "content_path": "outputs/response-table-reading-cinder.md",
+  "id": "response-table-reading-cinder",
+  "latency_seconds": 33.0,
+  "notes": "Fictional output captured for the public demonstration.",
+  "sha256": "sha256:309b98ac9abd5bd680e8d2557833acde2f9eb0e7d220de74680550f8bb3ca400",
+  "state": "captured",
+  "task_id": "table-reading",
+  "words": 116
+}

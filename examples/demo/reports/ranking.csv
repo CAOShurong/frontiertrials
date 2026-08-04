@@ -1,0 +1,5 @@
+rank,candidate_id,label,provider,model,bt_strength,bt_95_low,bt_95_high,wins,losses,ties,appearances,preference_rate,rubric_mean
+1,boreal,Boreal Reasoner,Fictional Borealis Research,Boreal R2,2.0142,1.3456,2.7957,32,6,10,48,0.7708,4.793
+2,aurora,Aurora Large,Fictional Northstar Lab,Aurora Large 2026-01,0.9558,0.5398,1.3789,21,15,12,48,0.5625,4.312
+3,delta,Delta Studio,Fictional Delta Works,Delta Studio 3.2,0.8292,0.2912,1.6781,19,17,12,48,0.5208,4.277
+4,cinder,Cinder Chat,Fictional Ember Systems,Cinder Chat 4,0.2008,0.0629,0.3497,2,36,10,48,0.1458,3.663

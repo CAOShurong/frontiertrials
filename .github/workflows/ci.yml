@@ -1,0 +1,95 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+    tags: ["v*"]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    name: ${{ matrix.os }} · Python ${{ matrix.python }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+        python: ["3.11", "3.13"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+          cache: pip
+      - name: Install validation tools
+        run: python -m pip install --upgrade build ruff
+      - name: Install FrontierTrials
+        run: python -m pip install -e .
+      - name: Check formatting and lint
+        run: |
+          ruff format --check .
+          ruff check .
+      - name: Run test suite
+        run: python -m unittest discover -s tests -v
+      - name: Compile source
+        run: python -m compileall -q src
+      - name: Verify committed demonstration
+        shell: bash
+        run: |
+          python -m frontiertrials audit --trial examples/demo
+          python -m frontiertrials verify --trial examples/demo | tee verify.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          value = json.loads(Path("verify.json").read_text(encoding="utf-8"))
+          expected = "sha256:c680bd65cfd31f4a1281582a3ae6b920bb1ef5975b462d982989dff1ea7aa9f5"
+          assert value["status"] == "verified", value
+          assert value["root"] == expected, (value["root"], expected)
+          PY
+
+  package:
+    name: Build and install package
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+      - run: python -m pip install --upgrade build
+      - run: python -m build
+      - name: Install wheel in a clean environment
+        shell: bash
+        run: |
+          python -m venv .smoke
+          .smoke/bin/python -m pip install dist/*.whl
+          .smoke/bin/frontiertrials --version
+          .smoke/bin/frontiertrials demo /tmp/frontiertrials-smoke
+          .smoke/bin/frontiertrials audit --trial /tmp/frontiertrials-smoke
+          .smoke/bin/frontiertrials verify --trial /tmp/frontiertrials-smoke
+      - uses: actions/upload-artifact@v4
+        with:
+          name: frontiertrials-distributions
+          path: dist/*
+
+  json:
+    name: Validate JSON and schemas
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+      - name: Parse every JSON document
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          files = sorted(Path(".").glob("schemas/*.json")) + sorted(Path("examples/demo").rglob("*.json"))
+          for path in files:
+              json.loads(path.read_text(encoding="utf-8"))
+          print(f"parsed {len(files)} JSON documents")
+          PY

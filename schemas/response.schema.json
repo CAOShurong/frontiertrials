@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://caoshurong.github.io/frontiertrials/schemas/response.schema.json",
+  "title": "FrontierTrials captured response",
+  "type": "object",
+  "required": ["id", "task_id", "candidate_id", "content_path", "sha256", "captured_at"],
+  "properties": {
+    "id": {"$ref": "#/$defs/id"},
+    "task_id": {"$ref": "#/$defs/id"},
+    "candidate_id": {"$ref": "#/$defs/id"},
+    "content_path": {"type": "string", "minLength": 1},
+    "sha256": {"type": "string", "pattern": "^sha256:[a-f0-9]{64}$"},
+    "captured_at": {"type": "string", "minLength": 1},
+    "state": {"enum": ["captured", "excluded"]},
+    "latency_seconds": {"type": ["number", "null"], "minimum": 0},
+    "input_tokens": {"type": ["integer", "null"], "minimum": 0},
+    "output_tokens": {"type": ["integer", "null"], "minimum": 0},
+    "characters": {"type": "integer", "minimum": 0},
+    "words": {"type": "integer", "minimum": 0},
+    "notes": {"type": "string"}
+  },
+  "additionalProperties": true,
+  "$defs": {"id": {"type": "string", "pattern": "^[a-z][a-z0-9]*(?:-[a-z0-9]+)*$"}}
+}

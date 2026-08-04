@@ -1,0 +1,13 @@
+{
+  "category": "engineering",
+  "context": "Switching frequency is 500 kHz; plant and layout parasitics are not measured.",
+  "id": "converter-review",
+  "prompt": "Critique this proposal: 'Set the buck converter crossover to one half of the switching frequency and add phase boost until the simulation reaches 60 degrees.' Identify unsafe assumptions and propose a measurement-backed alternative.",
+  "reference": "The response should discuss bandwidth limits, sampling, delays, and plant identification.",
+  "rubric_id": "general-quality",
+  "tags": [
+    "power-electronics",
+    "control"
+  ],
+  "title": "Review a converter compensation proposal"
+}

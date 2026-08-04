@@ -1,0 +1,13 @@
+{
+  "candidate_id": "aurora",
+  "captured_at": "2026-02-11T09:30:00Z",
+  "characters": 732,
+  "content_path": "outputs/response-csv-parser-aurora.md",
+  "id": "response-csv-parser-aurora",
+  "latency_seconds": 53.0,
+  "notes": "Fictional output captured for the public demonstration.",
+  "sha256": "sha256:866be373df2c5f089e2146303c7fbdab328418f537d2351c27c9875be5074ad8",
+  "state": "captured",
+  "task_id": "csv-parser",
+  "words": 104
+}

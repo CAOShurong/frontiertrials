@@ -1,0 +1,13 @@
+{
+  "candidate_id": "cinder",
+  "captured_at": "2026-02-11T09:30:00Z",
+  "characters": 690,
+  "content_path": "outputs/response-converter-review-cinder.md",
+  "id": "response-converter-review-cinder",
+  "latency_seconds": 85.0,
+  "notes": "Fictional output captured for the public demonstration.",
+  "sha256": "sha256:8f46469c2c7ac0b8b348c72a161ac3e9c5609c9233250825a72263fe99657522",
+  "state": "captured",
+  "task_id": "converter-review",
+  "words": 97
+}

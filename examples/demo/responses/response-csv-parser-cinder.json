@@ -1,0 +1,13 @@
+{
+  "candidate_id": "cinder",
+  "captured_at": "2026-02-11T09:30:00Z",
+  "characters": 715,
+  "content_path": "outputs/response-csv-parser-cinder.md",
+  "id": "response-csv-parser-cinder",
+  "latency_seconds": 83.0,
+  "notes": "Fictional output captured for the public demonstration.",
+  "sha256": "sha256:bdcfd464cf0f9978439801a3e986537e625b8c734a41bfbbbd06107a1a1ae398",
+  "state": "captured",
+  "task_id": "csv-parser",
+  "words": 105
+}

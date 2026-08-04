@@ -1,0 +1,13 @@
+{
+  "candidate_id": "aurora",
+  "captured_at": "2026-02-11T09:30:00Z",
+  "characters": 731,
+  "content_path": "outputs/response-paper-claim-aurora.md",
+  "id": "response-paper-claim-aurora",
+  "latency_seconds": 21.0,
+  "notes": "Fictional output captured for the public demonstration.",
+  "sha256": "sha256:a1006f31fcd07c8cd54480cbbafa635bd9f82677673eba1b79a252f6d9d98ee2",
+  "state": "captured",
+  "task_id": "paper-claim",
+  "words": 100
+}

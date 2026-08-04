@@ -1,0 +1,13 @@
+{
+  "candidate_id": "delta",
+  "captured_at": "2026-02-11T09:30:00Z",
+  "characters": 794,
+  "content_path": "outputs/response-table-reading-delta.md",
+  "id": "response-table-reading-delta",
+  "latency_seconds": 58.0,
+  "notes": "Fictional output captured for the public demonstration.",
+  "sha256": "sha256:0f992dd9ffa064edb67589186d68340ed47bce9ff7c64aa5d6698303b9b0c738",
+  "state": "captured",
+  "task_id": "table-reading",
+  "words": 116
+}

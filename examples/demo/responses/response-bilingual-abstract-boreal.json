@@ -1,0 +1,13 @@
+{
+  "candidate_id": "boreal",
+  "captured_at": "2026-02-11T09:30:00Z",
+  "characters": 842,
+  "content_path": "outputs/response-bilingual-abstract-boreal.md",
+  "id": "response-bilingual-abstract-boreal",
+  "latency_seconds": 49.0,
+  "notes": "Fictional output captured for the public demonstration.",
+  "sha256": "sha256:34d5fd2016d60baf37082781604bb4cf5fc23d8852c141897455e0c74499da4e",
+  "state": "captured",
+  "task_id": "bilingual-abstract",
+  "words": 114
+}

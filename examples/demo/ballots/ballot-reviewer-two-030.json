@@ -1,0 +1,26 @@
+{
+  "choice": "left",
+  "confidence": 4,
+  "flags": [
+    "synthetic-demo"
+  ],
+  "id": "ballot-reviewer-two-030",
+  "left_scores": {
+    "actionability": 5,
+    "clarity": 5,
+    "correctness": 4,
+    "instruction-fit": 5,
+    "uncertainty": 5
+  },
+  "pairing_id": "pair-paper-claim-030",
+  "rater_id": "reviewer-two",
+  "rationale": "Synthetic ballot: the preference follows the recorded criterion scores, with a deterministic disagreement case included to exercise diagnostics.",
+  "recorded_at": "2026-02-11T09:30:00Z",
+  "right_scores": {
+    "actionability": 4,
+    "clarity": 4,
+    "correctness": 4,
+    "instruction-fit": 4,
+    "uncertainty": 4
+  }
+}

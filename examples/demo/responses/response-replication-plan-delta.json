@@ -1,0 +1,13 @@
+{
+  "candidate_id": "delta",
+  "captured_at": "2026-02-11T09:30:00Z",
+  "characters": 811,
+  "content_path": "outputs/response-replication-plan-delta.md",
+  "id": "response-replication-plan-delta",
+  "latency_seconds": 88.0,
+  "notes": "Fictional output captured for the public demonstration.",
+  "sha256": "sha256:c4f0d01b413b3481aace78459a55ddee1ef47bfb68c93ca79e58c17e68645fdf",
+  "state": "captured",
+  "task_id": "replication-plan",
+  "words": 121
+}

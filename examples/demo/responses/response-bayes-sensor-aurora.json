@@ -1,0 +1,13 @@
+{
+  "candidate_id": "aurora",
+  "captured_at": "2026-02-11T09:30:00Z",
+  "characters": 659,
+  "content_path": "outputs/response-bayes-sensor-aurora.md",
+  "id": "response-bayes-sensor-aurora",
+  "latency_seconds": 75.0,
+  "notes": "Fictional output captured for the public demonstration.",
+  "sha256": "sha256:447fc2e0690870ac97029839c3b26356a86bae4e6388ae6b5a38a6764765912e",
+  "state": "captured",
+  "task_id": "bayes-sensor",
+  "words": 105
+}

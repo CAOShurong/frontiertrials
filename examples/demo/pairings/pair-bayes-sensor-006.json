@@ -1,0 +1,15 @@
+{
+  "assigned_rater_ids": [
+    "reviewer-one",
+    "reviewer-two"
+  ],
+  "id": "pair-bayes-sensor-006",
+  "left_alias": "Birch",
+  "left_response_id": "response-bayes-sensor-delta",
+  "order_index": 5,
+  "right_alias": "Aster",
+  "right_response_id": "response-bayes-sensor-cinder",
+  "rubric_id": "general-quality",
+  "state": "ready",
+  "task_id": "bayes-sensor"
+}

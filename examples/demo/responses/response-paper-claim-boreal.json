@@ -1,0 +1,13 @@
+{
+  "candidate_id": "boreal",
+  "captured_at": "2026-02-11T09:30:00Z",
+  "characters": 756,
+  "content_path": "outputs/response-paper-claim-boreal.md",
+  "id": "response-paper-claim-boreal",
+  "latency_seconds": 35.0,
+  "notes": "Fictional output captured for the public demonstration.",
+  "sha256": "sha256:3cbf5fd4e9e4b4164b64a1ce063dac2a24a7e6942c9755c2c3b09506095c852e",
+  "state": "captured",
+  "task_id": "paper-claim",
+  "words": 104
+}

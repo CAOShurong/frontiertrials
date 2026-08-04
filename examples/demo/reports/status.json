@@ -1,0 +1,149 @@
+{
+  "ballots": {
+    "complete": true,
+    "expected": 96,
+    "missing": [],
+    "observed": 96,
+    "unexpected": []
+  },
+  "counts": {
+    "ballot": 96,
+    "candidate": 4,
+    "pairing": 48,
+    "rater": 2,
+    "response": 32,
+    "rubric": 1,
+    "task": 8
+  },
+  "response_integrity": [
+    {
+      "id": "response-bayes-sensor-aurora",
+      "status": "verified"
+    },
+    {
+      "id": "response-bayes-sensor-boreal",
+      "status": "verified"
+    },
+    {
+      "id": "response-bayes-sensor-cinder",
+      "status": "verified"
+    },
+    {
+      "id": "response-bayes-sensor-delta",
+      "status": "verified"
+    },
+    {
+      "id": "response-bilingual-abstract-aurora",
+      "status": "verified"
+    },
+    {
+      "id": "response-bilingual-abstract-boreal",
+      "status": "verified"
+    },
+    {
+      "id": "response-bilingual-abstract-cinder",
+      "status": "verified"
+    },
+    {
+      "id": "response-bilingual-abstract-delta",
+      "status": "verified"
+    },
+    {
+      "id": "response-converter-review-aurora",
+      "status": "verified"
+    },
+    {
+      "id": "response-converter-review-boreal",
+      "status": "verified"
+    },
+    {
+      "id": "response-converter-review-cinder",
+      "status": "verified"
+    },
+    {
+      "id": "response-converter-review-delta",
+      "status": "verified"
+    },
+    {
+      "id": "response-csv-parser-aurora",
+      "status": "verified"
+    },
+    {
+      "id": "response-csv-parser-boreal",
+      "status": "verified"
+    },
+    {
+      "id": "response-csv-parser-cinder",
+      "status": "verified"
+    },
+    {
+      "id": "response-csv-parser-delta",
+      "status": "verified"
+    },
+    {
+      "id": "response-paper-claim-aurora",
+      "status": "verified"
+    },
+    {
+      "id": "response-paper-claim-boreal",
+      "status": "verified"
+    },
+    {
+      "id": "response-paper-claim-cinder",
+      "status": "verified"
+    },
+    {
+      "id": "response-paper-claim-delta",
+      "status": "verified"
+    },
+    {
+      "id": "response-replication-plan-aurora",
+      "status": "verified"
+    },
+    {
+      "id": "response-replication-plan-boreal",
+      "status": "verified"
+    },
+    {
+      "id": "response-replication-plan-cinder",
+      "status": "verified"
+    },
+    {
+      "id": "response-replication-plan-delta",
+      "status": "verified"
+    },
+    {
+      "id": "response-rf-fault-aurora",
+      "status": "verified"
+    },
+    {
+      "id": "response-rf-fault-boreal",
+      "status": "verified"
+    },
+    {
+      "id": "response-rf-fault-cinder",
+      "status": "verified"
+    },
+    {
+      "id": "response-rf-fault-delta",
+      "status": "verified"
+    },
+    {
+      "id": "response-table-reading-aurora",
+      "status": "verified"
+    },
+    {
+      "id": "response-table-reading-boreal",
+      "status": "verified"
+    },
+    {
+      "id": "response-table-reading-cinder",
+      "status": "verified"
+    },
+    {
+      "id": "response-table-reading-delta",
+      "status": "verified"
+    }
+  ],
+  "state": "revealed"
+}

@@ -1,0 +1,13 @@
+{
+  "candidate_id": "aurora",
+  "captured_at": "2026-02-11T09:30:00Z",
+  "characters": 790,
+  "content_path": "outputs/response-table-reading-aurora.md",
+  "id": "response-table-reading-aurora",
+  "latency_seconds": 62.0,
+  "notes": "Fictional output captured for the public demonstration.",
+  "sha256": "sha256:349337823b6ba46a261f27cf10df4dffff84dbac516f1f0c561d5650f68352b1",
+  "state": "captured",
+  "task_id": "table-reading",
+  "words": 117
+}

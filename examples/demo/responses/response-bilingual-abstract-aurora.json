@@ -1,0 +1,13 @@
+{
+  "candidate_id": "aurora",
+  "captured_at": "2026-02-11T09:30:00Z",
+  "characters": 817,
+  "content_path": "outputs/response-bilingual-abstract-aurora.md",
+  "id": "response-bilingual-abstract-aurora",
+  "latency_seconds": 40.0,
+  "notes": "Fictional output captured for the public demonstration.",
+  "sha256": "sha256:9149f896c26671bf825d6e1b5dd6a1454912a71f23c86dd2514297739f3b4875",
+  "state": "captured",
+  "task_id": "bilingual-abstract",
+  "words": 110
+}
