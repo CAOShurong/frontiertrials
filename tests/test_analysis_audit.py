@@ -9,6 +9,7 @@ from common import ballot, make_trial
 from frontiertrials.analysis import analyze_trial
 from frontiertrials.audit import audit_trial
 from frontiertrials.blinding import freeze_trial, reveal_trial
+from frontiertrials.errors import BlindingError
 
 
 def rated_trial(root: Path, *, raters: int = 1):
@@ -61,6 +62,23 @@ class AnalysisAuditTests(unittest.TestCase):
                 rated_trial(Path(directory) / "t", raters=2), bootstrap_samples=10
             )
             self.assertEqual(result["agreement"]["agreement"], 1)
+
+    def test_analysis_refuses_frozen_trial(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            trial = make_trial(Path(directory) / "t")
+            freeze_trial(trial, seed="secret")
+            pairing = trial.all("pairing")[0]
+            trial.add("ballot", ballot("ballot-one", pairing["id"], "rater-1"))
+            with self.assertRaises(BlindingError):
+                analyze_trial(trial, bootstrap_samples=10)
+
+    def test_panel_and_leave_one_out_diagnostics(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            result = analyze_trial(
+                rated_trial(Path(directory) / "t", raters=2), bootstrap_samples=10
+            )
+            self.assertEqual(len(result["panel_diagnostics"]["raters"]), 2)
+            self.assertEqual(len(result["ranking_sensitivity"]["leave_one_rater_out"]), 2)
 
     def test_audit_pass(self) -> None:
         with tempfile.TemporaryDirectory() as directory:

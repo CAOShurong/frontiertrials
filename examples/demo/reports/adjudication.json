@@ -1,0 +1,3221 @@
+{
+  "blind_safe": true,
+  "format": "frontiertrials-adjudication-v1",
+  "interpretation": "The queue prioritizes review; it does not modify ballots, resolve disputes, or reveal candidate identities.",
+  "items": [
+    {
+      "ballot_count": 2,
+      "choice_counts": {
+        "left": 2
+      },
+      "left_alias": "Dahlia",
+      "minimum_confidence": 4,
+      "pairing_id": "pair-bayes-sensor-001",
+      "reasons": [
+        "ballot_flags"
+      ],
+      "reviews": [
+        {
+          "choice": "left",
+          "confidence": 4,
+          "flags": [
+            "synthetic-demo"
+          ],
+          "left_scores": {
+            "actionability": 5,
+            "clarity": 5,
+            "correctness": 5,
+            "instruction-fit": 5,
+            "uncertainty": 5
+          },
+          "rater_id": "reviewer-one",
+          "rater_label": "Reviewer One",
+          "rationale": "Synthetic ballot: the preference follows the recorded criterion scores, with a deterministic disagreement case included to exercise diagnostics.",
+          "right_scores": {
+            "actionability": 5,
+            "clarity": 4,
+            "correctness": 4,
+            "instruction-fit": 4,
+            "uncertainty": 4
+          }
+        },
+        {
+          "choice": "left",
+          "confidence": 4,
+          "flags": [
+            "synthetic-demo"
+          ],
+          "left_scores": {
+            "actionability": 5,
+            "clarity": 5,
+            "correctness": 5,
+            "instruction-fit": 5,
+            "uncertainty": 5
+          },
+          "rater_id": "reviewer-two",
+          "rater_label": "Reviewer Two",
+          "rationale": "Synthetic ballot: the preference follows the recorded criterion scores, with a deterministic disagreement case included to exercise diagnostics.",
+          "right_scores": {
+            "actionability": 4,
+            "clarity": 4,
+            "correctness": 4,
+            "instruction-fit": 4,
+            "uncertainty": 4
+          }
+        }
+      ],
+      "right_alias": "Cedar",
+      "suggested_action": "Review rationales and rubric scores while aliases remain blinded.",
+      "task_id": "bayes-sensor",
+      "task_title": "Reason about a low-base-rate sensor alert"
+    },
+    {
+      "ballot_count": 2,
+      "choice_counts": {
+        "left": 1,
+        "right": 1
+      },
+      "left_alias": "Dahlia",
+      "minimum_confidence": 4,
+      "pairing_id": "pair-bayes-sensor-002",
+      "reasons": [
+        "reviewer_disagreement",
+        "ballot_flags"
+      ],
+      "reviews": [
+        {
+          "choice": "right",
+          "confidence": 4,
+          "flags": [
+            "synthetic-demo"
+          ],
+          "left_scores": {
+            "actionability": 5,
+            "clarity": 5,
+            "correctness": 5,
+            "instruction-fit": 5,
+            "uncertainty": 5
+          },
+          "rater_id": "reviewer-one",
+          "rater_label": "Reviewer One",
+          "rationale": "Synthetic ballot: the preference follows the recorded criterion scores, with a deterministic disagreement case included to exercise diagnostics.",
+          "right_scores": {
+            "actionability": 3,
+            "clarity": 4,
+            "correctness": 4,
+            "instruction-fit": 3,
+            "uncertainty": 4
+          }
+        },
+        {
+          "choice": "left",
+          "confidence": 4,
+          "flags": [
+            "synthetic-demo"
+          ],
+          "left_scores": {
+            "actionability": 5,
+            "clarity": 5,
+            "correctness": 5,
+            "instruction-fit": 5,
+            "uncertainty": 5
+          },
+          "rater_id": "reviewer-two",
+          "rater_label": "Reviewer Two",
+          "rationale": "Synthetic ballot: the preference follows the recorded criterion scores, with a deterministic disagreement case included to exercise diagnostics.",
+          "right_scores": {
+            "actionability": 4,
+            "clarity": 4,
+            "correctness": 3,
+            "instruction-fit": 3,
+            "uncertainty": 3
+          }
+        }
+      ],
+      "right_alias": "Aster",
+      "suggested_action": "Review rationales and rubric scores while aliases remain blinded.",
+      "task_id": "bayes-sensor",
+      "task_title": "Reason about a low-base-rate sensor alert"
+    },
+    {
+      "ballot_count": 2,
+      "choice_counts": {
+        "tie": 2
+      },
+      "left_alias": "Birch",
+      "minimum_confidence": 3,
+      "pairing_id": "pair-bayes-sensor-003",
+      "reasons": [
+        "ballot_flags",
+        "tie_vote"
+      ],
+      "reviews": [
+        {
+          "choice": "tie",
+          "confidence": 3,
+          "flags": [
+            "synthetic-demo"
+          ],
+          "left_scores": {
+            "actionability": 4,
+            "clarity": 4,
+            "correctness": 4,
+            "instruction-fit": 5,
+            "uncertainty": 4
+          },
+          "rater_id": "reviewer-one",
+          "rater_label": "Reviewer One",
+          "rationale": "Synthetic ballot: the preference follows the recorded criterion scores, with a deterministic disagreement case included to exercise diagnostics.",
+          "right_scores": {
+            "actionability": 5,
+            "clarity": 4,
+            "correctness": 4,
+            "instruction-fit": 4,
+            "uncertainty": 4
+          }
+        },
+        {
+          "choice": "tie",
+          "confidence": 3,
+          "flags": [
+            "synthetic-demo"
+          ],
+          "left_scores": {
+            "actionability": 4,
+            "clarity": 4,
+            "correctness": 4,
+            "instruction-fit": 5,
+            "uncertainty": 4
+          },
+          "rater_id": "reviewer-two",
+          "rater_label": "Reviewer Two",
+          "rationale": "Synthetic ballot: the preference follows the recorded criterion scores, with a deterministic disagreement case included to exercise diagnostics.",
+          "right_scores": {
+            "actionability": 4,
+            "clarity": 4,
+            "correctness": 4,
+            "instruction-fit": 4,
+            "uncertainty": 4
+          }
+        }
+      ],
+      "right_alias": "Cedar",
+      "suggested_action": "Review rationales and rubric scores while aliases remain blinded.",
+      "task_id": "bayes-sensor",
+      "task_title": "Reason about a low-base-rate sensor alert"
+    },
+    {
+      "ballot_count": 2,
+      "choice_counts": {
+        "left": 1,
+        "right": 1
+      },
+      "left_alias": "Cedar",
+      "minimum_confidence": 4,
+      "pairing_id": "pair-bayes-sensor-004",
+      "reasons": [
+        "reviewer_disagreement",
+        "ballot_flags"
+      ],
+      "reviews": [
+        {
+          "choice": "right",
+          "confidence": 4,
+          "flags": [
+            "synthetic-demo"
+          ],
+          "left_scores": {
+            "actionability": 5,
+            "clarity": 4,
+            "correctness": 4,
+            "instruction-fit": 4,
+            "uncertainty": 4
+          },
+          "rater_id": "reviewer-one",
+          "rater_label": "Reviewer One",
+          "rationale": "Synthetic ballot: the preference follows the recorded criterion scores, with a deterministic disagreement case included to exercise diagnostics.",
+          "right_scores": {
+            "actionability": 3,
+            "clarity": 4,
+            "correctness": 4,
+            "instruction-fit": 3,
+            "uncertainty": 4
+          }
+        },
+        {
+          "choice": "left",
+          "confidence": 4,
+          "flags": [
+            "synthetic-demo"
+          ],
+          "left_scores": {
+            "actionability": 4,
+            "clarity": 4,
+            "correctness": 4,
+            "instruction-fit": 4,
+            "uncertainty": 4
+          },
+          "rater_id": "reviewer-two",
+          "rater_label": "Reviewer Two",
+          "rationale": "Synthetic ballot: the preference follows the recorded criterion scores, with a deterministic disagreement case included to exercise diagnostics.",
+          "right_scores": {
+            "actionability": 4,
+            "clarity": 4,
+            "correctness": 3,
+            "instruction-fit": 3,
+            "uncertainty": 3
+          }
+        }
+      ],
+      "right_alias": "Aster",
+      "suggested_action": "Review rationales and rubric scores while aliases remain blinded.",
+      "task_id": "bayes-sensor",
+      "task_title": "Reason about a low-base-rate sensor alert"
+    },
+    {
+      "ballot_count": 2,
+      "choice_counts": {
+        "left": 1,
+        "right": 1
+      },
+      "left_alias": "Dahlia",
+      "minimum_confidence": 4,
+      "pairing_id": "pair-bayes-sensor-005",
+      "reasons": [
+        "reviewer_disagreement",
+        "ballot_flags"
+      ],
+      "reviews": [
+        {
+          "choice": "left",
+          "confidence": 4,
+          "flags": [
+            "synthetic-demo"
+          ],
+          "left_scores": {
+            "actionability": 5,
+            "clarity": 5,
+            "correctness": 5,
+            "instruction-fit": 5,
+            "uncertainty": 5
+          },
+          "rater_id": "reviewer-one",
+          "rater_label": "Reviewer One",
+          "rationale": "Synthetic ballot: the preference follows the recorded criterion scores, with a deterministic disagreement case included to exercise diagnostics.",
+          "right_scores": {
+            "actionability": 4,
+            "clarity": 4,
+            "correctness": 4,
+            "instruction-fit": 5,
+            "uncertainty": 4
+          }
+        },
+        {
+          "choice": "right",
+          "confidence": 4,
+          "flags": [
+            "synthetic-demo"
+          ],
+          "left_scores": {
+            "actionability": 5,
+            "clarity": 5,
+            "correctness": 5,
+            "instruction-fit": 5,
+            "uncertainty": 5
+          },
+          "rater_id": "reviewer-two",
+          "rater_label": "Reviewer Two",
+          "rationale": "Synthetic ballot: the preference follows the recorded criterion scores, with a deterministic disagreement case included to exercise diagnostics.",
+          "right_scores": {
+            "actionability": 4,
+            "clarity": 4,
+            "correctness": 4,
+            "instruction-fit": 5,
+            "uncertainty": 4
+          }
+        }
+      ],
+      "right_alias": "Birch",
+      "suggested_action": "Review rationales and rubric scores while aliases remain blinded.",
+      "task_id": "bayes-sensor",
+      "task_title": "Reason about a low-base-rate sensor alert"
+    },
+    {
+      "ballot_count": 2,
+      "choice_counts": {
+        "left": 2
+      },
+      "left_alias": "Birch",
+      "minimum_confidence": 4,
+      "pairing_id": "pair-bayes-sensor-006",
+      "reasons": [
+        "ballot_flags"
+      ],
+      "reviews": [
+        {
+          "choice": "left",
+          "confidence": 4,
+          "flags": [
+            "synthetic-demo"
+          ],
+          "left_scores": {
+            "actionability": 4,
+            "clarity": 4,
+            "correctness": 4,
+            "instruction-fit": 5,
+            "uncertainty": 4
+          },
+          "rater_id": "reviewer-one",
+          "rater_label": "Reviewer One",
+          "rationale": "Synthetic ballot: the preference follows the recorded criterion scores, with a deterministic disagreement case included to exercise diagnostics.",
+          "right_scores": {
+            "actionability": 3,
+            "clarity": 4,
+            "correctness": 4,
+            "instruction-fit": 3,
+            "uncertainty": 4
+          }
+        },
+        {
+          "choice": "left",
+          "confidence": 4,
+          "flags": [
+            "synthetic-demo"
+          ],
+          "left_scores": {
+            "actionability": 4,
+            "clarity": 4,
+            "correctness": 4,
+            "instruction-fit": 5,
+            "uncertainty": 4
+          },
+          "rater_id": "reviewer-two",
+          "rater_label": "Reviewer Two",
+          "rationale": "Synthetic ballot: the preference follows the recorded criterion scores, with a deterministic disagreement case included to exercise diagnostics.",
+          "right_scores": {
+            "actionability": 4,
+            "clarity": 4,
+            "correctness": 3,
+            "instruction-fit": 3,
+            "uncertainty": 3
+          }
+        }
+      ],
+      "right_alias": "Aster",
+      "suggested_action": "Review rationales and rubric scores while aliases remain blinded.",
+      "task_id": "bayes-sensor",
+      "task_title": "Reason about a low-base-rate sensor alert"
+    },
+    {
+      "ballot_count": 2,
+      "choice_counts": {
+        "tie": 2
+      },
+      "left_alias": "Aster",
+      "minimum_confidence": 3,
+      "pairing_id": "pair-bilingual-abstract-007",
+      "reasons": [
+        "ballot_flags",
+        "tie_vote"
+      ],
+      "reviews": [
+        {
+          "choice": "tie",
+          "confidence": 3,
+          "flags": [
+            "synthetic-demo"
+          ],
+          "left_scores": {
+            "actionability": 4,
+            "clarity": 4,
+            "correctness": 4,
+            "instruction-fit": 4,
+            "uncertainty": 4
+          },
+          "rater_id": "reviewer-one",
+          "rater_label": "Reviewer One",
+          "rationale": "Synthetic ballot: the preference follows the recorded criterion scores, with a deterministic disagreement case included to exercise diagnostics.",
+          "right_scores": {
+            "actionability": 4,
+            "clarity": 4,
+            "correctness": 4,
+            "instruction-fit": 4,
+            "uncertainty": 4
+          }
+        },
+        {
+          "choice": "tie",
+          "confidence": 3,
+          "flags": [
+            "synthetic-demo"
+          ],
+          "left_scores": {
+            "actionability": 4,
+            "clarity": 4,
+            "correctness": 4,
+            "instruction-fit": 4,
+            "uncertainty": 4
+          },
+          "rater_id": "reviewer-two",
+          "rater_label": "Reviewer Two",
+          "rationale": "Synthetic ballot: the preference follows the recorded criterion scores, with a deterministic disagreement case included to exercise diagnostics.",
+          "right_scores": {
+            "actionability": 4,
+            "clarity": 4,
+            "correctness": 5,
+            "instruction-fit": 4,
+            "uncertainty": 4
+          }
+        }
+      ],
+      "right_alias": "Dahlia",
+      "suggested_action": "Review rationales and rubric scores while aliases remain blinded.",
+      "task_id": "bilingual-abstract",
+      "task_title": "Rewrite a bilingual technical abstract"
+    },
+    {
+      "ballot_count": 2,
+      "choice_counts": {
+        "right": 2
+      },
+      "left_alias": "Aster",
+      "minimum_confidence": 4,
+      "pairing_id": "pair-bilingual-abstract-008",
+      "reasons": [
+        "ballot_flags"
+      ],
+      "reviews": [
+        {
+          "choice": "right",
+          "confidence": 4,
+          "flags": [
+            "synthetic-demo"
+          ],
+          "left_scores": {
+            "actionability": 4,
+            "clarity": 4,
+            "correctness": 4,
+            "instruction-fit": 4,
+            "uncertainty": 4
+          },
+          "rater_id": "reviewer-one",
+          "rater_label": "Reviewer One",
+          "rationale": "Synthetic ballot: the preference follows the recorded criterion scores, with a deterministic disagreement case included to exercise diagnostics.",
+          "right_scores": {
+            "actionability": 4,
+            "clarity": 5,
+            "correctness": 4,
+            "instruction-fit": 5,
+            "uncertainty": 4
+          }
+        },
+        {
+          "choice": "right",
+          "confidence": 4,
+          "flags": [
+            "synthetic-demo"
+          ],
+          "left_scores": {
+            "actionability": 4,
+            "clarity": 4,
+            "correctness": 4,
+            "instruction-fit": 4,
+            "uncertainty": 4
+          },
+          "rater_id": "reviewer-two",
+          "rater_label": "Reviewer Two",
+          "rationale": "Synthetic ballot: the preference follows the recorded criterion scores, with a deterministic disagreement case included to exercise diagnostics.",
+          "right_scores": {
+            "actionability": 5,
+            "clarity": 5,
+            "correctness": 4,
+            "instruction-fit": 5,
+            "uncertainty": 4
+          }
+        }
+      ],
+      "right_alias": "Birch",
+      "suggested_action": "Review rationales and rubric scores while aliases remain blinded.",
+      "task_id": "bilingual-abstract",
+      "task_title": "Rewrite a bilingual technical abstract"
+    },
+    {
+      "ballot_count": 2,
+      "choice_counts": {
+        "right": 1,
+        "tie": 1
+      },
+      "left_alias": "Cedar",
+      "minimum_confidence": 3,
+      "pairing_id": "pair-bilingual-abstract-009",
+      "reasons": [
+        "reviewer_disagreement",
+        "ballot_flags",
+        "tie_vote"
+      ],
+      "reviews": [
+        {
+          "choice": "tie",
+          "confidence": 3,
+          "flags": [
+            "synthetic-demo"
+          ],
+          "left_scores": {
+            "actionability": 4,
+            "clarity": 4,
+            "correctness": 4,
+            "instruction-fit": 4,
+            "uncertainty": 5
+          },
+          "rater_id": "reviewer-one",
+          "rater_label": "Reviewer One",
+          "rationale": "Synthetic ballot: the preference follows the recorded criterion scores, with a deterministic disagreement case included to exercise diagnostics.",
+          "right_scores": {
+            "actionability": 4,
+            "clarity": 5,
+            "correctness": 4,
+            "instruction-fit": 5,
+            "uncertainty": 4
+          }
+        },
+        {
+          "choice": "right",
+          "confidence": 4,
+          "flags": [
+            "synthetic-demo"
+          ],
+          "left_scores": {
+            "actionability": 4,
+            "clarity": 4,
+            "correctness": 4,
+            "instruction-fit": 4,
+            "uncertainty": 4
+          },
+          "rater_id": "reviewer-two",
+          "rater_label": "Reviewer Two",
+          "rationale": "Synthetic ballot: the preference follows the recorded criterion scores, with a deterministic disagreement case included to exercise diagnostics.",
+          "right_scores": {
+            "actionability": 5,
+            "clarity": 5,
+            "correctness": 4,
+            "instruction-fit": 5,
+            "uncertainty": 4
+          }
+        }
+      ],
+      "right_alias": "Birch",
+      "suggested_action": "Review rationales and rubric scores while aliases remain blinded.",
+      "task_id": "bilingual-abstract",
+      "task_title": "Rewrite a bilingual technical abstract"
+    },
+    {
+      "ballot_count": 2,
+      "choice_counts": {
+        "tie": 2
+      },
+      "left_alias": "Aster",
+      "minimum_confidence": 3,
+      "pairing_id": "pair-bilingual-abstract-010",
+      "reasons": [
+        "ballot_flags",
+        "tie_vote"
+      ],
+      "reviews": [
+        {
+          "choice": "tie",
+          "confidence": 3,
+          "flags": [
+            "synthetic-demo"
+          ],
+          "left_scores": {
+            "actionability": 4,
+            "clarity": 4,
+            "correctness": 4,
+            "instruction-fit": 4,
+            "uncertainty": 4
+          },
+          "rater_id": "reviewer-one",
+          "rater_label": "Reviewer One",
+          "rationale": "Synthetic ballot: the preference follows the recorded criterion scores, with a deterministic disagreement case included to exercise diagnostics.",
+          "right_scores": {
+            "actionability": 4,
+            "clarity": 4,
+            "correctness": 4,
+            "instruction-fit": 4,
+            "uncertainty": 5
+          }
+        },
+        {
+          "choice": "tie",
+          "confidence": 3,
+          "flags": [
+            "synthetic-demo"
+          ],
+          "left_scores": {
+            "actionability": 4,
+            "clarity": 4,
+            "correctness": 4,
+            "instruction-fit": 4,
+            "uncertainty": 4
+          },
+          "rater_id": "reviewer-two",
+          "rater_label": "Reviewer Two",
+          "rationale": "Synthetic ballot: the preference follows the recorded criterion scores, with a deterministic disagreement case included to exercise diagnostics.",
+          "right_scores": {
+            "actionability": 4,
+            "clarity": 4,
+            "correctness": 4,
+            "instruction-fit": 4,
+            "uncertainty": 4
+          }
+        }
+      ],
+      "right_alias": "Cedar",
+      "suggested_action": "Review rationales and rubric scores while aliases remain blinded.",
+      "task_id": "bilingual-abstract",
+      "task_title": "Rewrite a bilingual technical abstract"
+    },
+    {
+      "ballot_count": 2,
+      "choice_counts": {
+        "tie": 2
+      },
+      "left_alias": "Cedar",
+      "minimum_confidence": 3,
+      "pairing_id": "pair-bilingual-abstract-011",
+      "reasons": [
+        "ballot_flags",
+        "tie_vote"
+      ],
+      "reviews": [
+        {
+          "choice": "tie",
+          "confidence": 3,
+          "flags": [
+            "synthetic-demo"
+          ],
+          "left_scores": {
+            "actionability": 4,
+            "clarity": 4,
+            "correctness": 4,
+            "instruction-fit": 4,
+            "uncertainty": 5
+          },
+          "rater_id": "reviewer-one",
+          "rater_label": "Reviewer One",
+          "rationale": "Synthetic ballot: the preference follows the recorded criterion scores, with a deterministic disagreement case included to exercise diagnostics.",
+          "right_scores": {
+            "actionability": 4,
+            "clarity": 4,
+            "correctness": 4,
+            "instruction-fit": 4,
+            "uncertainty": 4
+          }
+        },
+        {
+          "choice": "tie",
+          "confidence": 3,
+          "flags": [
+            "synthetic-demo"
+          ],
+          "left_scores": {
+            "actionability": 4,
+            "clarity": 4,
+            "correctness": 4,
+            "instruction-fit": 4,
+            "uncertainty": 4
+          },
+          "rater_id": "reviewer-two",
+          "rater_label": "Reviewer Two",
+          "rationale": "Synthetic ballot: the preference follows the recorded criterion scores, with a deterministic disagreement case included to exercise diagnostics.",
+          "right_scores": {
+            "actionability": 4,
+            "clarity": 4,
+            "correctness": 5,
+            "instruction-fit": 4,
+            "uncertainty": 4
+          }
+        }
+      ],
+      "right_alias": "Dahlia",
+      "suggested_action": "Review rationales and rubric scores while aliases remain blinded.",
+      "task_id": "bilingual-abstract",
+      "task_title": "Rewrite a bilingual technical abstract"
+    },
+    {
+      "ballot_count": 2,
+      "choice_counts": {
+        "left": 2
+      },
+      "left_alias": "Birch",
+      "minimum_confidence": 4,
+      "pairing_id": "pair-bilingual-abstract-012",
+      "reasons": [
+        "ballot_flags"
+      ],
+      "reviews": [
+        {
+          "choice": "left",
+          "confidence": 4,
+          "flags": [
+            "synthetic-demo"
+          ],
+          "left_scores": {
+            "actionability": 4,
+            "clarity": 5,
+            "correctness": 4,
+            "instruction-fit": 5,
+            "uncertainty": 4
+          },
+          "rater_id": "reviewer-one",
+          "rater_label": "Reviewer One",
+          "rationale": "Synthetic ballot: the preference follows the recorded criterion scores, with a deterministic disagreement case included to exercise diagnostics.",
+          "right_scores": {
+            "actionability": 4,
+            "clarity": 4,
+            "correctness": 4,
+            "instruction-fit": 4,
+            "uncertainty": 4
+          }
+        },
+        {
+          "choice": "left",
+          "confidence": 4,
+          "flags": [
+            "synthetic-demo"
+          ],
+          "left_scores": {
+            "actionability": 5,
+            "clarity": 5,
+            "correctness": 4,
+            "instruction-fit": 5,
+            "uncertainty": 4
+          },
+          "rater_id": "reviewer-two",
+          "rater_label": "Reviewer Two",
+          "rationale": "Synthetic ballot: the preference follows the recorded criterion scores, with a deterministic disagreement case included to exercise diagnostics.",
+          "right_scores": {
+            "actionability": 4,
+            "clarity": 4,
+            "correctness": 5,
+            "instruction-fit": 4,
+            "uncertainty": 4
+          }
+        }
+      ],
+      "right_alias": "Dahlia",
+      "suggested_action": "Review rationales and rubric scores while aliases remain blinded.",
+      "task_id": "bilingual-abstract",
+      "task_title": "Rewrite a bilingual technical abstract"
+    },
+    {
+      "ballot_count": 2,
+      "choice_counts": {
+        "left": 1,
+        "right": 1
+      },
+      "left_alias": "Dahlia",
+      "minimum_confidence": 4,
+      "pairing_id": "pair-converter-review-013",
+      "reasons": [
+        "reviewer_disagreement",
+        "ballot_flags"
+      ],
+      "reviews": [
+        {
+          "choice": "left",
+          "confidence": 4,
+          "flags": [
+            "synthetic-demo"
+          ],
+          "left_scores": {
+            "actionability": 5,
+            "clarity": 5,
+            "correctness": 5,
+            "instruction-fit": 5,
+            "uncertainty": 5
+          },
+          "rater_id": "reviewer-one",
+          "rater_label": "Reviewer One",
+          "rationale": "Synthetic ballot: the preference follows the recorded criterion scores, with a deterministic disagreement case included to exercise diagnostics.",
+          "right_scores": {
+            "actionability": 5,
+            "clarity": 5,
+            "correctness": 5,
+            "instruction-fit": 4,
+            "uncertainty": 4
+          }
+        },
+        {
+          "choice": "right",
+          "confidence": 4,
+          "flags": [
+            "synthetic-demo"
+          ],
+          "left_scores": {
+            "actionability": 5,
+            "clarity": 5,
+            "correctness": 5,
+            "instruction-fit": 5,
+            "uncertainty": 5
+          },
+          "rater_id": "reviewer-two",
+          "rater_label": "Reviewer Two",
+          "rationale": "Synthetic ballot: the preference follows the recorded criterion scores, with a deterministic disagreement case included to exercise diagnostics.",
+          "right_scores": {
+            "actionability": 5,
+            "clarity": 4,
+            "correctness": 4,
+            "instruction-fit": 4,
+            "uncertainty": 5
+          }
+        }
+      ],
+      "right_alias": "Cedar",
+      "suggested_action": "Review rationales and rubric scores while aliases remain blinded.",
+      "task_id": "converter-review",
+      "task_title": "Review a converter compensation proposal"
+    },
+    {
+      "ballot_count": 2,
+      "choice_counts": {
+        "left": 1,
+        "tie": 1
+      },
+      "left_alias": "Birch",
+      "minimum_confidence": 3,
+      "pairing_id": "pair-converter-review-014",
+      "reasons": [
+        "reviewer_disagreement",
+        "ballot_flags",
+        "tie_vote"
+      ],
+      "reviews": [
+        {
+          "choice": "left",
+          "confidence": 4,
+          "flags": [
+            "synthetic-demo"
+          ],
+          "left_scores": {
+            "actionability": 4,
+            "clarity": 4,
+            "correctness": 4,
+            "instruction-fit": 4,
+            "uncertainty": 4
+          },
+          "rater_id": "reviewer-one",
+          "rater_label": "Reviewer One",
+          "rationale": "Synthetic ballot: the preference follows the recorded criterion scores, with a deterministic disagreement case included to exercise diagnostics.",
+          "right_scores": {
+            "actionability": 3,
+            "clarity": 4,
+            "correctness": 3,
+            "instruction-fit": 4,
+            "uncertainty": 3
+          }
+        },
+        {
+          "choice": "tie",
+          "confidence": 3,
+          "flags": [
+            "synthetic-demo"
+          ],
+          "left_scores": {
+            "actionability": 4,
+            "clarity": 4,
+            "correctness": 4,
+            "instruction-fit": 4,
+            "uncertainty": 4
+          },
+          "rater_id": "reviewer-two",
+          "rater_label": "Reviewer Two",
+          "rationale": "Synthetic ballot: the preference follows the recorded criterion scores, with a deterministic disagreement case included to exercise diagnostics.",
+          "right_scores": {
+            "actionability": 4,
+            "clarity": 4,
+            "correctness": 4,
+            "instruction-fit": 4,
+            "uncertainty": 4
+          }
+        }
+      ],
+      "right_alias": "Aster",
+      "suggested_action": "Review rationales and rubric scores while aliases remain blinded.",
+      "task_id": "converter-review",
+      "task_title": "Review a converter compensation proposal"
+    },
+    {
+      "ballot_count": 2,
+      "choice_counts": {
+        "left": 2
+      },
+      "left_alias": "Dahlia",
+      "minimum_confidence": 4,
+      "pairing_id": "pair-converter-review-015",
+      "reasons": [
+        "ballot_flags"
+      ],
+      "reviews": [
+        {
+          "choice": "left",
+          "confidence": 4,
+          "flags": [
+            "synthetic-demo"
+          ],
+          "left_scores": {
+            "actionability": 5,
+            "clarity": 5,
+            "correctness": 5,
+            "instruction-fit": 5,
+            "uncertainty": 5
+          },
+          "rater_id": "reviewer-one",
+          "rater_label": "Reviewer One",
+          "rationale": "Synthetic ballot: the preference follows the recorded criterion scores, with a deterministic disagreement case included to exercise diagnostics.",
+          "right_scores": {
+            "actionability": 3,
+            "clarity": 4,
+            "correctness": 3,
+            "instruction-fit": 4,
+            "uncertainty": 3
+          }
+        },
+        {
+          "choice": "left",
+          "confidence": 4,
+          "flags": [
+            "synthetic-demo"
+          ],
+          "left_scores": {
+            "actionability": 5,
+            "clarity": 5,
+            "correctness": 5,
+            "instruction-fit": 5,
+            "uncertainty": 5
+          },
+          "rater_id": "reviewer-two",
+          "rater_label": "Reviewer Two",
+          "rationale": "Synthetic ballot: the preference follows the recorded criterion scores, with a deterministic disagreement case included to exercise diagnostics.",
+          "right_scores": {
+            "actionability": 4,
+            "clarity": 4,
+            "correctness": 4,
+            "instruction-fit": 4,
+            "uncertainty": 4
+          }
+        }
+      ],
+      "right_alias": "Aster",
+      "suggested_action": "Review rationales and rubric scores while aliases remain blinded.",
+      "task_id": "converter-review",
+      "task_title": "Review a converter compensation proposal"
+    },
+    {
+      "ballot_count": 2,
+      "choice_counts": {
+        "left": 2
+      },
+      "left_alias": "Dahlia",
+      "minimum_confidence": 4,
+      "pairing_id": "pair-converter-review-016",
+      "reasons": [
+        "ballot_flags"
+      ],
+      "reviews": [
+        {
+          "choice": "left",
+          "confidence": 4,
+          "flags": [
+            "synthetic-demo"
+          ],
+          "left_scores": {
+            "actionability": 5,
+            "clarity": 5,
+            "correctness": 5,
+            "instruction-fit": 5,
+            "uncertainty": 5
+          },
+          "rater_id": "reviewer-one",
+          "rater_label": "Reviewer One",
+          "rationale": "Synthetic ballot: the preference follows the recorded criterion scores, with a deterministic disagreement case included to exercise diagnostics.",
+          "right_scores": {
+            "actionability": 4,
+            "clarity": 4,
+            "correctness": 4,
+            "instruction-fit": 4,
+            "uncertainty": 4
+          }
+        },
+        {
+          "choice": "left",
+          "confidence": 4,
+          "flags": [
+            "synthetic-demo"
+          ],
+          "left_scores": {
+            "actionability": 5,
+            "clarity": 5,
+            "correctness": 5,
+            "instruction-fit": 5,
+            "uncertainty": 5
+          },
+          "rater_id": "reviewer-two",
+          "rater_label": "Reviewer Two",
+          "rationale": "Synthetic ballot: the preference follows the recorded criterion scores, with a deterministic disagreement case included to exercise diagnostics.",
+          "right_scores": {
+            "actionability": 4,
+            "clarity": 4,
+            "correctness": 4,
+            "instruction-fit": 4,
+            "uncertainty": 4
+          }
+        }
+      ],
+      "right_alias": "Birch",
+      "suggested_action": "Review rationales and rubric scores while aliases remain blinded.",
+      "task_id": "converter-review",
+      "task_title": "Review a converter compensation proposal"
+    },
+    {
+      "ballot_count": 2,
+      "choice_counts": {
+        "right": 2
+      },
+      "left_alias": "Birch",
+      "minimum_confidence": 4,
+      "pairing_id": "pair-converter-review-017",
+      "reasons": [
+        "ballot_flags"
+      ],
+      "reviews": [
+        {
+          "choice": "right",
+          "confidence": 4,
+          "flags": [
+            "synthetic-demo"
+          ],
+          "left_scores": {
+            "actionability": 4,
+            "clarity": 4,
+            "correctness": 4,
+            "instruction-fit": 4,
+            "uncertainty": 4
+          },
+          "rater_id": "reviewer-one",
+          "rater_label": "Reviewer One",
+          "rationale": "Synthetic ballot: the preference follows the recorded criterion scores, with a deterministic disagreement case included to exercise diagnostics.",
+          "right_scores": {
+            "actionability": 5,
+            "clarity": 5,
+            "correctness": 5,
+            "instruction-fit": 4,
+            "uncertainty": 4
+          }
+        },
+        {
+          "choice": "right",
+          "confidence": 4,
+          "flags": [
+            "synthetic-demo"
+          ],
+          "left_scores": {
+            "actionability": 4,
+            "clarity": 4,
+            "correctness": 4,
+            "instruction-fit": 4,
+            "uncertainty": 4
+          },
+          "rater_id": "reviewer-two",
+          "rater_label": "Reviewer Two",
+          "rationale": "Synthetic ballot: the preference follows the recorded criterion scores, with a deterministic disagreement case included to exercise diagnostics.",
+          "right_scores": {
+            "actionability": 5,
+            "clarity": 4,
+            "correctness": 4,
+            "instruction-fit": 4,
+            "uncertainty": 5
+          }
+        }
+      ],
+      "right_alias": "Cedar",
+      "suggested_action": "Review rationales and rubric scores while aliases remain blinded.",
+      "task_id": "converter-review",
+      "task_title": "Review a converter compensation proposal"
+    },
+    {
+      "ballot_count": 2,
+      "choice_counts": {
+        "left": 2
+      },
+      "left_alias": "Cedar",
+      "minimum_confidence": 4,
+      "pairing_id": "pair-converter-review-018",
+      "reasons": [
+        "ballot_flags"
+      ],
+      "reviews": [
+        {
+          "choice": "left",
+          "confidence": 4,
+          "flags": [
+            "synthetic-demo"
+          ],
+          "left_scores": {
+            "actionability": 5,
+            "clarity": 5,
+            "correctness": 5,
+            "instruction-fit": 4,
+            "uncertainty": 4
+          },
+          "rater_id": "reviewer-one",
+          "rater_label": "Reviewer One",
+          "rationale": "Synthetic ballot: the preference follows the recorded criterion scores, with a deterministic disagreement case included to exercise diagnostics.",
+          "right_scores": {
+            "actionability": 3,
+            "clarity": 4,
+            "correctness": 3,
+            "instruction-fit": 4,
+            "uncertainty": 3
+          }
+        },
+        {
+          "choice": "left",
+          "confidence": 4,
+          "flags": [
+            "synthetic-demo"
+          ],
+          "left_scores": {
+            "actionability": 5,
+            "clarity": 4,
+            "correctness": 4,
+            "instruction-fit": 4,
+            "uncertainty": 5
+          },
+          "rater_id": "reviewer-two",
+          "rater_label": "Reviewer Two",
+          "rationale": "Synthetic ballot: the preference follows the recorded criterion scores, with a deterministic disagreement case included to exercise diagnostics.",
+          "right_scores": {
+            "actionability": 4,
+            "clarity": 4,
+            "correctness": 4,
+            "instruction-fit": 4,
+            "uncertainty": 4
+          }
+        }
+      ],
+      "right_alias": "Aster",
+      "suggested_action": "Review rationales and rubric scores while aliases remain blinded.",
+      "task_id": "converter-review",
+      "task_title": "Review a converter compensation proposal"
+    },
+    {
+      "ballot_count": 2,
+      "choice_counts": {
+        "right": 2
+      },
+      "left_alias": "Aster",
+      "minimum_confidence": 4,
+      "pairing_id": "pair-csv-parser-019",
+      "reasons": [
+        "ballot_flags"
+      ],
+      "reviews": [
+        {
+          "choice": "right",
+          "confidence": 4,
+          "flags": [
+            "synthetic-demo"
+          ],
+          "left_scores": {
+            "actionability": 4,
+            "clarity": 4,
+            "correctness": 4,
+            "instruction-fit": 4,
+            "uncertainty": 4
+          },
+          "rater_id": "reviewer-one",
+          "rater_label": "Reviewer One",
+          "rationale": "Synthetic ballot: the preference follows the recorded criterion scores, with a deterministic disagreement case included to exercise diagnostics.",
+          "right_scores": {
+            "actionability": 5,
+            "clarity": 5,
+            "correctness": 5,
+            "instruction-fit": 5,
+            "uncertainty": 5
+          }
+        },
+        {
+          "choice": "right",
+          "confidence": 4,
+          "flags": [
+            "synthetic-demo"
+          ],
+          "left_scores": {
+            "actionability": 4,
+            "clarity": 4,
+            "correctness": 4,
+            "instruction-fit": 4,
+            "uncertainty": 4
+          },
+          "rater_id": "reviewer-two",
+          "rater_label": "Reviewer Two",
+          "rationale": "Synthetic ballot: the preference follows the recorded criterion scores, with a deterministic disagreement case included to exercise diagnostics.",
+          "right_scores": {
+            "actionability": 5,
+            "clarity": 5,
+            "correctness": 5,
+            "instruction-fit": 5,
+            "uncertainty": 5
+          }
+        }
+      ],
+      "right_alias": "Dahlia",
+      "suggested_action": "Review rationales and rubric scores while aliases remain blinded.",
+      "task_id": "csv-parser",
+      "task_title": "Design a robust measurement CSV parser"
+    },
+    {
+      "ballot_count": 2,
+      "choice_counts": {
+        "right": 2
+      },
+      "left_alias": "Cedar",
+      "minimum_confidence": 4,
+      "pairing_id": "pair-csv-parser-020",
+      "reasons": [
+        "ballot_flags"
+      ],
+      "reviews": [
+        {
+          "choice": "right",
+          "confidence": 4,
+          "flags": [
+            "synthetic-demo"
+          ],
+          "left_scores": {
+            "actionability": 4,
+            "clarity": 5,
+            "correctness": 4,
+            "instruction-fit": 4,
+            "uncertainty": 5
+          },
+          "rater_id": "reviewer-one",
+          "rater_label": "Reviewer One",
+          "rationale": "Synthetic ballot: the preference follows the recorded criterion scores, with a deterministic disagreement case included to exercise diagnostics.",
+          "right_scores": {
+            "actionability": 5,
+            "clarity": 5,
+            "correctness": 5,
+            "instruction-fit": 5,
+            "uncertainty": 5
+          }
+        },
+        {
+          "choice": "right",
+          "confidence": 4,
+          "flags": [
+            "synthetic-demo"
+          ],
+          "left_scores": {
+            "actionability": 5,
+            "clarity": 5,
+            "correctness": 4,
+            "instruction-fit": 4,
+            "uncertainty": 4
+          },
+          "rater_id": "reviewer-two",
+          "rater_label": "Reviewer Two",
+          "rationale": "Synthetic ballot: the preference follows the recorded criterion scores, with a deterministic disagreement case included to exercise diagnostics.",
+          "right_scores": {
+            "actionability": 5,
+            "clarity": 5,
+            "correctness": 5,
+            "instruction-fit": 5,
+            "uncertainty": 5
+          }
+        }
+      ],
+      "right_alias": "Dahlia",
+      "suggested_action": "Review rationales and rubric scores while aliases remain blinded.",
+      "task_id": "csv-parser",
+      "task_title": "Design a robust measurement CSV parser"
+    },
+    {
+      "ballot_count": 2,
+      "choice_counts": {
+        "right": 2
+      },
+      "left_alias": "Aster",
+      "minimum_confidence": 4,
+      "pairing_id": "pair-csv-parser-021",
+      "reasons": [
+        "ballot_flags"
+      ],
+      "reviews": [
+        {
+          "choice": "right",
+          "confidence": 4,
+          "flags": [
+            "synthetic-demo"
+          ],
+          "left_scores": {
+            "actionability": 4,
+            "clarity": 4,
+            "correctness": 4,
+            "instruction-fit": 4,
+            "uncertainty": 4
+          },
+          "rater_id": "reviewer-one",
+          "rater_label": "Reviewer One",
+          "rationale": "Synthetic ballot: the preference follows the recorded criterion scores, with a deterministic disagreement case included to exercise diagnostics.",
+          "right_scores": {
+            "actionability": 4,
+            "clarity": 5,
+            "correctness": 4,
+            "instruction-fit": 4,
+            "uncertainty": 5
+          }
+        },
+        {
+          "choice": "right",
+          "confidence": 4,
+          "flags": [
+            "synthetic-demo"
+          ],
+          "left_scores": {
+            "actionability": 4,
+            "clarity": 4,
+            "correctness": 4,
+            "instruction-fit": 4,
+            "uncertainty": 4
+          },
+          "rater_id": "reviewer-two",
+          "rater_label": "Reviewer Two",
+          "rationale": "Synthetic ballot: the preference follows the recorded criterion scores, with a deterministic disagreement case included to exercise diagnostics.",
+          "right_scores": {
+            "actionability": 5,
+            "clarity": 5,
+            "correctness": 4,
+            "instruction-fit": 4,
+            "uncertainty": 4
+          }
+        }
+      ],
+      "right_alias": "Cedar",
+      "suggested_action": "Review rationales and rubric scores while aliases remain blinded.",
+      "task_id": "csv-parser",
+      "task_title": "Design a robust measurement CSV parser"
+    },
+    {
+      "ballot_count": 2,
+      "choice_counts": {
+        "right": 2
+      },
+      "left_alias": "Birch",
+      "minimum_confidence": 4,
+      "pairing_id": "pair-csv-parser-022",
+      "reasons": [
+        "ballot_flags"
+      ],
+      "reviews": [
+        {
+          "choice": "right",
+          "confidence": 4,
+          "flags": [
+            "synthetic-demo"
+          ],
+          "left_scores": {
+            "actionability": 4,
+            "clarity": 4,
+            "correctness": 4,
+            "instruction-fit": 4,
+            "uncertainty": 4
+          },
+          "rater_id": "reviewer-one",
+          "rater_label": "Reviewer One",
+          "rationale": "Synthetic ballot: the preference follows the recorded criterion scores, with a deterministic disagreement case included to exercise diagnostics.",
+          "right_scores": {
+            "actionability": 5,
+            "clarity": 5,
+            "correctness": 5,
+            "instruction-fit": 5,
+            "uncertainty": 5
+          }
+        },
+        {
+          "choice": "right",
+          "confidence": 4,
+          "flags": [
+            "synthetic-demo"
+          ],
+          "left_scores": {
+            "actionability": 4,
+            "clarity": 4,
+            "correctness": 4,
+            "instruction-fit": 4,
+            "uncertainty": 5
+          },
+          "rater_id": "reviewer-two",
+          "rater_label": "Reviewer Two",
+          "rationale": "Synthetic ballot: the preference follows the recorded criterion scores, with a deterministic disagreement case included to exercise diagnostics.",
+          "right_scores": {
+            "actionability": 5,
+            "clarity": 5,
+            "correctness": 5,
+            "instruction-fit": 5,
+            "uncertainty": 5
+          }
+        }
+      ],
+      "right_alias": "Dahlia",
+      "suggested_action": "Review rationales and rubric scores while aliases remain blinded.",
+      "task_id": "csv-parser",
+      "task_title": "Design a robust measurement CSV parser"
+    },
+    {
+      "ballot_count": 2,
+      "choice_counts": {
+        "tie": 2
+      },
+      "left_alias": "Aster",
+      "minimum_confidence": 3,
+      "pairing_id": "pair-csv-parser-023",
+      "reasons": [
+        "ballot_flags",
+        "tie_vote"
+      ],
+      "reviews": [
+        {
+          "choice": "tie",
+          "confidence": 3,
+          "flags": [
+            "synthetic-demo"
+          ],
+          "left_scores": {
+            "actionability": 4,
+            "clarity": 4,
+            "correctness": 4,
+            "instruction-fit": 4,
+            "uncertainty": 4
+          },
+          "rater_id": "reviewer-one",
+          "rater_label": "Reviewer One",
+          "rationale": "Synthetic ballot: the preference follows the recorded criterion scores, with a deterministic disagreement case included to exercise diagnostics.",
+          "right_scores": {
+            "actionability": 4,
+            "clarity": 4,
+            "correctness": 4,
+            "instruction-fit": 4,
+            "uncertainty": 4
+          }
+        },
+        {
+          "choice": "tie",
+          "confidence": 3,
+          "flags": [
+            "synthetic-demo"
+          ],
+          "left_scores": {
+            "actionability": 4,
+            "clarity": 4,
+            "correctness": 4,
+            "instruction-fit": 4,
+            "uncertainty": 4
+          },
+          "rater_id": "reviewer-two",
+          "rater_label": "Reviewer Two",
+          "rationale": "Synthetic ballot: the preference follows the recorded criterion scores, with a deterministic disagreement case included to exercise diagnostics.",
+          "right_scores": {
+            "actionability": 4,
+            "clarity": 4,
+            "correctness": 4,
+            "instruction-fit": 4,
+            "uncertainty": 5
+          }
+        }
+      ],
+      "right_alias": "Birch",
+      "suggested_action": "Review rationales and rubric scores while aliases remain blinded.",
+      "task_id": "csv-parser",
+      "task_title": "Design a robust measurement CSV parser"
+    },
+    {
+      "ballot_count": 2,
+      "choice_counts": {
+        "left": 1,
+        "tie": 1
+      },
+      "left_alias": "Cedar",
+      "minimum_confidence": 3,
+      "pairing_id": "pair-csv-parser-024",
+      "reasons": [
+        "reviewer_disagreement",
+        "ballot_flags",
+        "tie_vote"
+      ],
+      "reviews": [
+        {
+          "choice": "left",
+          "confidence": 4,
+          "flags": [
+            "synthetic-demo"
+          ],
+          "left_scores": {
+            "actionability": 4,
+            "clarity": 5,
+            "correctness": 4,
+            "instruction-fit": 4,
+            "uncertainty": 5
+          },
+          "rater_id": "reviewer-one",
+          "rater_label": "Reviewer One",
+          "rationale": "Synthetic ballot: the preference follows the recorded criterion scores, with a deterministic disagreement case included to exercise diagnostics.",
+          "right_scores": {
+            "actionability": 4,
+            "clarity": 4,
+            "correctness": 4,
+            "instruction-fit": 4,
+            "uncertainty": 4
+          }
+        },
+        {
+          "choice": "tie",
+          "confidence": 3,
+          "flags": [
+            "synthetic-demo"
+          ],
+          "left_scores": {
+            "actionability": 5,
+            "clarity": 5,
+            "correctness": 4,
+            "instruction-fit": 4,
+            "uncertainty": 4
+          },
+          "rater_id": "reviewer-two",
+          "rater_label": "Reviewer Two",
+          "rationale": "Synthetic ballot: the preference follows the recorded criterion scores, with a deterministic disagreement case included to exercise diagnostics.",
+          "right_scores": {
+            "actionability": 4,
+            "clarity": 4,
+            "correctness": 4,
+            "instruction-fit": 4,
+            "uncertainty": 5
+          }
+        }
+      ],
+      "right_alias": "Birch",
+      "suggested_action": "Review rationales and rubric scores while aliases remain blinded.",
+      "task_id": "csv-parser",
+      "task_title": "Design a robust measurement CSV parser"
+    },
+    {
+      "ballot_count": 2,
+      "choice_counts": {
+        "left": 2
+      },
+      "left_alias": "Birch",
+      "minimum_confidence": 4,
+      "pairing_id": "pair-paper-claim-025",
+      "reasons": [
+        "ballot_flags"
+      ],
+      "reviews": [
+        {
+          "choice": "left",
+          "confidence": 4,
+          "flags": [
+            "synthetic-demo"
+          ],
+          "left_scores": {
+            "actionability": 4,
+            "clarity": 5,
+            "correctness": 4,
+            "instruction-fit": 5,
+            "uncertainty": 5
+          },
+          "rater_id": "reviewer-one",
+          "rater_label": "Reviewer One",
+          "rationale": "Synthetic ballot: the preference follows the recorded criterion scores, with a deterministic disagreement case included to exercise diagnostics.",
+          "right_scores": {
+            "actionability": 4,
+            "clarity": 4,
+            "correctness": 3,
+            "instruction-fit": 3,
+            "uncertainty": 3
+          }
+        },
+        {
+          "choice": "left",
+          "confidence": 4,
+          "flags": [
+            "synthetic-demo"
+          ],
+          "left_scores": {
+            "actionability": 5,
+            "clarity": 5,
+            "correctness": 4,
+            "instruction-fit": 5,
+            "uncertainty": 5
+          },
+          "rater_id": "reviewer-two",
+          "rater_label": "Reviewer Two",
+          "rationale": "Synthetic ballot: the preference follows the recorded criterion scores, with a deterministic disagreement case included to exercise diagnostics.",
+          "right_scores": {
+            "actionability": 4,
+            "clarity": 4,
+            "correctness": 3,
+            "instruction-fit": 3,
+            "uncertainty": 3
+          }
+        }
+      ],
+      "right_alias": "Aster",
+      "suggested_action": "Review rationales and rubric scores while aliases remain blinded.",
+      "task_id": "paper-claim",
+      "task_title": "Audit a paper claim from limited evidence"
+    },
+    {
+      "ballot_count": 2,
+      "choice_counts": {
+        "left": 1,
+        "right": 1
+      },
+      "left_alias": "Dahlia",
+      "minimum_confidence": 4,
+      "pairing_id": "pair-paper-claim-026",
+      "reasons": [
+        "reviewer_disagreement",
+        "ballot_flags"
+      ],
+      "reviews": [
+        {
+          "choice": "right",
+          "confidence": 4,
+          "flags": [
+            "synthetic-demo"
+          ],
+          "left_scores": {
+            "actionability": 5,
+            "clarity": 4,
+            "correctness": 5,
+            "instruction-fit": 5,
+            "uncertainty": 5
+          },
+          "rater_id": "reviewer-one",
+          "rater_label": "Reviewer One",
+          "rationale": "Synthetic ballot: the preference follows the recorded criterion scores, with a deterministic disagreement case included to exercise diagnostics.",
+          "right_scores": {
+            "actionability": 4,
+            "clarity": 4,
+            "correctness": 4,
+            "instruction-fit": 4,
+            "uncertainty": 4
+          }
+        },
+        {
+          "choice": "left",
+          "confidence": 4,
+          "flags": [
+            "synthetic-demo"
+          ],
+          "left_scores": {
+            "actionability": 5,
+            "clarity": 5,
+            "correctness": 5,
+            "instruction-fit": 5,
+            "uncertainty": 5
+          },
+          "rater_id": "reviewer-two",
+          "rater_label": "Reviewer Two",
+          "rationale": "Synthetic ballot: the preference follows the recorded criterion scores, with a deterministic disagreement case included to exercise diagnostics.",
+          "right_scores": {
+            "actionability": 4,
+            "clarity": 4,
+            "correctness": 4,
+            "instruction-fit": 4,
+            "uncertainty": 4
+          }
+        }
+      ],
+      "right_alias": "Cedar",
+      "suggested_action": "Review rationales and rubric scores while aliases remain blinded.",
+      "task_id": "paper-claim",
+      "task_title": "Audit a paper claim from limited evidence"
+    },
+    {
+      "ballot_count": 2,
+      "choice_counts": {
+        "left": 2
+      },
+      "left_alias": "Dahlia",
+      "minimum_confidence": 4,
+      "pairing_id": "pair-paper-claim-027",
+      "reasons": [
+        "ballot_flags"
+      ],
+      "reviews": [
+        {
+          "choice": "left",
+          "confidence": 4,
+          "flags": [
+            "synthetic-demo"
+          ],
+          "left_scores": {
+            "actionability": 5,
+            "clarity": 4,
+            "correctness": 5,
+            "instruction-fit": 5,
+            "uncertainty": 5
+          },
+          "rater_id": "reviewer-one",
+          "rater_label": "Reviewer One",
+          "rationale": "Synthetic ballot: the preference follows the recorded criterion scores, with a deterministic disagreement case included to exercise diagnostics.",
+          "right_scores": {
+            "actionability": 4,
+            "clarity": 4,
+            "correctness": 3,
+            "instruction-fit": 3,
+            "uncertainty": 3
+          }
+        },
+        {
+          "choice": "left",
+          "confidence": 4,
+          "flags": [
+            "synthetic-demo"
+          ],
+          "left_scores": {
+            "actionability": 5,
+            "clarity": 5,
+            "correctness": 5,
+            "instruction-fit": 5,
+            "uncertainty": 5
+          },
+          "rater_id": "reviewer-two",
+          "rater_label": "Reviewer Two",
+          "rationale": "Synthetic ballot: the preference follows the recorded criterion scores, with a deterministic disagreement case included to exercise diagnostics.",
+          "right_scores": {
+            "actionability": 4,
+            "clarity": 4,
+            "correctness": 3,
+            "instruction-fit": 3,
+            "uncertainty": 3
+          }
+        }
+      ],
+      "right_alias": "Aster",
+      "suggested_action": "Review rationales and rubric scores while aliases remain blinded.",
+      "task_id": "paper-claim",
+      "task_title": "Audit a paper claim from limited evidence"
+    },
+    {
+      "ballot_count": 2,
+      "choice_counts": {
+        "tie": 2
+      },
+      "left_alias": "Dahlia",
+      "minimum_confidence": 3,
+      "pairing_id": "pair-paper-claim-028",
+      "reasons": [
+        "ballot_flags",
+        "tie_vote"
+      ],
+      "reviews": [
+        {
+          "choice": "tie",
+          "confidence": 3,
+          "flags": [
+            "synthetic-demo"
+          ],
+          "left_scores": {
+            "actionability": 5,
+            "clarity": 4,
+            "correctness": 5,
+            "instruction-fit": 5,
+            "uncertainty": 5
+          },
+          "rater_id": "reviewer-one",
+          "rater_label": "Reviewer One",
+          "rationale": "Synthetic ballot: the preference follows the recorded criterion scores, with a deterministic disagreement case included to exercise diagnostics.",
+          "right_scores": {
+            "actionability": 4,
+            "clarity": 5,
+            "correctness": 4,
+            "instruction-fit": 5,
+            "uncertainty": 5
+          }
+        },
+        {
+          "choice": "tie",
+          "confidence": 3,
+          "flags": [
+            "synthetic-demo"
+          ],
+          "left_scores": {
+            "actionability": 5,
+            "clarity": 5,
+            "correctness": 5,
+            "instruction-fit": 5,
+            "uncertainty": 5
+          },
+          "rater_id": "reviewer-two",
+          "rater_label": "Reviewer Two",
+          "rationale": "Synthetic ballot: the preference follows the recorded criterion scores, with a deterministic disagreement case included to exercise diagnostics.",
+          "right_scores": {
+            "actionability": 5,
+            "clarity": 5,
+            "correctness": 4,
+            "instruction-fit": 5,
+            "uncertainty": 5
+          }
+        }
+      ],
+      "right_alias": "Birch",
+      "suggested_action": "Review rationales and rubric scores while aliases remain blinded.",
+      "task_id": "paper-claim",
+      "task_title": "Audit a paper claim from limited evidence"
+    },
+    {
+      "ballot_count": 2,
+      "choice_counts": {
+        "left": 2
+      },
+      "left_alias": "Cedar",
+      "minimum_confidence": 4,
+      "pairing_id": "pair-paper-claim-029",
+      "reasons": [
+        "ballot_flags"
+      ],
+      "reviews": [
+        {
+          "choice": "left",
+          "confidence": 4,
+          "flags": [
+            "synthetic-demo"
+          ],
+          "left_scores": {
+            "actionability": 4,
+            "clarity": 4,
+            "correctness": 4,
+            "instruction-fit": 4,
+            "uncertainty": 4
+          },
+          "rater_id": "reviewer-one",
+          "rater_label": "Reviewer One",
+          "rationale": "Synthetic ballot: the preference follows the recorded criterion scores, with a deterministic disagreement case included to exercise diagnostics.",
+          "right_scores": {
+            "actionability": 4,
+            "clarity": 4,
+            "correctness": 3,
+            "instruction-fit": 3,
+            "uncertainty": 3
+          }
+        },
+        {
+          "choice": "left",
+          "confidence": 4,
+          "flags": [
+            "synthetic-demo"
+          ],
+          "left_scores": {
+            "actionability": 4,
+            "clarity": 4,
+            "correctness": 4,
+            "instruction-fit": 4,
+            "uncertainty": 4
+          },
+          "rater_id": "reviewer-two",
+          "rater_label": "Reviewer Two",
+          "rationale": "Synthetic ballot: the preference follows the recorded criterion scores, with a deterministic disagreement case included to exercise diagnostics.",
+          "right_scores": {
+            "actionability": 4,
+            "clarity": 4,
+            "correctness": 3,
+            "instruction-fit": 3,
+            "uncertainty": 3
+          }
+        }
+      ],
+      "right_alias": "Aster",
+      "suggested_action": "Review rationales and rubric scores while aliases remain blinded.",
+      "task_id": "paper-claim",
+      "task_title": "Audit a paper claim from limited evidence"
+    },
+    {
+      "ballot_count": 2,
+      "choice_counts": {
+        "left": 2
+      },
+      "left_alias": "Birch",
+      "minimum_confidence": 4,
+      "pairing_id": "pair-paper-claim-030",
+      "reasons": [
+        "ballot_flags"
+      ],
+      "reviews": [
+        {
+          "choice": "left",
+          "confidence": 4,
+          "flags": [
+            "synthetic-demo"
+          ],
+          "left_scores": {
+            "actionability": 4,
+            "clarity": 5,
+            "correctness": 4,
+            "instruction-fit": 5,
+            "uncertainty": 5
+          },
+          "rater_id": "reviewer-one",
+          "rater_label": "Reviewer One",
+          "rationale": "Synthetic ballot: the preference follows the recorded criterion scores, with a deterministic disagreement case included to exercise diagnostics.",
+          "right_scores": {
+            "actionability": 4,
+            "clarity": 4,
+            "correctness": 4,
+            "instruction-fit": 4,
+            "uncertainty": 4
+          }
+        },
+        {
+          "choice": "left",
+          "confidence": 4,
+          "flags": [
+            "synthetic-demo"
+          ],
+          "left_scores": {
+            "actionability": 5,
+            "clarity": 5,
+            "correctness": 4,
+            "instruction-fit": 5,
+            "uncertainty": 5
+          },
+          "rater_id": "reviewer-two",
+          "rater_label": "Reviewer Two",
+          "rationale": "Synthetic ballot: the preference follows the recorded criterion scores, with a deterministic disagreement case included to exercise diagnostics.",
+          "right_scores": {
+            "actionability": 4,
+            "clarity": 4,
+            "correctness": 4,
+            "instruction-fit": 4,
+            "uncertainty": 4
+          }
+        }
+      ],
+      "right_alias": "Cedar",
+      "suggested_action": "Review rationales and rubric scores while aliases remain blinded.",
+      "task_id": "paper-claim",
+      "task_title": "Audit a paper claim from limited evidence"
+    },
+    {
+      "ballot_count": 2,
+      "choice_counts": {
+        "right": 2
+      },
+      "left_alias": "Aster",
+      "minimum_confidence": 4,
+      "pairing_id": "pair-replication-plan-031",
+      "reasons": [
+        "ballot_flags"
+      ],
+      "reviews": [
+        {
+          "choice": "right",
+          "confidence": 4,
+          "flags": [
+            "synthetic-demo"
+          ],
+          "left_scores": {
+            "actionability": 3,
+            "clarity": 3,
+            "correctness": 3,
+            "instruction-fit": 3,
+            "uncertainty": 4
+          },
+          "rater_id": "reviewer-one",
+          "rater_label": "Reviewer One",
+          "rationale": "Synthetic ballot: the preference follows the recorded criterion scores, with a deterministic disagreement case included to exercise diagnostics.",
+          "right_scores": {
+            "actionability": 5,
+            "clarity": 5,
+            "correctness": 5,
+            "instruction-fit": 5,
+            "uncertainty": 5
+          }
+        },
+        {
+          "choice": "right",
+          "confidence": 4,
+          "flags": [
+            "synthetic-demo"
+          ],
+          "left_scores": {
+            "actionability": 4,
+            "clarity": 3,
+            "correctness": 4,
+            "instruction-fit": 3,
+            "uncertainty": 3
+          },
+          "rater_id": "reviewer-two",
+          "rater_label": "Reviewer Two",
+          "rationale": "Synthetic ballot: the preference follows the recorded criterion scores, with a deterministic disagreement case included to exercise diagnostics.",
+          "right_scores": {
+            "actionability": 5,
+            "clarity": 5,
+            "correctness": 5,
+            "instruction-fit": 5,
+            "uncertainty": 5
+          }
+        }
+      ],
+      "right_alias": "Dahlia",
+      "suggested_action": "Review rationales and rubric scores while aliases remain blinded.",
+      "task_id": "replication-plan",
+      "task_title": "Plan a small replication study"
+    },
+    {
+      "ballot_count": 2,
+      "choice_counts": {
+        "right": 2
+      },
+      "left_alias": "Aster",
+      "minimum_confidence": 4,
+      "pairing_id": "pair-replication-plan-032",
+      "reasons": [
+        "ballot_flags"
+      ],
+      "reviews": [
+        {
+          "choice": "right",
+          "confidence": 4,
+          "flags": [
+            "synthetic-demo"
+          ],
+          "left_scores": {
+            "actionability": 3,
+            "clarity": 3,
+            "correctness": 3,
+            "instruction-fit": 3,
+            "uncertainty": 4
+          },
+          "rater_id": "reviewer-one",
+          "rater_label": "Reviewer One",
+          "rationale": "Synthetic ballot: the preference follows the recorded criterion scores, with a deterministic disagreement case included to exercise diagnostics.",
+          "right_scores": {
+            "actionability": 4,
+            "clarity": 4,
+            "correctness": 4,
+            "instruction-fit": 5,
+            "uncertainty": 5
+          }
+        },
+        {
+          "choice": "right",
+          "confidence": 4,
+          "flags": [
+            "synthetic-demo"
+          ],
+          "left_scores": {
+            "actionability": 4,
+            "clarity": 3,
+            "correctness": 4,
+            "instruction-fit": 3,
+            "uncertainty": 3
+          },
+          "rater_id": "reviewer-two",
+          "rater_label": "Reviewer Two",
+          "rationale": "Synthetic ballot: the preference follows the recorded criterion scores, with a deterministic disagreement case included to exercise diagnostics.",
+          "right_scores": {
+            "actionability": 4,
+            "clarity": 4,
+            "correctness": 4,
+            "instruction-fit": 4,
+            "uncertainty": 4
+          }
+        }
+      ],
+      "right_alias": "Birch",
+      "suggested_action": "Review rationales and rubric scores while aliases remain blinded.",
+      "task_id": "replication-plan",
+      "task_title": "Plan a small replication study"
+    },
+    {
+      "ballot_count": 2,
+      "choice_counts": {
+        "right": 2
+      },
+      "left_alias": "Birch",
+      "minimum_confidence": 4,
+      "pairing_id": "pair-replication-plan-033",
+      "reasons": [
+        "ballot_flags"
+      ],
+      "reviews": [
+        {
+          "choice": "right",
+          "confidence": 4,
+          "flags": [
+            "synthetic-demo"
+          ],
+          "left_scores": {
+            "actionability": 4,
+            "clarity": 4,
+            "correctness": 4,
+            "instruction-fit": 5,
+            "uncertainty": 5
+          },
+          "rater_id": "reviewer-one",
+          "rater_label": "Reviewer One",
+          "rationale": "Synthetic ballot: the preference follows the recorded criterion scores, with a deterministic disagreement case included to exercise diagnostics.",
+          "right_scores": {
+            "actionability": 5,
+            "clarity": 5,
+            "correctness": 5,
+            "instruction-fit": 5,
+            "uncertainty": 5
+          }
+        },
+        {
+          "choice": "right",
+          "confidence": 4,
+          "flags": [
+            "synthetic-demo"
+          ],
+          "left_scores": {
+            "actionability": 4,
+            "clarity": 4,
+            "correctness": 4,
+            "instruction-fit": 4,
+            "uncertainty": 4
+          },
+          "rater_id": "reviewer-two",
+          "rater_label": "Reviewer Two",
+          "rationale": "Synthetic ballot: the preference follows the recorded criterion scores, with a deterministic disagreement case included to exercise diagnostics.",
+          "right_scores": {
+            "actionability": 5,
+            "clarity": 5,
+            "correctness": 5,
+            "instruction-fit": 5,
+            "uncertainty": 5
+          }
+        }
+      ],
+      "right_alias": "Dahlia",
+      "suggested_action": "Review rationales and rubric scores while aliases remain blinded.",
+      "task_id": "replication-plan",
+      "task_title": "Plan a small replication study"
+    },
+    {
+      "ballot_count": 2,
+      "choice_counts": {
+        "right": 2
+      },
+      "left_alias": "Aster",
+      "minimum_confidence": 4,
+      "pairing_id": "pair-replication-plan-034",
+      "reasons": [
+        "ballot_flags"
+      ],
+      "reviews": [
+        {
+          "choice": "right",
+          "confidence": 4,
+          "flags": [
+            "synthetic-demo"
+          ],
+          "left_scores": {
+            "actionability": 3,
+            "clarity": 3,
+            "correctness": 3,
+            "instruction-fit": 3,
+            "uncertainty": 4
+          },
+          "rater_id": "reviewer-one",
+          "rater_label": "Reviewer One",
+          "rationale": "Synthetic ballot: the preference follows the recorded criterion scores, with a deterministic disagreement case included to exercise diagnostics.",
+          "right_scores": {
+            "actionability": 5,
+            "clarity": 5,
+            "correctness": 5,
+            "instruction-fit": 5,
+            "uncertainty": 5
+          }
+        },
+        {
+          "choice": "right",
+          "confidence": 4,
+          "flags": [
+            "synthetic-demo"
+          ],
+          "left_scores": {
+            "actionability": 4,
+            "clarity": 3,
+            "correctness": 4,
+            "instruction-fit": 3,
+            "uncertainty": 3
+          },
+          "rater_id": "reviewer-two",
+          "rater_label": "Reviewer Two",
+          "rationale": "Synthetic ballot: the preference follows the recorded criterion scores, with a deterministic disagreement case included to exercise diagnostics.",
+          "right_scores": {
+            "actionability": 5,
+            "clarity": 4,
+            "correctness": 4,
+            "instruction-fit": 5,
+            "uncertainty": 5
+          }
+        }
+      ],
+      "right_alias": "Cedar",
+      "suggested_action": "Review rationales and rubric scores while aliases remain blinded.",
+      "task_id": "replication-plan",
+      "task_title": "Plan a small replication study"
+    },
+    {
+      "ballot_count": 2,
+      "choice_counts": {
+        "left": 2
+      },
+      "left_alias": "Cedar",
+      "minimum_confidence": 4,
+      "pairing_id": "pair-replication-plan-035",
+      "reasons": [
+        "ballot_flags"
+      ],
+      "reviews": [
+        {
+          "choice": "left",
+          "confidence": 4,
+          "flags": [
+            "synthetic-demo"
+          ],
+          "left_scores": {
+            "actionability": 5,
+            "clarity": 5,
+            "correctness": 5,
+            "instruction-fit": 5,
+            "uncertainty": 5
+          },
+          "rater_id": "reviewer-one",
+          "rater_label": "Reviewer One",
+          "rationale": "Synthetic ballot: the preference follows the recorded criterion scores, with a deterministic disagreement case included to exercise diagnostics.",
+          "right_scores": {
+            "actionability": 4,
+            "clarity": 4,
+            "correctness": 4,
+            "instruction-fit": 5,
+            "uncertainty": 5
+          }
+        },
+        {
+          "choice": "left",
+          "confidence": 4,
+          "flags": [
+            "synthetic-demo"
+          ],
+          "left_scores": {
+            "actionability": 5,
+            "clarity": 4,
+            "correctness": 4,
+            "instruction-fit": 5,
+            "uncertainty": 5
+          },
+          "rater_id": "reviewer-two",
+          "rater_label": "Reviewer Two",
+          "rationale": "Synthetic ballot: the preference follows the recorded criterion scores, with a deterministic disagreement case included to exercise diagnostics.",
+          "right_scores": {
+            "actionability": 4,
+            "clarity": 4,
+            "correctness": 4,
+            "instruction-fit": 4,
+            "uncertainty": 4
+          }
+        }
+      ],
+      "right_alias": "Birch",
+      "suggested_action": "Review rationales and rubric scores while aliases remain blinded.",
+      "task_id": "replication-plan",
+      "task_title": "Plan a small replication study"
+    },
+    {
+      "ballot_count": 2,
+      "choice_counts": {
+        "right": 1,
+        "tie": 1
+      },
+      "left_alias": "Cedar",
+      "minimum_confidence": 3,
+      "pairing_id": "pair-replication-plan-036",
+      "reasons": [
+        "reviewer_disagreement",
+        "ballot_flags",
+        "tie_vote"
+      ],
+      "reviews": [
+        {
+          "choice": "tie",
+          "confidence": 3,
+          "flags": [
+            "synthetic-demo"
+          ],
+          "left_scores": {
+            "actionability": 5,
+            "clarity": 5,
+            "correctness": 5,
+            "instruction-fit": 5,
+            "uncertainty": 5
+          },
+          "rater_id": "reviewer-one",
+          "rater_label": "Reviewer One",
+          "rationale": "Synthetic ballot: the preference follows the recorded criterion scores, with a deterministic disagreement case included to exercise diagnostics.",
+          "right_scores": {
+            "actionability": 5,
+            "clarity": 5,
+            "correctness": 5,
+            "instruction-fit": 5,
+            "uncertainty": 5
+          }
+        },
+        {
+          "choice": "right",
+          "confidence": 4,
+          "flags": [
+            "synthetic-demo"
+          ],
+          "left_scores": {
+            "actionability": 5,
+            "clarity": 4,
+            "correctness": 4,
+            "instruction-fit": 5,
+            "uncertainty": 5
+          },
+          "rater_id": "reviewer-two",
+          "rater_label": "Reviewer Two",
+          "rationale": "Synthetic ballot: the preference follows the recorded criterion scores, with a deterministic disagreement case included to exercise diagnostics.",
+          "right_scores": {
+            "actionability": 5,
+            "clarity": 5,
+            "correctness": 5,
+            "instruction-fit": 5,
+            "uncertainty": 5
+          }
+        }
+      ],
+      "right_alias": "Dahlia",
+      "suggested_action": "Review rationales and rubric scores while aliases remain blinded.",
+      "task_id": "replication-plan",
+      "task_title": "Plan a small replication study"
+    },
+    {
+      "ballot_count": 2,
+      "choice_counts": {
+        "left": 2
+      },
+      "left_alias": "Dahlia",
+      "minimum_confidence": 4,
+      "pairing_id": "pair-rf-fault-037",
+      "reasons": [
+        "ballot_flags"
+      ],
+      "reviews": [
+        {
+          "choice": "left",
+          "confidence": 4,
+          "flags": [
+            "synthetic-demo"
+          ],
+          "left_scores": {
+            "actionability": 4,
+            "clarity": 5,
+            "correctness": 4,
+            "instruction-fit": 5,
+            "uncertainty": 4
+          },
+          "rater_id": "reviewer-one",
+          "rater_label": "Reviewer One",
+          "rationale": "Synthetic ballot: the preference follows the recorded criterion scores, with a deterministic disagreement case included to exercise diagnostics.",
+          "right_scores": {
+            "actionability": 4,
+            "clarity": 4,
+            "correctness": 4,
+            "instruction-fit": 4,
+            "uncertainty": 4
+          }
+        },
+        {
+          "choice": "left",
+          "confidence": 4,
+          "flags": [
+            "synthetic-demo"
+          ],
+          "left_scores": {
+            "actionability": 4,
+            "clarity": 5,
+            "correctness": 5,
+            "instruction-fit": 5,
+            "uncertainty": 5
+          },
+          "rater_id": "reviewer-two",
+          "rater_label": "Reviewer Two",
+          "rationale": "Synthetic ballot: the preference follows the recorded criterion scores, with a deterministic disagreement case included to exercise diagnostics.",
+          "right_scores": {
+            "actionability": 4,
+            "clarity": 4,
+            "correctness": 4,
+            "instruction-fit": 4,
+            "uncertainty": 4
+          }
+        }
+      ],
+      "right_alias": "Birch",
+      "suggested_action": "Review rationales and rubric scores while aliases remain blinded.",
+      "task_id": "rf-fault",
+      "task_title": "Explain an RF anomaly without overclaiming"
+    },
+    {
+      "ballot_count": 2,
+      "choice_counts": {
+        "left": 2
+      },
+      "left_alias": "Dahlia",
+      "minimum_confidence": 4,
+      "pairing_id": "pair-rf-fault-038",
+      "reasons": [
+        "ballot_flags"
+      ],
+      "reviews": [
+        {
+          "choice": "left",
+          "confidence": 4,
+          "flags": [
+            "synthetic-demo"
+          ],
+          "left_scores": {
+            "actionability": 4,
+            "clarity": 5,
+            "correctness": 4,
+            "instruction-fit": 5,
+            "uncertainty": 4
+          },
+          "rater_id": "reviewer-one",
+          "rater_label": "Reviewer One",
+          "rationale": "Synthetic ballot: the preference follows the recorded criterion scores, with a deterministic disagreement case included to exercise diagnostics.",
+          "right_scores": {
+            "actionability": 4,
+            "clarity": 4,
+            "correctness": 4,
+            "instruction-fit": 4,
+            "uncertainty": 4
+          }
+        },
+        {
+          "choice": "left",
+          "confidence": 4,
+          "flags": [
+            "synthetic-demo"
+          ],
+          "left_scores": {
+            "actionability": 4,
+            "clarity": 5,
+            "correctness": 5,
+            "instruction-fit": 5,
+            "uncertainty": 5
+          },
+          "rater_id": "reviewer-two",
+          "rater_label": "Reviewer Two",
+          "rationale": "Synthetic ballot: the preference follows the recorded criterion scores, with a deterministic disagreement case included to exercise diagnostics.",
+          "right_scores": {
+            "actionability": 4,
+            "clarity": 4,
+            "correctness": 4,
+            "instruction-fit": 4,
+            "uncertainty": 4
+          }
+        }
+      ],
+      "right_alias": "Aster",
+      "suggested_action": "Review rationales and rubric scores while aliases remain blinded.",
+      "task_id": "rf-fault",
+      "task_title": "Explain an RF anomaly without overclaiming"
+    },
+    {
+      "ballot_count": 2,
+      "choice_counts": {
+        "tie": 2
+      },
+      "left_alias": "Birch",
+      "minimum_confidence": 3,
+      "pairing_id": "pair-rf-fault-039",
+      "reasons": [
+        "ballot_flags",
+        "tie_vote"
+      ],
+      "reviews": [
+        {
+          "choice": "tie",
+          "confidence": 3,
+          "flags": [
+            "synthetic-demo"
+          ],
+          "left_scores": {
+            "actionability": 4,
+            "clarity": 4,
+            "correctness": 4,
+            "instruction-fit": 4,
+            "uncertainty": 4
+          },
+          "rater_id": "reviewer-one",
+          "rater_label": "Reviewer One",
+          "rationale": "Synthetic ballot: the preference follows the recorded criterion scores, with a deterministic disagreement case included to exercise diagnostics.",
+          "right_scores": {
+            "actionability": 4,
+            "clarity": 4,
+            "correctness": 4,
+            "instruction-fit": 4,
+            "uncertainty": 4
+          }
+        },
+        {
+          "choice": "tie",
+          "confidence": 3,
+          "flags": [
+            "synthetic-demo"
+          ],
+          "left_scores": {
+            "actionability": 4,
+            "clarity": 4,
+            "correctness": 4,
+            "instruction-fit": 4,
+            "uncertainty": 4
+          },
+          "rater_id": "reviewer-two",
+          "rater_label": "Reviewer Two",
+          "rationale": "Synthetic ballot: the preference follows the recorded criterion scores, with a deterministic disagreement case included to exercise diagnostics.",
+          "right_scores": {
+            "actionability": 4,
+            "clarity": 4,
+            "correctness": 4,
+            "instruction-fit": 4,
+            "uncertainty": 4
+          }
+        }
+      ],
+      "right_alias": "Aster",
+      "suggested_action": "Review rationales and rubric scores while aliases remain blinded.",
+      "task_id": "rf-fault",
+      "task_title": "Explain an RF anomaly without overclaiming"
+    },
+    {
+      "ballot_count": 2,
+      "choice_counts": {
+        "tie": 2
+      },
+      "left_alias": "Dahlia",
+      "minimum_confidence": 3,
+      "pairing_id": "pair-rf-fault-040",
+      "reasons": [
+        "ballot_flags",
+        "tie_vote"
+      ],
+      "reviews": [
+        {
+          "choice": "tie",
+          "confidence": 3,
+          "flags": [
+            "synthetic-demo"
+          ],
+          "left_scores": {
+            "actionability": 4,
+            "clarity": 5,
+            "correctness": 4,
+            "instruction-fit": 5,
+            "uncertainty": 4
+          },
+          "rater_id": "reviewer-one",
+          "rater_label": "Reviewer One",
+          "rationale": "Synthetic ballot: the preference follows the recorded criterion scores, with a deterministic disagreement case included to exercise diagnostics.",
+          "right_scores": {
+            "actionability": 5,
+            "clarity": 5,
+            "correctness": 4,
+            "instruction-fit": 5,
+            "uncertainty": 4
+          }
+        },
+        {
+          "choice": "tie",
+          "confidence": 3,
+          "flags": [
+            "synthetic-demo"
+          ],
+          "left_scores": {
+            "actionability": 4,
+            "clarity": 5,
+            "correctness": 5,
+            "instruction-fit": 5,
+            "uncertainty": 5
+          },
+          "rater_id": "reviewer-two",
+          "rater_label": "Reviewer Two",
+          "rationale": "Synthetic ballot: the preference follows the recorded criterion scores, with a deterministic disagreement case included to exercise diagnostics.",
+          "right_scores": {
+            "actionability": 5,
+            "clarity": 4,
+            "correctness": 5,
+            "instruction-fit": 5,
+            "uncertainty": 5
+          }
+        }
+      ],
+      "right_alias": "Cedar",
+      "suggested_action": "Review rationales and rubric scores while aliases remain blinded.",
+      "task_id": "rf-fault",
+      "task_title": "Explain an RF anomaly without overclaiming"
+    },
+    {
+      "ballot_count": 2,
+      "choice_counts": {
+        "right": 2
+      },
+      "left_alias": "Birch",
+      "minimum_confidence": 4,
+      "pairing_id": "pair-rf-fault-041",
+      "reasons": [
+        "ballot_flags"
+      ],
+      "reviews": [
+        {
+          "choice": "right",
+          "confidence": 4,
+          "flags": [
+            "synthetic-demo"
+          ],
+          "left_scores": {
+            "actionability": 4,
+            "clarity": 4,
+            "correctness": 4,
+            "instruction-fit": 4,
+            "uncertainty": 4
+          },
+          "rater_id": "reviewer-one",
+          "rater_label": "Reviewer One",
+          "rationale": "Synthetic ballot: the preference follows the recorded criterion scores, with a deterministic disagreement case included to exercise diagnostics.",
+          "right_scores": {
+            "actionability": 5,
+            "clarity": 5,
+            "correctness": 4,
+            "instruction-fit": 5,
+            "uncertainty": 4
+          }
+        },
+        {
+          "choice": "right",
+          "confidence": 4,
+          "flags": [
+            "synthetic-demo"
+          ],
+          "left_scores": {
+            "actionability": 4,
+            "clarity": 4,
+            "correctness": 4,
+            "instruction-fit": 4,
+            "uncertainty": 4
+          },
+          "rater_id": "reviewer-two",
+          "rater_label": "Reviewer Two",
+          "rationale": "Synthetic ballot: the preference follows the recorded criterion scores, with a deterministic disagreement case included to exercise diagnostics.",
+          "right_scores": {
+            "actionability": 5,
+            "clarity": 4,
+            "correctness": 5,
+            "instruction-fit": 5,
+            "uncertainty": 5
+          }
+        }
+      ],
+      "right_alias": "Cedar",
+      "suggested_action": "Review rationales and rubric scores while aliases remain blinded.",
+      "task_id": "rf-fault",
+      "task_title": "Explain an RF anomaly without overclaiming"
+    },
+    {
+      "ballot_count": 2,
+      "choice_counts": {
+        "left": 2
+      },
+      "left_alias": "Cedar",
+      "minimum_confidence": 4,
+      "pairing_id": "pair-rf-fault-042",
+      "reasons": [
+        "ballot_flags"
+      ],
+      "reviews": [
+        {
+          "choice": "left",
+          "confidence": 4,
+          "flags": [
+            "synthetic-demo"
+          ],
+          "left_scores": {
+            "actionability": 5,
+            "clarity": 5,
+            "correctness": 4,
+            "instruction-fit": 5,
+            "uncertainty": 4
+          },
+          "rater_id": "reviewer-one",
+          "rater_label": "Reviewer One",
+          "rationale": "Synthetic ballot: the preference follows the recorded criterion scores, with a deterministic disagreement case included to exercise diagnostics.",
+          "right_scores": {
+            "actionability": 4,
+            "clarity": 4,
+            "correctness": 4,
+            "instruction-fit": 4,
+            "uncertainty": 4
+          }
+        },
+        {
+          "choice": "left",
+          "confidence": 4,
+          "flags": [
+            "synthetic-demo"
+          ],
+          "left_scores": {
+            "actionability": 5,
+            "clarity": 4,
+            "correctness": 5,
+            "instruction-fit": 5,
+            "uncertainty": 5
+          },
+          "rater_id": "reviewer-two",
+          "rater_label": "Reviewer Two",
+          "rationale": "Synthetic ballot: the preference follows the recorded criterion scores, with a deterministic disagreement case included to exercise diagnostics.",
+          "right_scores": {
+            "actionability": 4,
+            "clarity": 4,
+            "correctness": 4,
+            "instruction-fit": 4,
+            "uncertainty": 4
+          }
+        }
+      ],
+      "right_alias": "Aster",
+      "suggested_action": "Review rationales and rubric scores while aliases remain blinded.",
+      "task_id": "rf-fault",
+      "task_title": "Explain an RF anomaly without overclaiming"
+    },
+    {
+      "ballot_count": 2,
+      "choice_counts": {
+        "right": 2
+      },
+      "left_alias": "Cedar",
+      "minimum_confidence": 4,
+      "pairing_id": "pair-table-reading-043",
+      "reasons": [
+        "ballot_flags"
+      ],
+      "reviews": [
+        {
+          "choice": "right",
+          "confidence": 4,
+          "flags": [
+            "synthetic-demo"
+          ],
+          "left_scores": {
+            "actionability": 4,
+            "clarity": 4,
+            "correctness": 4,
+            "instruction-fit": 4,
+            "uncertainty": 4
+          },
+          "rater_id": "reviewer-one",
+          "rater_label": "Reviewer One",
+          "rationale": "Synthetic ballot: the preference follows the recorded criterion scores, with a deterministic disagreement case included to exercise diagnostics.",
+          "right_scores": {
+            "actionability": 5,
+            "clarity": 4,
+            "correctness": 4,
+            "instruction-fit": 5,
+            "uncertainty": 5
+          }
+        },
+        {
+          "choice": "right",
+          "confidence": 4,
+          "flags": [
+            "synthetic-demo"
+          ],
+          "left_scores": {
+            "actionability": 4,
+            "clarity": 4,
+            "correctness": 4,
+            "instruction-fit": 4,
+            "uncertainty": 4
+          },
+          "rater_id": "reviewer-two",
+          "rater_label": "Reviewer Two",
+          "rationale": "Synthetic ballot: the preference follows the recorded criterion scores, with a deterministic disagreement case included to exercise diagnostics.",
+          "right_scores": {
+            "actionability": 4,
+            "clarity": 5,
+            "correctness": 4,
+            "instruction-fit": 5,
+            "uncertainty": 5
+          }
+        }
+      ],
+      "right_alias": "Birch",
+      "suggested_action": "Review rationales and rubric scores while aliases remain blinded.",
+      "task_id": "table-reading",
+      "task_title": "Interpret an incomplete benchmark table"
+    },
+    {
+      "ballot_count": 2,
+      "choice_counts": {
+        "right": 2
+      },
+      "left_alias": "Cedar",
+      "minimum_confidence": 4,
+      "pairing_id": "pair-table-reading-044",
+      "reasons": [
+        "ballot_flags"
+      ],
+      "reviews": [
+        {
+          "choice": "right",
+          "confidence": 4,
+          "flags": [
+            "synthetic-demo"
+          ],
+          "left_scores": {
+            "actionability": 4,
+            "clarity": 4,
+            "correctness": 4,
+            "instruction-fit": 4,
+            "uncertainty": 4
+          },
+          "rater_id": "reviewer-one",
+          "rater_label": "Reviewer One",
+          "rationale": "Synthetic ballot: the preference follows the recorded criterion scores, with a deterministic disagreement case included to exercise diagnostics.",
+          "right_scores": {
+            "actionability": 4,
+            "clarity": 5,
+            "correctness": 5,
+            "instruction-fit": 4,
+            "uncertainty": 4
+          }
+        },
+        {
+          "choice": "right",
+          "confidence": 4,
+          "flags": [
+            "synthetic-demo"
+          ],
+          "left_scores": {
+            "actionability": 4,
+            "clarity": 4,
+            "correctness": 4,
+            "instruction-fit": 4,
+            "uncertainty": 4
+          },
+          "rater_id": "reviewer-two",
+          "rater_label": "Reviewer Two",
+          "rationale": "Synthetic ballot: the preference follows the recorded criterion scores, with a deterministic disagreement case included to exercise diagnostics.",
+          "right_scores": {
+            "actionability": 5,
+            "clarity": 5,
+            "correctness": 5,
+            "instruction-fit": 5,
+            "uncertainty": 5
+          }
+        }
+      ],
+      "right_alias": "Dahlia",
+      "suggested_action": "Review rationales and rubric scores while aliases remain blinded.",
+      "task_id": "table-reading",
+      "task_title": "Interpret an incomplete benchmark table"
+    },
+    {
+      "ballot_count": 2,
+      "choice_counts": {
+        "right": 2
+      },
+      "left_alias": "Aster",
+      "minimum_confidence": 4,
+      "pairing_id": "pair-table-reading-045",
+      "reasons": [
+        "ballot_flags"
+      ],
+      "reviews": [
+        {
+          "choice": "right",
+          "confidence": 4,
+          "flags": [
+            "synthetic-demo"
+          ],
+          "left_scores": {
+            "actionability": 4,
+            "clarity": 4,
+            "correctness": 4,
+            "instruction-fit": 4,
+            "uncertainty": 3
+          },
+          "rater_id": "reviewer-one",
+          "rater_label": "Reviewer One",
+          "rationale": "Synthetic ballot: the preference follows the recorded criterion scores, with a deterministic disagreement case included to exercise diagnostics.",
+          "right_scores": {
+            "actionability": 4,
+            "clarity": 5,
+            "correctness": 5,
+            "instruction-fit": 4,
+            "uncertainty": 4
+          }
+        },
+        {
+          "choice": "right",
+          "confidence": 4,
+          "flags": [
+            "synthetic-demo"
+          ],
+          "left_scores": {
+            "actionability": 4,
+            "clarity": 4,
+            "correctness": 3,
+            "instruction-fit": 3,
+            "uncertainty": 3
+          },
+          "rater_id": "reviewer-two",
+          "rater_label": "Reviewer Two",
+          "rationale": "Synthetic ballot: the preference follows the recorded criterion scores, with a deterministic disagreement case included to exercise diagnostics.",
+          "right_scores": {
+            "actionability": 5,
+            "clarity": 5,
+            "correctness": 5,
+            "instruction-fit": 5,
+            "uncertainty": 5
+          }
+        }
+      ],
+      "right_alias": "Dahlia",
+      "suggested_action": "Review rationales and rubric scores while aliases remain blinded.",
+      "task_id": "table-reading",
+      "task_title": "Interpret an incomplete benchmark table"
+    },
+    {
+      "ballot_count": 2,
+      "choice_counts": {
+        "right": 1,
+        "tie": 1
+      },
+      "left_alias": "Aster",
+      "minimum_confidence": 3,
+      "pairing_id": "pair-table-reading-046",
+      "reasons": [
+        "reviewer_disagreement",
+        "ballot_flags",
+        "tie_vote"
+      ],
+      "reviews": [
+        {
+          "choice": "tie",
+          "confidence": 3,
+          "flags": [
+            "synthetic-demo"
+          ],
+          "left_scores": {
+            "actionability": 4,
+            "clarity": 4,
+            "correctness": 4,
+            "instruction-fit": 4,
+            "uncertainty": 3
+          },
+          "rater_id": "reviewer-one",
+          "rater_label": "Reviewer One",
+          "rationale": "Synthetic ballot: the preference follows the recorded criterion scores, with a deterministic disagreement case included to exercise diagnostics.",
+          "right_scores": {
+            "actionability": 4,
+            "clarity": 4,
+            "correctness": 4,
+            "instruction-fit": 4,
+            "uncertainty": 4
+          }
+        },
+        {
+          "choice": "right",
+          "confidence": 4,
+          "flags": [
+            "synthetic-demo"
+          ],
+          "left_scores": {
+            "actionability": 4,
+            "clarity": 4,
+            "correctness": 3,
+            "instruction-fit": 3,
+            "uncertainty": 3
+          },
+          "rater_id": "reviewer-two",
+          "rater_label": "Reviewer Two",
+          "rationale": "Synthetic ballot: the preference follows the recorded criterion scores, with a deterministic disagreement case included to exercise diagnostics.",
+          "right_scores": {
+            "actionability": 4,
+            "clarity": 4,
+            "correctness": 4,
+            "instruction-fit": 4,
+            "uncertainty": 4
+          }
+        }
+      ],
+      "right_alias": "Cedar",
+      "suggested_action": "Review rationales and rubric scores while aliases remain blinded.",
+      "task_id": "table-reading",
+      "task_title": "Interpret an incomplete benchmark table"
+    },
+    {
+      "ballot_count": 2,
+      "choice_counts": {
+        "right": 2
+      },
+      "left_alias": "Aster",
+      "minimum_confidence": 4,
+      "pairing_id": "pair-table-reading-047",
+      "reasons": [
+        "ballot_flags"
+      ],
+      "reviews": [
+        {
+          "choice": "right",
+          "confidence": 4,
+          "flags": [
+            "synthetic-demo"
+          ],
+          "left_scores": {
+            "actionability": 4,
+            "clarity": 4,
+            "correctness": 4,
+            "instruction-fit": 4,
+            "uncertainty": 3
+          },
+          "rater_id": "reviewer-one",
+          "rater_label": "Reviewer One",
+          "rationale": "Synthetic ballot: the preference follows the recorded criterion scores, with a deterministic disagreement case included to exercise diagnostics.",
+          "right_scores": {
+            "actionability": 5,
+            "clarity": 4,
+            "correctness": 4,
+            "instruction-fit": 5,
+            "uncertainty": 5
+          }
+        },
+        {
+          "choice": "right",
+          "confidence": 4,
+          "flags": [
+            "synthetic-demo"
+          ],
+          "left_scores": {
+            "actionability": 4,
+            "clarity": 4,
+            "correctness": 3,
+            "instruction-fit": 3,
+            "uncertainty": 3
+          },
+          "rater_id": "reviewer-two",
+          "rater_label": "Reviewer Two",
+          "rationale": "Synthetic ballot: the preference follows the recorded criterion scores, with a deterministic disagreement case included to exercise diagnostics.",
+          "right_scores": {
+            "actionability": 4,
+            "clarity": 5,
+            "correctness": 4,
+            "instruction-fit": 5,
+            "uncertainty": 5
+          }
+        }
+      ],
+      "right_alias": "Birch",
+      "suggested_action": "Review rationales and rubric scores while aliases remain blinded.",
+      "task_id": "table-reading",
+      "task_title": "Interpret an incomplete benchmark table"
+    },
+    {
+      "ballot_count": 2,
+      "choice_counts": {
+        "right": 1,
+        "tie": 1
+      },
+      "left_alias": "Birch",
+      "minimum_confidence": 3,
+      "pairing_id": "pair-table-reading-048",
+      "reasons": [
+        "reviewer_disagreement",
+        "ballot_flags",
+        "tie_vote"
+      ],
+      "reviews": [
+        {
+          "choice": "tie",
+          "confidence": 3,
+          "flags": [
+            "synthetic-demo"
+          ],
+          "left_scores": {
+            "actionability": 5,
+            "clarity": 4,
+            "correctness": 4,
+            "instruction-fit": 5,
+            "uncertainty": 5
+          },
+          "rater_id": "reviewer-one",
+          "rater_label": "Reviewer One",
+          "rationale": "Synthetic ballot: the preference follows the recorded criterion scores, with a deterministic disagreement case included to exercise diagnostics.",
+          "right_scores": {
+            "actionability": 4,
+            "clarity": 5,
+            "correctness": 5,
+            "instruction-fit": 4,
+            "uncertainty": 4
+          }
+        },
+        {
+          "choice": "right",
+          "confidence": 4,
+          "flags": [
+            "synthetic-demo"
+          ],
+          "left_scores": {
+            "actionability": 4,
+            "clarity": 5,
+            "correctness": 4,
+            "instruction-fit": 5,
+            "uncertainty": 5
+          },
+          "rater_id": "reviewer-two",
+          "rater_label": "Reviewer Two",
+          "rationale": "Synthetic ballot: the preference follows the recorded criterion scores, with a deterministic disagreement case included to exercise diagnostics.",
+          "right_scores": {
+            "actionability": 5,
+            "clarity": 5,
+            "correctness": 5,
+            "instruction-fit": 5,
+            "uncertainty": 5
+          }
+        }
+      ],
+      "right_alias": "Dahlia",
+      "suggested_action": "Review rationales and rubric scores while aliases remain blinded.",
+      "task_id": "table-reading",
+      "task_title": "Interpret an incomplete benchmark table"
+    }
+  ],
+  "summary": {
+    "balloted_pairings": 48,
+    "queued_pairings": 48,
+    "reason_counts": {
+      "ballot_flags": 48,
+      "reviewer_disagreement": 11,
+      "tie_vote": 14
+    }
+  },
+  "trial_state": "frozen"
+}

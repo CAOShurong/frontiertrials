@@ -32,6 +32,8 @@ jobs:
           cp examples/demo/packets/reviewer-one.html public/demo/
           cp examples/demo/reports/ranking.csv public/demo/
           cp examples/demo/reports/protocol.md public/demo/
+          cp examples/demo/reports/adjudication.md public/demo/
+          cp examples/demo/reports/adjudication.json public/demo/
           cp schemas/*.json public/schemas/
           touch public/.nojekyll
       - uses: actions/configure-pages@v6

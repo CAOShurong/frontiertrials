@@ -34,10 +34,15 @@ def build_seal(trial: Trial) -> dict[str, Any]:
     }
 
 
-def write_seal(trial: Trial, output: str | Path | None = None) -> Path:
+def write_seal(
+    trial: Trial,
+    output: str | Path | None = None,
+    *,
+    created_at: str | None = None,
+) -> Path:
     destination = Path(output) if output else trial.root / "frontiertrials-seal.json"
     seal = build_seal(trial)
-    seal["created_at"] = utc_now()
+    seal["created_at"] = created_at or utc_now()
     write_json(destination, seal)
     return destination
 

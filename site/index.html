@@ -3,174 +3,144 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="FrontierTrials is a local-first workbench for reproducible blind evaluations of AI web-app outputs, with no API keys required.">
-  <meta name="theme-color" content="#101147">
-  <title>FrontierTrials — blind AI evaluations without API keys</title>
+  <meta name="description" content="FrontierTrials is a local-first protocol for blind, auditable evaluations of AI web-app outputs without API keys.">
+  <meta name="theme-color" content="#24384c">
+  <title>FrontierTrials — blind AI product trials without API keys</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
-  <header class="nav">
-    <a class="brand" href="#" aria-label="FrontierTrials home">
-      <span class="brand-mark" aria-hidden="true">FT</span>
-      <span>FrontierTrials</span>
-    </a>
+  <header class="masthead">
+    <a class="brand" href="#">FrontierTrials <span>v0.2</span></a>
     <nav aria-label="Primary navigation">
-      <a href="#workflow">Workflow</a>
+      <a href="#method">Method</a>
       <a href="#evidence">Evidence</a>
       <a href="#limits">Limits</a>
-      <a class="nav-cta" href="https://github.com/CAOShurong/frontiertrials">GitHub ↗</a>
+      <a href="https://github.com/CAOShurong/frontiertrials">GitHub ↗</a>
     </nav>
   </header>
 
   <main id="main">
     <section class="hero">
-      <div class="hero-copy">
-        <p class="eyebrow"><span></span> Local-first · no API keys · auditable by design</p>
-        <h1>Judge the output.<br><em>Not the logo.</em></h1>
-        <p class="lede">
-          Turn responses copied from AI web apps into balanced blind comparisons,
-          offline reviewer packets, uncertainty-aware rankings, and sealed evidence.
+      <div>
+        <p class="kicker">Local methods toolkit · Python 3.11+ · zero runtime dependencies</p>
+        <h1>Blind-test the AI products you actually use.</h1>
+        <p class="abstract">
+          Preserve responses copied from subscription interfaces, allocate balanced anonymous
+          comparisons, collect offline human judgments, resolve contested cases before reveal,
+          and publish an evidence-linked result.
         </p>
         <div class="actions">
-          <a class="button primary" href="demo/trial-report.html">Explore the revealed report</a>
-          <a class="button secondary" href="demo/reviewer-one.html">Open a blind packet</a>
+          <a class="button primary" href="demo/trial-report.html">Read the demonstration report</a>
+          <a class="button" href="demo/reviewer-one.html">Open a blind review packet</a>
         </div>
-        <p class="boundary">The public demo is entirely fictional. It proves the workflow, not model quality.</p>
+        <p class="note">The public demonstration is entirely fictional. It validates the workflow, not any model.</p>
       </div>
-      <div class="hero-visual" aria-label="A stylized blind comparison interface">
-        <div class="orbit orbit-one"></div>
-        <div class="orbit orbit-two"></div>
-        <div class="trial-card">
-          <div class="trial-head">
-            <span>PAIR 017 / 048</span>
-            <span class="blind">IDENTITIES HIDDEN</span>
-          </div>
-          <div class="answers">
-            <article>
-              <span class="alias peach">EMBER–KITE</span>
-              <div class="line long"></div><div class="line"></div><div class="line short"></div>
-            </article>
-            <div class="versus">VS</div>
-            <article>
-              <span class="alias lime">MOSS–ORBIT</span>
-              <div class="line"></div><div class="line long"></div><div class="line short"></div>
-            </article>
-          </div>
-          <div class="judgment">
-            <span>LEFT</span><strong>TIE</strong><span>RIGHT</span>
-          </div>
-          <div class="integrity">SHA-256 VERIFIED <b>●</b></div>
+
+      <figure class="trial-figure" aria-label="Diagram of a blinded response comparison">
+        <figcaption>Figure 1 · A blinded comparison record</figcaption>
+        <div class="figure-head"><span>PAIR 017 / 048</span><b>IDENTITIES WITHHELD</b></div>
+        <div class="responses">
+          <article><h2>Left · Ember–Kite</h2><p>Exact captured response, checked against its SHA-256 digest before allocation.</p></article>
+          <div class="versus">vs</div>
+          <article><h2>Right · Moss–Orbit</h2><p>Candidate metadata remains behind the reveal boundary until assigned ballots are complete.</p></article>
         </div>
-      </div>
+        <div class="decision"><span>Left</span><strong>Tie</strong><span>Right</span></div>
+        <div class="figure-foot"><span>confidence 4 / 5</span><span>content integrity verified</span></div>
+      </figure>
     </section>
 
-    <section class="proof" aria-label="Project evidence">
-      <div><strong>8</strong><span>task types</span></div>
+    <section class="evidence-strip" aria-label="Demonstration evidence">
+      <div><strong>8</strong><span>private tasks</span></div>
       <div><strong>4</strong><span>fictional candidates</span></div>
       <div><strong>48</strong><span>blind pairings</span></div>
-      <div><strong>96</strong><span>human ballots</span></div>
-      <div><strong>85</strong><span>automated tests</span></div>
-      <div><strong>224</strong><span>sealed files</span></div>
+      <div><strong>96</strong><span>ballots</span></div>
+      <div><strong>94</strong><span>automated tests</span></div>
+      <div><strong>224</strong><span>sealed evidence files</span></div>
     </section>
 
-    <section class="section workflow-section" id="workflow">
-      <div class="section-heading">
-        <p class="eyebrow"><span></span> One traceable lifecycle</p>
-        <h2>From a browser response<br>to a defensible result.</h2>
-        <p>Each transition produces an artifact that another person can inspect, rerun, or challenge.</p>
-      </div>
-      <ol class="steps">
-        <li><b>01</b><div><h3>Design</h3><p>Write tasks, rubrics, metadata, and an interpretation boundary before seeing results.</p></div></li>
-        <li><b>02</b><div><h3>Capture</h3><p>Save exact Markdown outputs and their SHA-256 digests. No provider automation is required.</p></div></li>
-        <li><b>03</b><div><h3>Freeze</h3><p>Generate deterministic aliases, all-pairs comparisons, balanced sides, and rater allocations.</p></div></li>
-        <li><b>04</b><div><h3>Review offline</h3><p>Share self-contained HTML packets that collect pairwise choices, scores, confidence, and rationale.</p></div></li>
-        <li><b>05</b><div><h3>Diagnose</h3><p>Estimate relative strength and uncertainty, then inspect agreement, task, side, and verbosity effects.</p></div></li>
-        <li><b>06</b><div><h3>Reveal &amp; seal</h3><p>Reveal identities only after ratings, publish a portable report, and seal the evidence tree.</p></div></li>
+    <section class="section" id="method">
+      <header class="section-head">
+        <p class="kicker">Methods</p>
+        <h2>A chain of custody for human evaluation.</h2>
+        <p>Every transition creates a file that another investigator can inspect, reproduce, or challenge.</p>
+      </header>
+      <ol class="method-grid">
+        <li><b>01</b><h3>Pre-specify</h3><p>Define tasks, rubric, exclusions, capture settings, and the interpretation boundary.</p></li>
+        <li><b>02</b><h3>Capture</h3><p>Store exact UTF-8 outputs with observed metadata and SHA-256 digests.</p></li>
+        <li><b>03</b><h3>Blind</h3><p>Create deterministic aliases, all-pairs comparisons, balanced sides, and reviewer assignments.</p></li>
+        <li><b>04</b><h3>Judge offline</h3><p>Collect scores, pairwise choice, confidence, flags, and rationale in self-contained packets.</p></li>
+        <li><b>05</b><h3>Adjudicate</h3><p>Review disagreement, low confidence, abstentions, and flags without exposing identities.</p></li>
+        <li><b>06</b><h3>Reveal and test</h3><p>Require assignment completion, then estimate ranking, uncertainty, and panel sensitivity.</p></li>
       </ol>
     </section>
 
-    <section class="section evidence-section" id="evidence">
-      <div class="section-heading">
-        <p class="eyebrow"><span></span> A real, inspectable demonstration</p>
-        <h2>Not a screenshot.<br>A complete trial.</h2>
-        <p>
-          The repository includes every fictional prompt, response, ballot, allocation,
-          statistic, and integrity record behind this result.
-        </p>
-      </div>
-      <div class="result-panel">
-        <div class="result-top">
-          <div>
-            <span class="tiny">FICTIONAL DEMO · REVEALED</span>
-            <h3>Relative preference strength</h3>
+    <section class="results" id="evidence">
+      <div class="section inner">
+        <header class="section-head">
+          <p class="kicker">Complete fictional example</p>
+          <h2>A result accompanied by its reasons for doubt.</h2>
+          <p>The repository includes prompts, exact outputs, pairings, ballots, adjudication queue, analysis, report, and seal.</p>
+        </header>
+        <div class="result-layout">
+          <div class="ranking">
+            <div class="table-title"><b>Relative preference strength</b><span>Bradley–Terry estimate</span></div>
+            <div class="rank-row"><span>1 · Boreal Reasoner</span><i><b style="width:100%"></b></i><strong>2.014</strong></div>
+            <div class="rank-row"><span>2 · Aurora Large</span><i><b style="width:47.5%"></b></i><strong>0.956</strong></div>
+            <div class="rank-row"><span>3 · Delta Studio</span><i><b style="width:41.2%"></b></i><strong>0.829</strong></div>
+            <div class="rank-row"><span>4 · Cinder Chat</span><i><b style="width:10%"></b></i><strong>0.201</strong></div>
+            <p>Relative strengths are not percentages. Inspect task-clustered intervals before reading this as an order.</p>
           </div>
-          <a href="demo/trial-report.html">Inspect report ↗</a>
+          <aside class="checks">
+            <h3>Required diagnostics</h3>
+            <dl>
+              <div><dt>Position</dt><dd>left-win rate + Wilson interval</dd></div>
+              <div><dt>Panel</dt><dd>per-reviewer tendencies</dd></div>
+              <div><dt>Sensitivity</dt><dd>leave-one-rater-out ranking</dd></div>
+              <div><dt>Adjudication</dt><dd>blind-safe trigger queue</dd></div>
+              <div><dt>Integrity</dt><dd>audit + content-addressed seal</dd></div>
+            </dl>
+          </aside>
         </div>
-        <div class="bar-row winner"><span>Boreal Reasoner</span><div><i style="width:100%"></i></div><b>2.014</b></div>
-        <div class="bar-row"><span>Aurora Large</span><div><i style="width:47.5%"></i></div><b>0.956</b></div>
-        <div class="bar-row"><span>Delta Studio</span><div><i style="width:41.2%"></i></div><b>0.829</b></div>
-        <div class="bar-row"><span>Cinder Chat</span><div><i style="width:10%"></i></div><b>0.201</b></div>
-        <p class="fineprint">Bradley–Terry estimate with task-clustered 95% bootstrap intervals. Scores are relative, not percentages.</p>
-        <div class="result-links">
-          <a href="demo/ranking.csv">Download ranking CSV</a>
-          <a href="demo/protocol.md">Read protocol snapshot</a>
+        <div class="links">
+          <a href="demo/trial-report.html">HTML report ↗</a>
+          <a href="demo/adjudication.md">Blind adjudication queue ↗</a>
+          <a href="demo/ranking.csv">Ranking CSV ↗</a>
+          <a href="demo/protocol.md">Protocol snapshot ↗</a>
         </div>
       </div>
     </section>
 
-    <section class="section principles">
-      <article>
-        <span class="icon">⌁</span>
-        <h3>Web-app native</h3>
-        <p>Compare outputs from subscriptions and interfaces you already use. FrontierTrials never calls a model.</p>
-      </article>
-      <article>
-        <span class="icon">◉</span>
-        <h3>Blind by construction</h3>
-        <p>Secret aliases and delayed reveal separate the answer under review from the brand that produced it.</p>
-      </article>
-      <article>
-        <span class="icon">◇</span>
-        <h3>Evidence, not vibes</h3>
-        <p>Exact-response hashes, JSON schemas, integrity audits, and a content-addressed seal preserve the trail.</p>
-      </article>
-      <article>
-        <span class="icon">↔</span>
-        <h3>Bias-aware</h3>
-        <p>Side balance, verbosity preference, reviewer agreement, and task slices expose reasons to distrust a rank.</p>
-      </article>
+    <section class="section installation">
+      <header class="section-head">
+        <p class="kicker">Install a versioned artifact</p>
+        <h2>Run the full workflow locally.</h2>
+        <p>FrontierTrials is not yet published on PyPI. Install the release wheel directly or install from its Git tag.</p>
+      </header>
+      <pre><code>python -m pip install \
+  https://github.com/CAOShurong/frontiertrials/releases/download/v0.2.0/frontiertrials-0.2.0-py3-none-any.whl
+frontiertrials demo my-fictional-trial
+frontiertrials audit --trial my-fictional-trial
+frontiertrials verify --trial my-fictional-trial</code></pre>
     </section>
 
     <section class="section limits" id="limits">
-      <p class="eyebrow"><span></span> Honest interpretation</p>
-      <h2>A ranking is evidence about<br><em>this trial</em>—nothing more.</h2>
+      <header class="section-head">
+        <p class="kicker">Interpretation boundary</p>
+        <h2>This trial is not a universal leaderboard.</h2>
+      </header>
       <div class="limit-grid">
-        <p>It does not prove general intelligence, factual correctness, or future product behavior.</p>
-        <p>Web products may change routing, tools, context limits, and hidden instructions without notice.</p>
-        <p>Small task sets and correlated reviewers can make intervals look more certain than reality.</p>
-        <p>Private content stays local only if you keep the trial local; publication is an explicit choice.</p>
+        <p><b>Observed interface, not certified backend.</b> A displayed label does not prove internal routing.</p>
+        <p><b>Preference, not truth.</b> Human votes do not establish factual correctness, safety, or general intelligence.</p>
+        <p><b>Local evidence, not timeless behavior.</b> Web products and tool policies can change without notice.</p>
+        <p><b>Sensitivity, not reviewer grading.</b> Panel diagnostics describe the sample and do not identify a “bad” rater.</p>
       </div>
-    </section>
-
-    <section class="section terminal-section">
-      <div>
-        <p class="eyebrow"><span></span> Zero runtime dependencies</p>
-        <h2>Start with one command.</h2>
-        <p>Python 3.11+ · MIT licensed · works offline after installation</p>
-      </div>
-      <pre><code><span>$</span> python -m pip install frontiertrials
-<span>$</span> frontiertrials demo my-trial
-<span>$</span> frontiertrials audit --trial my-trial
-<span>$</span> frontiertrials verify --trial my-trial</code></pre>
-      <a class="button primary" href="https://github.com/CAOShurong/frontiertrials#quick-start">Read the documentation</a>
     </section>
   </main>
 
   <footer>
-    <div class="brand"><span class="brand-mark">FT</span><span>FrontierTrials</span></div>
-    <p>Built and maintained by <a href="https://github.com/CAOShurong">Shurong Cao</a>. Released under the MIT License.</p>
-    <div><a href="https://github.com/CAOShurong/frontiertrials">Source</a><a href="https://github.com/CAOShurong/frontiertrials/issues">Issues</a><a href="https://github.com/CAOShurong/frontiertrials/releases">Releases</a></div>
+    <p><b>FrontierTrials</b> · Built and maintained by Shurong Cao · MIT License</p>
+    <p><a href="https://github.com/CAOShurong/frontiertrials">Source</a> · <a href="https://github.com/CAOShurong/frontiertrials/releases">Releases</a> · <a href="https://github.com/CAOShurong/frontiertrials/issues">Issues</a></p>
   </footer>
 </body>
 </html>

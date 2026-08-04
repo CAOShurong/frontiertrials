@@ -5,11 +5,11 @@ ranking. It combines those established ideas around a specific no-API subscripti
 
 | Tool or category | Strength | Different boundary in FrontierTrials |
 |---|---|---|
-| [Promptfoo](https://www.promptfoo.dev/docs/intro/) | Provider-driven prompt testing, assertions, red teaming, CI, and a manual-input provider | FrontierTrials specializes in asynchronous captured web outputs, content hashes, blind packet distribution, multi-rater allocation, reveal control, and human-bias diagnostics |
+| [Promptfoo](https://www.promptfoo.dev/docs/providers/manual-input/) | Provider-driven prompt testing, assertions, red teaming, CI, and a manual-input provider | FrontierTrials specializes in asynchronous captured web outputs, content hashes, blind packet distribution, multi-rater allocation, pre-reveal adjudication, reveal control, and human-panel diagnostics |
 | [Inspect AI](https://inspect.aisi.org.uk/providers.html) | Executable evaluations across many APIs and local model providers | FrontierTrials never invokes a model and targets observed subscription interfaces |
 | [LM Evaluation Harness](https://github.com/EleutherAI/lm-evaluation-harness) | Standard academic tasks and reproducible model backends | FrontierTrials uses private user tasks and manual product-level captures |
 | [Google LLM Comparator](https://ai.google.dev/responsible/docs/evaluation/llm_comparator) | Interactive analysis of side-by-side evaluation data | FrontierTrials covers capture, hashing, aliasing, allocation, offline voting, analysis, and sealing as one file-native lifecycle |
-| Chatbot Arena / Arena | Anonymous public pairwise preferences and large-scale ranking | FrontierTrials is a small private decision study with a known task set and reviewer panel |
+| [Chatbot Arena / Arena](https://arena.ai/blog/chatbot-arena-update) | Anonymous public pairwise preferences and large-scale Bradley–Terry ranking | FrontierTrials is a small private decision study with a known task set and reviewer panel |
 | Spreadsheet comparison | Flexible and familiar | FrontierTrials adds schema validation, order balance, identity separation, uncertainty, integrity, and a reproducible report |
 
 ## Design inference
@@ -24,8 +24,9 @@ manual consumer-interface capture
   + balanced left/right order
   + offline multi-rater packets
   + pointwise and pairwise judgments
+  + blind-safe adjudication triggers
   + task-clustered uncertainty
-  + bias and agreement diagnostics
+  + bias, panel, and leave-one-rater-out diagnostics
   + reveal and evidence seal
 ```
 
@@ -40,3 +41,14 @@ Bradley–Terry ranking and bootstrap intervals are used in large pairwise arena
 adopts these ideas conservatively and reports their limits rather than treating the rank as ground
 truth.
 
+## What is new in version 0.2
+
+Version 0.2 closes a practical gap between ballot collection and reveal. Review teams can inspect
+disagreement, low-confidence judgments, flags, abstentions, and tie votes while seeing only aliases.
+Analysis is blocked before reveal, and reveal is blocked until every assigned ballot arrives unless
+the operator records an explicit incomplete-trial override. After reveal, per-rater tendencies and
+leave-one-rater-out refits expose rankings that depend heavily on one panel member.
+
+This does not claim that the statistical ingredients are novel. The contribution is the
+enforcement and file-native handoff across manual web capture, offline review, blinded
+adjudication, controlled reveal, sensitivity analysis, and an evidence seal.

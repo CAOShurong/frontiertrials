@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "frontiertrials"
-version = "0.1.0"
+version = "0.2.0"
 description = "Reproducible blind evaluations of AI web-app outputs without API keys"
 readme = "README.md"
 requires-python = ">=3.11"
@@ -42,4 +42,3 @@ ignore = ["E501"]
 
 [tool.ruff.format]
 quote-style = "double"
-

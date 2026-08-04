@@ -1,10 +1,10 @@
 # Validation evidence
 
-Version 0.1.0 has four validation layers.
+Version 0.2.0 has five validation layers.
 
 ## Behavioral tests
 
-Eighty-five standard-library tests cover:
+Ninety-four standard-library tests cover:
 
 - identifiers, deterministic digests, escaping, word counts, and descriptive statistics;
 - all seven artifact validators;
@@ -13,6 +13,8 @@ Eighty-five standard-library tests cover:
 - percentiles, Wilson intervals, Bradley–Terry fitting, task-clustered bootstrap, and kappa;
 - ranking, rubrics, categories, position diagnostics, agreement, and audit errors;
 - offline packets, public report guards, CSV and Markdown exports, seals, and the full demo.
+- frozen-state analysis rejection, complete-ballot reveal gating, blind-safe adjudication exports,
+  panel summaries, and leave-one-rater-out ranking sensitivity.
 
 ## Static checks
 
@@ -31,12 +33,19 @@ ballots. It audits without errors or warnings, has exactly balanced left exposur
 ## Package smoke test
 
 CI builds wheel and source distributions, installs the wheel into a clean environment, creates the
-complete demo, verifies the seal, audits the workspace, and regenerates reports and packets.
+complete demo, verifies the seal, audits the workspace, exports the blind adjudication queue, and
+regenerates reports and packets.
+
+## Repository and publication audit
+
+`python scripts/audit_repository.py` checks the package version surfaces, required project files,
+README links, public-install instructions, sole authorship metadata, workflow coverage, SVG
+viewports, and forbidden legacy visual tokens. Release validation then installs the public wheel
+URL into a new virtual environment and reruns the full demonstration.
 
 ## Matrix
 
 - Windows and Ubuntu
 - Python 3.11 and 3.13
 
-Other systems may work but are not claimed by version 0.1.0.
-
+Other systems may work but are not claimed by version 0.2.0.

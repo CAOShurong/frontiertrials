@@ -35,7 +35,9 @@ jobs:
       - name: Run test suite
         run: python -m unittest discover -s tests -v
       - name: Compile source
-        run: python -m compileall -q src
+        run: python -m compileall -q src tests scripts
+      - name: Repository audit
+        run: python scripts/check_repository.py
       - name: Verify committed demonstration
         shell: bash
         run: |
@@ -68,6 +70,8 @@ jobs:
           .smoke/bin/frontiertrials --version
           .smoke/bin/frontiertrials demo /tmp/frontiertrials-smoke
           .smoke/bin/frontiertrials audit --trial /tmp/frontiertrials-smoke
+          .smoke/bin/frontiertrials adjudicate --trial /tmp/frontiertrials-smoke --format markdown --output /tmp/frontiertrials-adjudication.md
+          .smoke/bin/frontiertrials analyze --trial /tmp/frontiertrials-smoke --output /tmp/frontiertrials-analysis.json
           .smoke/bin/frontiertrials verify --trial /tmp/frontiertrials-smoke
       - uses: actions/upload-artifact@v7
         with:

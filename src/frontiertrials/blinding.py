@@ -6,6 +6,7 @@ import itertools
 from collections import Counter
 from typing import Any
 
+from .ballots import ballot_completeness
 from .capture import verify_responses
 from .constants import ALIAS_WORDS
 from .errors import BlindingError, ValidationError
@@ -147,12 +148,16 @@ def freeze_trial(
     }
 
 
-def reveal_trial(trial: Trial) -> dict[str, Any]:
-    """Reveal candidate aliases after at least one ballot exists."""
+def reveal_trial(trial: Trial, *, allow_incomplete: bool = False) -> dict[str, Any]:
+    """Reveal candidate aliases only after the assigned ballot matrix is complete."""
     if trial.manifest()["state"] not in {"frozen", "revealed"}:
         raise BlindingError("only a frozen trial can be revealed")
-    if not trial.all("ballot"):
-        raise BlindingError("refusing to reveal a trial with no ballots")
+    completeness = ballot_completeness(trial)
+    if not completeness["complete"] and not allow_incomplete:
+        raise BlindingError(
+            "refusing to reveal an incomplete ballot matrix; "
+            f"{len(completeness['missing'])} assigned ballots are missing"
+        )
     reveal = read_reveal(trial)
     trial.set_state("revealed")
     candidates = trial.index("candidate")

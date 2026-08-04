@@ -8,6 +8,7 @@ from pathlib import Path
 from typing import Any
 
 from . import __version__
+from .adjudication import adjudication_csv, adjudication_markdown, build_adjudication_queue
 from .analysis import analyze_trial
 from .audit import audit_trial
 from .ballots import ballot_completeness, import_ballot_bundle
@@ -78,6 +79,19 @@ def _parser() -> argparse.ArgumentParser:
 
     reveal = subparsers.add_parser("reveal", help="reveal candidate identities after rating")
     reveal.add_argument("--trial", "-t", default=".")
+    reveal.add_argument(
+        "--allow-incomplete",
+        action="store_true",
+        help="explicitly reveal despite missing assigned ballots",
+    )
+
+    adjudicate = subparsers.add_parser(
+        "adjudicate", help="build a blind-safe review queue before reveal"
+    )
+    adjudicate.add_argument("--trial", "-t", default=".")
+    adjudicate.add_argument("--format", choices=("json", "csv", "markdown"), default="json")
+    adjudicate.add_argument("--output", "-o")
+    adjudicate.add_argument("--include-clear", action="store_true")
 
     for name, help_text in (
         ("status", "show matrix, assignment, and ballot progress"),
@@ -182,7 +196,18 @@ def run(args: argparse.Namespace) -> int:
         _print_json(import_ballot_bundle(trial, args.source, replace=args.replace))
         return 0
     if args.command == "reveal":
-        _print_json(reveal_trial(trial))
+        _print_json(reveal_trial(trial, allow_incomplete=args.allow_incomplete))
+        return 0
+    if args.command == "adjudicate":
+        value = build_adjudication_queue(trial, include_clear=args.include_clear)
+        rendered = (
+            pretty_json(value)
+            if args.format == "json"
+            else adjudication_csv(value)
+            if args.format == "csv"
+            else adjudication_markdown(value)
+        )
+        _emit(rendered, args.output)
         return 0
     if args.command == "status":
         value = {

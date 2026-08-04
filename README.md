@@ -15,7 +15,8 @@
 FrontierTrials is a local-first evaluation workbench for people who use AI through subscription
 web apps, desktop apps, or other interfaces that do not expose an API. Capture exact responses,
 freeze their hashes, build balanced blind comparisons, distribute self-contained judging packets,
-import human ballots, diagnose bias, reveal identities, and publish a portable report.
+import human ballots, triage contested cases while identities remain hidden, diagnose panel
+sensitivity, reveal identities, and publish a portable report.
 
 The application never logs into a provider, automates a consumer interface, calls a model, or
 pretends that one leaderboard measures general intelligence. You collect outputs under the terms
@@ -26,6 +27,7 @@ that apply to your accounts; FrontierTrials makes the comparison auditable.
 - [Project website](https://caoshurong.github.io/frontiertrials/)
 - [Revealed interactive report](https://caoshurong.github.io/frontiertrials/demo/trial-report.html)
 - [Offline blind judging packet](https://caoshurong.github.io/frontiertrials/demo/reviewer-one.html)
+- [Blind adjudication queue](https://caoshurong.github.io/frontiertrials/demo/adjudication.md)
 - [Ranking CSV](examples/demo/reports/ranking.csv)
 - [Protocol snapshot](examples/demo/reports/protocol.md)
 
@@ -66,22 +68,34 @@ private tasks + rubric + observed candidate metadata
                          ↓
         imported human ballots + rationales
                          ↓
-    ranking + intervals + bias + agreement checks
+   blind adjudication queue for contested cases
                          ↓
-              identity reveal + evidence seal
+       complete-assignment gate + identity reveal
                          ↓
-             portable public or private report
+ ranking + intervals + panel sensitivity + bias checks
+                         ↓
+        evidence seal + portable public or private report
 ```
+
+<img src="docs/assets/workflow.svg" alt="FrontierTrials evidence lifecycle from protocol design to blind adjudication, reveal, analysis, and sealing" width="100%">
 
 ## Quick start
 
-FrontierTrials requires Python 3.11 or newer and has no runtime dependencies.
+FrontierTrials requires Python 3.11 or newer and has no runtime dependencies. It is not yet
+published on PyPI, so use a versioned GitHub Release artifact:
 
 ```bash
-python -m pip install frontiertrials
+python -m pip install \
+  https://github.com/CAOShurong/frontiertrials/releases/download/v0.2.0/frontiertrials-0.2.0-py3-none-any.whl
 frontiertrials demo my-fictional-trial
 frontiertrials audit --trial my-fictional-trial
 frontiertrials verify --trial my-fictional-trial
+```
+
+Alternatively:
+
+```bash
+python -m pip install "frontiertrials @ git+https://github.com/CAOShurong/frontiertrials.git@v0.2.0"
 ```
 
 Open:
@@ -183,7 +197,21 @@ The importer rejects unknown pairings, rater mismatches, and unassigned work. Th
 missing ballots, duplicate votes, incomplete criterion scores, response hash failures, position
 imbalance, and possible provider-name leakage inside response text.
 
-### 7. Reveal, analyze, seal, and report
+### 7. Adjudicate while identities remain hidden
+
+```bash
+frontiertrials adjudicate \
+  --trial trials/assistant-choice \
+  --format markdown \
+  --output reports/adjudication.md
+```
+
+The queue flags reviewer disagreement, low confidence, ballot flags, abstentions, and tie votes.
+It contains pairing IDs, task titles, anonymous aliases, judgments, scores, confidence, rationales,
+and flags—but not candidate IDs, provider names, model labels, response IDs, or the reveal map.
+The command never changes a ballot; it tells the panel which records deserve review.
+
+### 8. Reveal, analyze, seal, and report
 
 ```bash
 frontiertrials reveal --trial trials/assistant-choice
@@ -193,8 +221,9 @@ frontiertrials seal --trial trials/assistant-choice
 frontiertrials verify --trial trials/assistant-choice
 ```
 
-Public reports require a revealed trial. This prevents an ordinary reporting command from exposing
-candidate identities before voting.
+Reveal refuses an incomplete assigned-ballot matrix by default. An explicit
+`--allow-incomplete` override exists for documented early termination. Identity-bearing analysis
+and public reports require the revealed state; adjudication is the safe inspection path before it.
 
 ## What the analysis reports
 
@@ -220,6 +249,13 @@ actionability, or clarity.
 
 When assignments overlap, the report includes exact agreement and Cohen's kappa. Kappa is
 descriptive here: a small panel and uneven choice frequencies can make it unstable.
+
+### Panel and ranking sensitivity
+
+Per-reviewer summaries report ballot count, confidence, left and longer-answer preference,
+consensus alignment, and flags. Leave-one-rater-out refits show whether the observed leader or
+rank positions depend heavily on one panel member. These are descriptive stress tests, not
+reviewer-quality scores and not automatic corrections.
 
 ### Position and verbosity diagnostics
 
@@ -264,9 +300,10 @@ the same conservative vocabulary without a schema dependency.
 | `freeze` | Verify the matrix, alias identities, balance order, and allocate reviews |
 | `packet` | Build one offline judging packet |
 | `import-ballots` | Import downloaded packet ballots |
+| `adjudicate` | Export a blind-safe queue of contested or low-confidence pairings |
 | `status` | Show integrity and completion progress |
 | `audit` | Check structure, hashes, references, leakage, balance, and ballots |
-| `reveal` | Disclose aliases after at least one ballot |
+| `reveal` | Disclose aliases after assigned ballots are complete |
 | `analyze` | Calculate rankings, intervals, rubric scores, and diagnostics |
 | `export` | Write ranking CSV or protocol Markdown |
 | `report` | Build a revealed self-contained report |
@@ -317,7 +354,7 @@ python -m compileall -q src tests
 python -m build
 ```
 
-CI runs 85 tests on Windows and Ubuntu with Python 3.11 and 3.13, then installs the built wheel in
+CI runs 94 tests on Windows and Ubuntu with Python 3.11 and 3.13, then installs the built wheel in
 a clean environment and executes the full fictional trial.
 
 ## Contributing
@@ -332,4 +369,3 @@ FrontierTrials is released under the [MIT License](LICENSE). Cite a versioned re
 [CITATION.cff](CITATION.cff).
 
 Created and maintained by **Shurong Cao**.
-

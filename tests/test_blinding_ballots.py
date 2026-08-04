@@ -106,14 +106,30 @@ class BlindingBallotTests(unittest.TestCase):
         with self.assertRaises(ValidationError):
             import_ballot_bundle(trial, source)
 
-    def test_reveal_with_ballot(self) -> None:
+    def test_reveal_refuses_incomplete_matrix(self) -> None:
+        trial = make_trial(self.root / "t", tasks=2)
+        freeze_trial(trial, seed="s")
+        pairing = trial.all("pairing")[0]
+        trial.add("ballot", ballot("ballot-one", pairing["id"], "rater-1"))
+        with self.assertRaises(BlindingError):
+            reveal_trial(trial)
+
+    def test_reveal_allows_explicit_incomplete_override(self) -> None:
+        trial = make_trial(self.root / "t", tasks=2)
+        freeze_trial(trial, seed="s")
+        pairing = trial.all("pairing")[0]
+        trial.add("ballot", ballot("ballot-one", pairing["id"], "rater-1"))
+        reveal = reveal_trial(trial, allow_incomplete=True)
+        self.assertEqual(len(reveal), 2)
+        self.assertEqual(trial.manifest()["state"], "revealed")
+
+    def test_reveal_complete_matrix(self) -> None:
         trial = make_trial(self.root / "t")
         freeze_trial(trial, seed="s")
         pairing = trial.all("pairing")[0]
         trial.add("ballot", ballot("ballot-one", pairing["id"], "rater-1"))
         reveal = reveal_trial(trial)
         self.assertEqual(len(reveal), 2)
-        self.assertEqual(trial.manifest()["state"], "revealed")
 
 
 if __name__ == "__main__":

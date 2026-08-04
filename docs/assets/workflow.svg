@@ -1,27 +1,71 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 590" role="img" aria-labelledby="title desc">
-  <title id="title">FrontierTrials evaluation lifecycle</title>
-  <desc id="desc">Seven stages preserve responses, hide identity, collect ballots, diagnose bias, and reveal results.</desc>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 440" role="img" aria-labelledby="title desc">
+  <title id="title">FrontierTrials evidence lifecycle</title>
+  <desc id="desc">Six stages lead from protocol design through blind adjudication to reveal, analysis, and evidence sealing.</desc>
   <defs>
-    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
-      <path d="M0 0l10 5-10 5z" fill="#7167aa"/>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0 0L10 5L0 10Z" fill="#526f87"/>
     </marker>
-    <filter id="s" x="-20%" y="-20%" width="140%" height="150%">
-      <feDropShadow dx="0" dy="7" stdDeviation="8" flood-color="#17162e" flood-opacity=".16"/>
-    </filter>
   </defs>
-  <rect width="1100" height="590" rx="24" fill="#f1eee6"/>
-  <text x="60" y="70" fill="#17162e" font-family="Georgia,serif" font-size="38" font-weight="700">A ranking with a chain of custody</text>
-  <text x="60" y="101" fill="#6a6873" font-family="system-ui,sans-serif" font-size="15">Every arrow creates evidence another reviewer can inspect.</text>
-  <path d="M178 218h86M382 218h86M586 218h86M790 218h86M944 276v84M876 421h-86M672 421h-86M468 421h-86M264 421h-86" fill="none" stroke="#7167aa" stroke-width="4" marker-end="url(#arrow)"/>
-  <g font-family="system-ui,sans-serif" filter="url(#s)">
-    <g transform="translate(60 160)"><rect width="118" height="116" rx="15" fill="#211e3d"/><text x="17" y="29" fill="#b9ef6f" font-size="11" font-weight="900">01</text><text x="17" y="59" fill="#fff" font-size="16" font-weight="800">Freeze</text><text x="17" y="82" fill="#b9b5cc" font-size="11">Tasks + rubric</text></g>
-    <g transform="translate(264 160)"><rect width="118" height="116" rx="15" fill="#fffdf8"/><text x="17" y="29" fill="#7167aa" font-size="11" font-weight="900">02</text><text x="17" y="59" fill="#17162e" font-size="16" font-weight="800">Capture</text><text x="17" y="82" fill="#6a6873" font-size="11">Exact outputs</text></g>
-    <g transform="translate(468 160)"><rect width="118" height="116" rx="15" fill="#fffdf8"/><text x="17" y="29" fill="#7167aa" font-size="11" font-weight="900">03</text><text x="17" y="59" fill="#17162e" font-size="16" font-weight="800">Hash</text><text x="17" y="82" fill="#6a6873" font-size="11">Verify bytes</text></g>
-    <g transform="translate(672 160)"><rect width="118" height="116" rx="15" fill="#fffdf8"/><text x="17" y="29" fill="#7167aa" font-size="11" font-weight="900">04</text><text x="17" y="59" fill="#17162e" font-size="16" font-weight="800">Blind</text><text x="17" y="82" fill="#6a6873" font-size="11">Alias + balance</text></g>
-    <g transform="translate(876 160)"><rect width="118" height="116" rx="15" fill="#fffdf8"/><text x="17" y="29" fill="#7167aa" font-size="11" font-weight="900">05</text><text x="17" y="59" fill="#17162e" font-size="16" font-weight="800">Judge</text><text x="17" y="82" fill="#6a6873" font-size="11">Offline packets</text></g>
-    <g transform="translate(672 363)"><rect width="118" height="116" rx="15" fill="#fffdf8"/><text x="17" y="29" fill="#7167aa" font-size="11" font-weight="900">06</text><text x="17" y="59" fill="#17162e" font-size="16" font-weight="800">Diagnose</text><text x="17" y="82" fill="#6a6873" font-size="11">Bias + intervals</text></g>
-    <g transform="translate(264 363)"><rect width="118" height="116" rx="15" fill="#ffad83"/><text x="17" y="29" fill="#3b2740" font-size="11" font-weight="900">07</text><text x="17" y="59" fill="#17162e" font-size="16" font-weight="900">Reveal</text><text x="17" y="82" fill="#533e4c" font-size="11">Seal + report</text></g>
+  <rect width="1200" height="440" fill="#f5f2eb"/>
+  <rect x="1" y="1" width="1198" height="438" fill="none" stroke="#cbc5b9" stroke-width="2"/>
+  <text x="55" y="57" fill="#1c252c" font-family="Georgia,serif" font-size="32" font-weight="700">An evaluation with a recorded reveal boundary</text>
+  <text x="55" y="85" fill="#5e686e" font-family="system-ui,sans-serif" font-size="13">Files, assignments, and decisions remain inspectable at every stage.</text>
+
+  <path d="M204 205H243M390 205H429M576 205H615M762 205H801M948 205H987" fill="none" stroke="#526f87" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <g font-family="system-ui,sans-serif">
+    <g transform="translate(55 139)">
+      <rect width="149" height="132" fill="#fffefa" stroke="#cbc5b9"/>
+      <rect width="149" height="6" fill="#24384c"/>
+      <text x="15" y="31" fill="#934b45" font-family="ui-monospace,monospace" font-size="10" font-weight="700">01</text>
+      <text x="15" y="60" fill="#1c252c" font-family="Georgia,serif" font-size="19" font-weight="700">Pre-specify</text>
+      <text x="15" y="87" fill="#5e686e" font-size="11">Tasks, rubric, limits</text>
+      <text x="15" y="106" fill="#5e686e" font-size="11">before results</text>
+    </g>
+    <g transform="translate(241 139)">
+      <rect width="149" height="132" fill="#fffefa" stroke="#cbc5b9"/>
+      <rect width="149" height="6" fill="#526f87"/>
+      <text x="15" y="31" fill="#934b45" font-family="ui-monospace,monospace" font-size="10" font-weight="700">02</text>
+      <text x="15" y="60" fill="#1c252c" font-family="Georgia,serif" font-size="19" font-weight="700">Capture</text>
+      <text x="15" y="87" fill="#5e686e" font-size="11">Exact outputs</text>
+      <text x="15" y="106" fill="#5e686e" font-size="11">and SHA-256</text>
+    </g>
+    <g transform="translate(427 139)">
+      <rect width="149" height="132" fill="#fffefa" stroke="#cbc5b9"/>
+      <rect width="149" height="6" fill="#526f87"/>
+      <text x="15" y="31" fill="#934b45" font-family="ui-monospace,monospace" font-size="10" font-weight="700">03</text>
+      <text x="15" y="60" fill="#1c252c" font-family="Georgia,serif" font-size="19" font-weight="700">Blind</text>
+      <text x="15" y="87" fill="#5e686e" font-size="11">Aliases, balance,</text>
+      <text x="15" y="106" fill="#5e686e" font-size="11">assignments</text>
+    </g>
+    <g transform="translate(613 139)">
+      <rect width="149" height="132" fill="#fffefa" stroke="#cbc5b9"/>
+      <rect width="149" height="6" fill="#a4772d"/>
+      <text x="15" y="31" fill="#934b45" font-family="ui-monospace,monospace" font-size="10" font-weight="700">04</text>
+      <text x="15" y="60" fill="#1c252c" font-family="Georgia,serif" font-size="19" font-weight="700">Judge</text>
+      <text x="15" y="87" fill="#5e686e" font-size="11">Offline packets</text>
+      <text x="15" y="106" fill="#5e686e" font-size="11">and rationales</text>
+    </g>
+    <g transform="translate(799 139)">
+      <rect width="149" height="132" fill="#fffefa" stroke="#cbc5b9"/>
+      <rect width="149" height="6" fill="#934b45"/>
+      <text x="15" y="31" fill="#934b45" font-family="ui-monospace,monospace" font-size="10" font-weight="700">05</text>
+      <text x="15" y="60" fill="#1c252c" font-family="Georgia,serif" font-size="19" font-weight="700">Adjudicate</text>
+      <text x="15" y="87" fill="#5e686e" font-size="11">Disputes reviewed</text>
+      <text x="15" y="106" fill="#5e686e" font-size="11">while still blind</text>
+    </g>
+    <g transform="translate(985 139)">
+      <rect width="160" height="132" fill="#24384c" stroke="#24384c"/>
+      <rect width="160" height="6" fill="#934b45"/>
+      <text x="15" y="31" fill="#e8cbc7" font-family="ui-monospace,monospace" font-size="10" font-weight="700">06</text>
+      <text x="15" y="60" fill="#fffefa" font-family="Georgia,serif" font-size="19" font-weight="700">Reveal + test</text>
+      <text x="15" y="87" fill="#d5dce1" font-size="11">Rank, sensitivity,</text>
+      <text x="15" y="106" fill="#d5dce1" font-size="11">report, and seal</text>
+    </g>
   </g>
-  <rect x="60" y="519" width="934" height="36" rx="10" fill="#dfdbd0"/>
-  <text x="527" y="542" text-anchor="middle" fill="#5f5c68" font-family="system-ui,sans-serif" font-size="12">Observed preference in one protocol is not general intelligence, factual truth, or provider-certified model identity.</text>
+
+  <path d="M55 322H1145" stroke="#934b45" stroke-width="2" stroke-dasharray="7 6"/>
+  <text x="55" y="349" fill="#934b45" font-family="ui-monospace,monospace" font-size="10" font-weight="700" letter-spacing="1.2">IDENTITIES WITHHELD ABOVE THIS LINE UNTIL ASSIGNED BALLOTS ARE COMPLETE</text>
+  <rect x="55" y="374" width="1090" height="34" fill="#e9e5dc"/>
+  <text x="600" y="396" text-anchor="middle" fill="#5e686e" font-family="system-ui,sans-serif" font-size="11">Preference evidence is conditional on the recorded tasks, interfaces, settings, dates, and reviewer panel.</text>
 </svg>

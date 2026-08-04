@@ -7,10 +7,14 @@ import tempfile
 from pathlib import Path
 from typing import Any
 
+from .adjudication import adjudication_markdown, build_adjudication_queue
 from .analysis import analyze_trial
+from .audit import audit_trial
+from .ballots import ballot_completeness
 from .blinding import freeze_trial, reveal_trial
-from .capture import capture_response
+from .capture import capture_response, verify_responses
 from .exports import protocol_markdown, ranking_csv
+from .packet import build_packet
 from .report import build_report
 from .seal import write_seal
 from .store import write_json, write_text
@@ -478,12 +482,27 @@ def create_demo(root: str | Path, *, force: bool = False) -> Trial:
     frozen_manifest = trial.manifest()
     frozen_manifest["frozen_at"] = DEMO_TIME
     write_json(trial.manifest_path, frozen_manifest)
+    for rater_id in ("reviewer-one", "reviewer-two"):
+        build_packet(trial, rater_id, trial.root / "packets" / f"{rater_id}.html")
     _create_ballots(trial)
+    adjudication = build_adjudication_queue(trial)
     reveal_trial(trial)
     reports = trial.root / "reports"
+    write_json(reports / "audit.json", audit_trial(trial))
+    write_json(
+        reports / "status.json",
+        {
+            "state": trial.manifest()["state"],
+            "counts": trial.counts(),
+            "response_integrity": verify_responses(trial),
+            "ballots": ballot_completeness(trial),
+        },
+    )
+    write_json(reports / "adjudication.json", adjudication)
+    write_text(reports / "adjudication.md", adjudication_markdown(adjudication))
     write_text(reports / "ranking.csv", ranking_csv(trial))
     write_text(reports / "protocol.md", protocol_markdown(trial))
     write_json(reports / "analysis.json", analyze_trial(trial))
     build_report(trial, reports / "trial-report.html")
-    write_seal(trial)
+    write_seal(trial, created_at=DEMO_TIME)
     return trial

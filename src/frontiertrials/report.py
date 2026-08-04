@@ -76,6 +76,49 @@ def _category_table(result: dict[str, Any], labels: dict[str, str]) -> str:
     )
 
 
+def _panel_rows(result: dict[str, Any]) -> str:
+    rows = []
+    for item in result["panel_diagnostics"]["raters"]:
+        alignment = (
+            f"{100 * item['consensus_alignment']:.1f}%"
+            if item["consensus_alignment"] is not None
+            else "n/a"
+        )
+        rows.append(
+            "<tr>"
+            f"<td><strong>{html_escape(item['label'])}</strong>"
+            f"<small>{html_escape(item['rater_id'])}</small></td>"
+            f"<td>{item['ballot_count']}</td>"
+            f"<td>{item['mean_confidence']:.2f} / 5</td>"
+            f"<td>{100 * item['left_win_rate']:.1f}%</td>"
+            f"<td>{100 * item['longer_win_rate']:.1f}%</td>"
+            f"<td>{alignment}</td>"
+            f"<td>{item['flag_count']}</td></tr>"
+        )
+    return "\n".join(rows)
+
+
+def _sensitivity_rows(result: dict[str, Any], labels: dict[str, str]) -> str:
+    rows = []
+    for removal in result["ranking_sensitivity"]["leave_one_rater_out"]:
+        if removal["status"] != "estimated":
+            rows.append(
+                "<tr>"
+                f"<td>{html_escape(removal['removed_rater_id'])}</td>"
+                '<td colspan="3">Insufficient retained ballots</td></tr>'
+            )
+            continue
+        leader = removal["ranking"][0]["candidate_id"]
+        rows.append(
+            "<tr>"
+            f"<td>{html_escape(removal['removed_rater_id'])}</td>"
+            f"<td>{html_escape(labels.get(leader, leader))}</td>"
+            f"<td>{'yes' if removal['leader_changed'] else 'no'}</td>"
+            f"<td>{removal['max_absolute_rank_shift']}</td></tr>"
+        )
+    return "\n".join(rows)
+
+
 def build_report(
     trial: Trial,
     output: str | Path,
@@ -100,31 +143,31 @@ def build_report(
     destination.parent.mkdir(parents=True, exist_ok=True)
     html = f"""<!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="generator" content="FrontierTrials 0.1.0"><title>{html_escape(manifest["title"])} · FrontierTrials report</title>
+<meta name="generator" content="FrontierTrials 0.2.0"><title>{html_escape(manifest["title"])} · FrontierTrials report</title>
 <style>
-:root{{--ink:#11171a;--muted:#637176;--paper:#f2eee3;--panel:#fffdf7;--navy:#132d36;--teal:#167e75;
---mint:#61d9c3;--amber:#d69c4f;--red:#a64e42;--line:#d7d0c1}}*{{box-sizing:border-box}}html{{scroll-behavior:smooth}}
-body{{margin:0;background:var(--paper);color:var(--ink);font:15px/1.55 system-ui,-apple-system,Segoe UI,sans-serif}}
-header{{position:sticky;top:0;z-index:5;background:var(--navy);color:white;padding:16px max(22px,calc((100vw - 1240px)/2));
-display:flex;justify-content:space-between}}header b{{letter-spacing:.08em}}header nav a{{color:#bfd2cf;margin-left:20px;text-decoration:none;font-size:12px}}
-main{{max-width:1240px;margin:auto;padding:55px 22px 90px}}.hero{{display:grid;grid-template-columns:1.3fr .7fr;gap:35px;align-items:end}}
-.eyebrow{{font-size:11px;text-transform:uppercase;letter-spacing:.16em;color:var(--teal);font-weight:900}}h1,h2{{font-family:Georgia,serif;letter-spacing:-.035em}}
-h1{{font-size:clamp(46px,7vw,84px);line-height:.96;margin:12px 0 18px}}h2{{font-size:32px;margin:0}}.question{{font-size:19px;color:#46565a}}
-.verdict{{background:var(--navy);color:white;padding:24px;border-radius:16px;box-shadow:0 18px 45px #132d3630}}.verdict .top{{color:var(--mint);
-font:700 42px Georgia,serif}}.verdict p{{color:#b9ceca}}.verdict code{{color:#8fcac0;font-size:10px;overflow-wrap:anywhere}}
-.stats{{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin:34px 0 62px}}.stat{{border:1px solid var(--line);background:var(--panel);
-padding:17px;border-radius:11px}}.stat b{{display:block;font:700 29px Georgia,serif}}.stat span{{color:var(--muted);font-size:11px}}
+:root{{--ink:#1c252c;--muted:#5f676c;--paper:#f5f2eb;--panel:#fffefa;--navy:#24384c;--blue:#526f87;
+--brick:#934b45;--ochre:#a4772d;--sage:#6c7d6c;--line:#cfc9bd}}*{{box-sizing:border-box}}html{{scroll-behavior:smooth}}
+body{{margin:0;background:var(--paper);color:var(--ink);font:15px/1.58 system-ui,-apple-system,Segoe UI,sans-serif}}
+header{{position:sticky;top:0;z-index:5;background:var(--paper);color:var(--ink);padding:16px max(22px,calc((100vw - 1240px)/2));
+display:flex;justify-content:space-between;border-bottom:2px solid var(--navy)}}header b{{letter-spacing:.12em}}header nav a{{color:var(--navy);margin-left:20px;text-decoration:none;font-size:12px}}
+main{{max-width:1240px;margin:auto;padding:58px 22px 90px}}.hero{{display:grid;grid-template-columns:1.3fr .7fr;gap:38px;align-items:end;border-bottom:1px solid var(--line);padding-bottom:34px}}
+.eyebrow{{font-size:11px;text-transform:uppercase;letter-spacing:.16em;color:var(--brick);font-weight:850}}h1,h2{{font-family:Georgia,serif;letter-spacing:-.025em}}
+h1{{font-size:clamp(42px,6vw,72px);line-height:1;margin:12px 0 18px}}h2{{font-size:30px;margin:0}}.question{{font-size:18px;color:#465158}}
+.verdict{{background:var(--panel);color:var(--ink);padding:22px;border:1px solid var(--line);border-top:4px solid var(--brick)}}.verdict .top{{color:var(--navy);
+font:700 38px Georgia,serif}}.verdict p{{color:var(--muted)}}.verdict code{{color:var(--blue);font-size:10px;overflow-wrap:anywhere}}
+.stats{{display:grid;grid-template-columns:repeat(5,1fr);margin:34px 0 62px;border:1px solid var(--line)}}.stat{{background:var(--panel);
+padding:17px;border-right:1px solid var(--line)}}.stat:last-child{{border-right:0}}.stat b{{display:block;font:700 28px Georgia,serif}}.stat span{{color:var(--muted);font-size:11px}}
 section{{margin-top:60px}}.section-head{{display:flex;justify-content:space-between;align-items:end;border-bottom:1px solid var(--line);padding-bottom:12px;margin-bottom:18px}}
-.section-head p{{max-width:610px;color:var(--muted);font-size:12px;text-align:right;margin:0}}.table-wrap{{overflow:auto;border:1px solid var(--line);background:var(--panel);border-radius:13px}}
+.section-head p{{max-width:610px;color:var(--muted);font-size:12px;text-align:right;margin:0}}.table-wrap{{overflow:auto;border:1px solid var(--line);background:var(--panel)}}
 table{{border-collapse:collapse;width:100%;min-width:900px}}th,td{{padding:13px;border-bottom:1px solid #e5dfd2;text-align:left}}thead th{{font-size:10px;
-text-transform:uppercase;letter-spacing:.08em;background:#e9e4d8}}td small{{display:block;color:var(--muted);font-size:10px}}.rank{{font:700 24px Georgia,serif}}
-.strength{{display:inline-block;width:120px;height:8px;background:#e3ded2;border-radius:9px;margin-right:8px;overflow:hidden}}.strength i{{display:block;height:100%;background:var(--teal)}}
-.criteria{{display:grid;grid-template-columns:repeat(2,1fr);gap:13px}}.criterion{{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:18px}}
+text-transform:uppercase;letter-spacing:.08em;background:#e9e5dc}}td small{{display:block;color:var(--muted);font-size:10px}}.rank{{font:700 24px Georgia,serif}}
+.strength{{display:inline-block;width:120px;height:7px;background:#e3ded2;margin-right:8px;overflow:hidden}}.strength i{{display:block;height:100%;background:var(--brick)}}
+.criteria{{display:grid;grid-template-columns:repeat(2,1fr);gap:13px}}.criterion{{background:var(--panel);border:1px solid var(--line);border-top:3px solid var(--ochre);padding:18px}}
 .criterion h3{{margin:0 0 12px}}.mini-row{{display:grid;grid-template-columns:90px 1fr 34px;gap:8px;align-items:center;margin:7px 0;font-size:11px}}.mini-row div{{height:7px;background:#e4dfd4}}
-.mini-row i{{display:block;height:100%;background:var(--amber)}}.diagnostics{{display:grid;grid-template-columns:repeat(3,1fr);gap:13px}}.diag{{background:var(--panel);
-border:1px solid var(--line);border-radius:12px;padding:20px}}.diag strong{{font:700 39px Georgia,serif;color:var(--teal)}}.diag p{{color:var(--muted);font-size:12px}}
-.boundary{{border:1px dashed #999383;border-radius:12px;padding:22px;color:var(--muted)}}.alias-grid{{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}}
-.alias{{background:#e4eee9;border-radius:9px;padding:14px}}.alias b{{color:var(--teal)}}@media(max-width:850px){{.hero{{grid-template-columns:1fr}}.stats{{grid-template-columns:repeat(2,1fr)}}
+.mini-row i{{display:block;height:100%;background:var(--ochre)}}.diagnostics{{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--line)}}.diag{{background:var(--panel);
+border-right:1px solid var(--line);padding:20px}}.diag:last-child{{border-right:0}}.diag strong{{font:700 38px Georgia,serif;color:var(--navy)}}.diag p{{color:var(--muted);font-size:12px}}
+.boundary{{border-left:5px solid var(--brick);padding:20px;background:var(--panel);color:var(--muted)}}.alias-grid{{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--line)}}
+.alias{{background:var(--panel);padding:14px;border-right:1px solid var(--line)}}.alias:last-child{{border-right:0}}.alias b{{color:var(--brick)}}@media(max-width:850px){{.hero{{grid-template-columns:1fr}}.stats{{grid-template-columns:repeat(2,1fr)}}
 .criteria,.diagnostics,.alias-grid{{grid-template-columns:1fr}}header nav{{display:none}}.section-head{{display:block}}.section-head p{{text-align:left;margin-top:8px}}}}
 @media print{{header{{display:none}}body{{background:white}}section{{break-inside:avoid}}}}
 </style></head><body><header><b>FRONTIERTRIALS</b><nav><a href="#ranking">Ranking</a><a href="#rubric">Rubric</a>
@@ -155,6 +198,14 @@ These pointwise ratings expose why a pairwise result moved.</p></div><div class=
 <p>{verbosity["longer_response_wins"]} of {verbosity["comparable_ballots"]} comparable decisive ballots. Association is not causation.</p></article>
 <article class="diag"><span class="eyebrow">Reviewer agreement</span><strong>{100 * result["agreement"]["agreement"]:.1f}%</strong>
 <p>Cohen's κ = {result["agreement"]["kappa"]:.3f} across {result["agreement"]["pairs"]} overlapping rater pairs.</p></article></div></section>
+<section id="panel"><div class="section-head"><h2>Panel sensitivity</h2><p>Per-reviewer summaries are descriptive.
+They are not reviewer grades, and removing one reviewer is a sensitivity analysis rather than a correction.</p></div>
+<div class="table-wrap"><table><thead><tr><th>Reviewer</th><th>Ballots</th><th>Mean confidence</th>
+<th>Left wins</th><th>Longer wins</th><th>Consensus alignment</th><th>Flags</th></tr></thead>
+<tbody>{_panel_rows(result)}</tbody></table></div>
+<div class="table-wrap" style="margin-top:14px"><table><thead><tr><th>Reviewer removed</th>
+<th>Re-fitted leader</th><th>Leader changed</th><th>Maximum rank shift</th></tr></thead>
+<tbody>{_sensitivity_rows(result, labels)}</tbody></table></div></section>
 <section><div class="section-head"><h2>Identity reveal</h2><p>Aliases are disclosed only after ballot collection in the recorded protocol.</p></div>
 <div class="alias-grid">{"".join(f'<div class="alias"><b>{html_escape(alias)}</b><br>{html_escape(labels.get(candidate, candidate))}</div>' for candidate, alias in sorted(reveal["candidate_aliases"].items()))}</div></section>
 <section id="method"><div class="section-head"><h2>Interpretation boundary</h2><p>A polished chart does not widen the evidence.</p></div>

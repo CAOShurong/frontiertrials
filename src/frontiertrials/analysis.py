@@ -5,6 +5,7 @@ from __future__ import annotations
 from collections import Counter, defaultdict
 from typing import Any
 
+from .errors import BlindingError
 from .stats import (
     bootstrap_bradley_terry,
     bradley_terry,
@@ -123,8 +124,155 @@ def _position_and_length(records: list[dict[str, Any]]) -> dict[str, Any]:
     }
 
 
+def _panel_diagnostics(trial: Trial, records: list[dict[str, Any]]) -> dict[str, Any]:
+    """Describe rater tendencies without turning them into quality scores."""
+    raters = trial.index("rater")
+    by_rater: dict[str, list[dict[str, Any]]] = defaultdict(list)
+    by_pairing: dict[str, list[dict[str, Any]]] = defaultdict(list)
+    for record in records:
+        by_rater[record["ballot"]["rater_id"]].append(record)
+        by_pairing[record["pairing"]["id"]].append(record)
+
+    rows = []
+    for rater_id, items in sorted(by_rater.items()):
+        decisive = [item for item in items if item["ballot"]["choice"] in {"left", "right"}]
+        left_wins = sum(item["ballot"]["choice"] == "left" for item in decisive)
+        longer_comparable = []
+        for item in decisive:
+            if item["left_words"] == item["right_words"]:
+                continue
+            longer_comparable.append(
+                (item["ballot"]["choice"] == "left" and item["left_words"] > item["right_words"])
+                or (
+                    item["ballot"]["choice"] == "right" and item["right_words"] > item["left_words"]
+                )
+            )
+        comparable = 0
+        aligned = 0
+        for item in items:
+            others = [
+                other["ballot"]["choice"]
+                for other in by_pairing[item["pairing"]["id"]]
+                if other["ballot"]["rater_id"] != rater_id
+                and other["ballot"]["choice"] != "abstain"
+            ]
+            if not others:
+                continue
+            counts = Counter(others)
+            top_choice, top_count = counts.most_common(1)[0]
+            if top_count <= len(others) / 2:
+                continue
+            comparable += 1
+            aligned += item["ballot"]["choice"] == top_choice
+        rows.append(
+            {
+                "rater_id": rater_id,
+                "label": raters.get(rater_id, {}).get("label", rater_id),
+                "ballot_count": len(items),
+                "decisive_count": len(decisive),
+                "mean_confidence": round(
+                    mean([float(item["ballot"]["confidence"]) for item in items]), 3
+                ),
+                "left_win_rate": round(left_wins / len(decisive), 4) if decisive else 0.0,
+                "longer_win_rate": round(sum(longer_comparable) / len(longer_comparable), 4)
+                if longer_comparable
+                else 0.0,
+                "flag_count": sum(len(item["ballot"].get("flags", [])) for item in items),
+                "consensus_comparable": comparable,
+                "consensus_alignment": round(aligned / comparable, 4) if comparable else None,
+            }
+        )
+
+    contested = sum(
+        len({item["ballot"]["choice"] for item in items if item["ballot"]["choice"] != "abstain"})
+        > 1
+        for items in by_pairing.values()
+    )
+    return {
+        "raters": rows,
+        "contested_pairings": contested,
+        "interpretation": (
+            "These descriptive tendencies help inspect panel effects; they are not rater-quality "
+            "scores and do not establish bias without a larger design."
+        ),
+    }
+
+
+def _ranking_sensitivity(
+    candidates: dict[str, dict[str, Any]],
+    records: list[dict[str, Any]],
+    ranking: list[dict[str, Any]],
+) -> dict[str, Any]:
+    """Re-fit the ranking after removing each rater."""
+    candidate_ids = sorted(candidates)
+    full_ranks = {item["candidate_id"]: rank for rank, item in enumerate(ranking, 1)}
+    full_leader = ranking[0]["candidate_id"] if ranking else None
+    rater_ids = sorted({item["ballot"]["rater_id"] for item in records})
+    removals = []
+    for rater_id in rater_ids:
+        retained = [
+            item
+            for item in records
+            if item["ballot"]["rater_id"] != rater_id and not item["abstain"]
+        ]
+        if not retained:
+            removals.append(
+                {
+                    "removed_rater_id": rater_id,
+                    "status": "insufficient_ballots",
+                    "leader_changed": None,
+                    "ranking": [],
+                    "max_absolute_rank_shift": None,
+                }
+            )
+            continue
+        comparisons = [
+            (item["left_candidate"], item["right_candidate"], item["left_score"])
+            for item in retained
+        ]
+        strengths = bradley_terry(candidate_ids, comparisons)
+        ordered = sorted(candidate_ids, key=lambda item: (-strengths.get(item, 1.0), item))
+        sensitivity_ranking = [
+            {
+                "candidate_id": candidate_id,
+                "rank": rank,
+                "full_rank": full_ranks[candidate_id],
+                "rank_shift": rank - full_ranks[candidate_id],
+                "bt_strength": round(strengths.get(candidate_id, 1.0), 4),
+            }
+            for rank, candidate_id in enumerate(ordered, 1)
+        ]
+        removals.append(
+            {
+                "removed_rater_id": rater_id,
+                "status": "estimated",
+                "leader_changed": ordered[0] != full_leader,
+                "ranking": sensitivity_ranking,
+                "max_absolute_rank_shift": max(
+                    abs(item["rank_shift"]) for item in sensitivity_ranking
+                ),
+            }
+        )
+    estimated = [item for item in removals if item["status"] == "estimated"]
+    return {
+        "leave_one_rater_out": removals,
+        "leader_changed_in_any_removal": any(item["leader_changed"] for item in estimated),
+        "max_absolute_rank_shift": max(
+            (item["max_absolute_rank_shift"] for item in estimated), default=None
+        ),
+        "interpretation": (
+            "Large leave-one-rater-out shifts indicate panel sensitivity, not that a removed "
+            "reviewer is wrong."
+        ),
+    }
+
+
 def analyze_trial(trial: Trial, *, bootstrap_samples: int = 400) -> dict[str, Any]:
     """Analyze ballots while retaining raw counts and methodological warnings."""
+    if trial.manifest()["state"] != "revealed":
+        raise BlindingError(
+            "analysis is identity-bearing and requires a revealed trial; use adjudicate before reveal"
+        )
     candidates = trial.index("candidate")
     records = _records(trial)
     ranked_records = [record for record in records if not record["abstain"]]
@@ -188,6 +336,7 @@ def analyze_trial(trial: Trial, *, bootstrap_samples: int = 400) -> dict[str, An
             }
         )
     ranking.sort(key=lambda item: (-item["bt_strength"], item["candidate_id"]))
+    panel = _panel_diagnostics(trial, records)
     return {
         "ranking": ranking,
         "summary": {
@@ -211,11 +360,14 @@ def analyze_trial(trial: Trial, *, bootstrap_samples: int = 400) -> dict[str, An
             for candidate, opponents in sorted(head_to_head.items())
         },
         "agreement": _agreement(records),
+        "panel_diagnostics": panel,
+        "ranking_sensitivity": _ranking_sensitivity(candidates, records, ranking),
         "bias_diagnostics": _position_and_length(records),
         "warnings": [
             "The ranking describes this prompt set, capture protocol, and reviewer panel.",
             "Overlapping confidence intervals should not be read as a stable total order.",
             "Web products can change model routing, tools, system prompts, and interfaces without notice.",
             "Human preferences do not establish factual correctness or safety.",
+            "Panel diagnostics are descriptive and must not be interpreted as rater-quality scores.",
         ],
     }

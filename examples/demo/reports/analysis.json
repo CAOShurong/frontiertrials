@@ -83,6 +83,36 @@
       "cinder": 11
     }
   },
+  "panel_diagnostics": {
+    "contested_pairings": 11,
+    "interpretation": "These descriptive tendencies help inspect panel effects; they are not rater-quality scores and do not establish bias without a larger design.",
+    "raters": [
+      {
+        "ballot_count": 48,
+        "consensus_alignment": 0.7708,
+        "consensus_comparable": 48,
+        "decisive_count": 36,
+        "flag_count": 48,
+        "label": "Reviewer One",
+        "left_win_rate": 0.5,
+        "longer_win_rate": 0.6176,
+        "mean_confidence": 3.75,
+        "rater_id": "reviewer-one"
+      },
+      {
+        "ballot_count": 48,
+        "consensus_alignment": 0.7708,
+        "consensus_comparable": 48,
+        "decisive_count": 38,
+        "flag_count": 48,
+        "label": "Reviewer Two",
+        "left_win_rate": 0.4474,
+        "longer_win_rate": 0.6111,
+        "mean_confidence": 3.792,
+        "rater_id": "reviewer-two"
+      }
+    ]
+  },
   "ranking": [
     {
       "appearances": 48,
@@ -193,6 +223,85 @@
       "wins": 2
     }
   ],
+  "ranking_sensitivity": {
+    "interpretation": "Large leave-one-rater-out shifts indicate panel sensitivity, not that a removed reviewer is wrong.",
+    "leader_changed_in_any_removal": false,
+    "leave_one_rater_out": [
+      {
+        "leader_changed": false,
+        "max_absolute_rank_shift": 0,
+        "ranking": [
+          {
+            "bt_strength": 2.089,
+            "candidate_id": "boreal",
+            "full_rank": 1,
+            "rank": 1,
+            "rank_shift": 0
+          },
+          {
+            "bt_strength": 0.9118,
+            "candidate_id": "aurora",
+            "full_rank": 2,
+            "rank": 2,
+            "rank_shift": 0
+          },
+          {
+            "bt_strength": 0.8485,
+            "candidate_id": "delta",
+            "full_rank": 3,
+            "rank": 3,
+            "rank_shift": 0
+          },
+          {
+            "bt_strength": 0.1507,
+            "candidate_id": "cinder",
+            "full_rank": 4,
+            "rank": 4,
+            "rank_shift": 0
+          }
+        ],
+        "removed_rater_id": "reviewer-one",
+        "status": "estimated"
+      },
+      {
+        "leader_changed": false,
+        "max_absolute_rank_shift": 0,
+        "ranking": [
+          {
+            "bt_strength": 1.8899,
+            "candidate_id": "boreal",
+            "full_rank": 1,
+            "rank": 1,
+            "rank_shift": 0
+          },
+          {
+            "bt_strength": 1.0066,
+            "candidate_id": "aurora",
+            "full_rank": 2,
+            "rank": 2,
+            "rank_shift": 0
+          },
+          {
+            "bt_strength": 0.8237,
+            "candidate_id": "delta",
+            "full_rank": 3,
+            "rank": 3,
+            "rank_shift": 0
+          },
+          {
+            "bt_strength": 0.2798,
+            "candidate_id": "cinder",
+            "full_rank": 4,
+            "rank": 4,
+            "rank_shift": 0
+          }
+        ],
+        "removed_rater_id": "reviewer-two",
+        "status": "estimated"
+      }
+    ],
+    "max_absolute_rank_shift": 0
+  },
   "summary": {
     "abstention_count": 0,
     "ballot_count": 96,
@@ -206,6 +315,7 @@
     "The ranking describes this prompt set, capture protocol, and reviewer panel.",
     "Overlapping confidence intervals should not be read as a stable total order.",
     "Web products can change model routing, tools, system prompts, and interfaces without notice.",
-    "Human preferences do not establish factual correctness or safety."
+    "Human preferences do not establish factual correctness or safety.",
+    "Panel diagnostics are descriptive and must not be interpreted as rater-quality scores."
   ]
 }
