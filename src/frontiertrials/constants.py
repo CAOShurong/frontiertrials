@@ -1,7 +1,7 @@
 """Stable vocabulary and policy constants."""
 
 FORMAT_VERSION = "1"
-APP_VERSION = "0.3.0"
+APP_VERSION = "0.3.1"
 
 KINDS = ("task", "candidate", "response", "rubric", "pairing", "ballot", "rater")
 DIRECTORIES = {kind: f"{kind}s" for kind in KINDS}

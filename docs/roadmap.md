@@ -17,9 +17,14 @@ Quick Compare → Personal Benchmark → Study Mode
 - Portable JSON backup and self-contained HTML result export.
 - A loopback-only `frontiertrials open` command with no runtime dependencies.
 
+## Shipped in 0.3.1
+
+- PyPI distribution with OIDC Trusted Publishing and public provenance attestations.
+- PyPI-safe documentation links and a shareable large-image social preview.
+- Structured issue forms for bugs and real comparison use cases.
+
 ## Near term
 
-- Publish the release on PyPI after the project and trusted publisher are configured.
 - Complete a keyboard-only and screen-reader usability study for Personal Lab.
 - Add currency selection and subscription-plan snapshots.
 - Add category-specific history and longitudinal capture waves.

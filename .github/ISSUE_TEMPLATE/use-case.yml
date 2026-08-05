@@ -1,0 +1,43 @@
+name: Use case or design proposal
+description: Describe a real comparison workflow before proposing a feature.
+title: "[Use case]: "
+labels: ["use-case"]
+body:
+  - type: textarea
+    id: decision
+    attributes:
+      label: Decision you need to make
+      description: What real subscription, workflow, or study decision should FrontierTrials support?
+    validations:
+      required: true
+  - type: textarea
+    id: current
+    attributes:
+      label: Current workaround
+      description: Explain what you do today and where it fails.
+    validations:
+      required: true
+  - type: dropdown
+    id: evidence
+    attributes:
+      label: Required evidence level
+      options:
+        - Quick personal comparison
+        - Longitudinal personal benchmark
+        - Multi-reviewer study
+    validations:
+      required: true
+  - type: textarea
+    id: boundary
+    attributes:
+      label: Privacy and trust boundary
+      description: What must stay local, and what should the result not claim?
+    validations:
+      required: true
+  - type: textarea
+    id: outcome
+    attributes:
+      label: Smallest useful outcome
+      description: Describe the smallest change that would solve the workflow.
+    validations:
+      required: true

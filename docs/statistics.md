@@ -56,6 +56,6 @@ another quality.
 
 ## Multiple comparisons and claims
 
-Version 0.3.0 does not produce p-values or correct for multiple comparisons. Do not use overlapping
+Version 0.3.1 does not produce p-values or correct for multiple comparisons. Do not use overlapping
 or non-overlapping bootstrap intervals as a formal hypothesis test without a protocol designed for
 that inference.
