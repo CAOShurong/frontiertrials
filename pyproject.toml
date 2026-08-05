@@ -4,11 +4,12 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "frontiertrials"
-version = "0.3.0"
+version = "0.3.1"
 description = "Private personal benchmarks and rigorous blind studies for AI subscription outputs"
 readme = "README.md"
 requires-python = ">=3.11"
 license = "MIT"
+license-files = ["LICENSE"]
 authors = [{ name = "Shurong Cao" }]
 dependencies = []
 keywords = [
@@ -31,8 +32,11 @@ classifiers = [
 
 [project.urls]
 Homepage = "https://caoshurong.github.io/frontiertrials/"
+Documentation = "https://github.com/CAOShurong/frontiertrials#readme"
 Repository = "https://github.com/CAOShurong/frontiertrials"
 Issues = "https://github.com/CAOShurong/frontiertrials/issues"
+Changelog = "https://github.com/CAOShurong/frontiertrials/blob/main/CHANGELOG.md"
+Discussions = "https://github.com/CAOShurong/frontiertrials/discussions"
 
 [project.scripts]
 frontiertrials = "frontiertrials.cli:main"

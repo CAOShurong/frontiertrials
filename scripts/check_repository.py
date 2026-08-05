@@ -18,7 +18,7 @@ from frontiertrials.constants import APP_VERSION  # noqa: E402
 from frontiertrials.seal import verify_seal  # noqa: E402
 from frontiertrials.workspace import Trial  # noqa: E402
 
-EXPECTED_VERSION = "0.3.0"
+EXPECTED_VERSION = "0.3.1"
 
 
 def require(condition: bool, message: str) -> None:
@@ -42,21 +42,20 @@ def check_versions() -> None:
 
 
 def check_install_claims() -> None:
-    release_url = (
-        "https://github.com/CAOShurong/frontiertrials/releases/download/"
-        f"v{EXPECTED_VERSION}/frontiertrials-{EXPECTED_VERSION}-py3-none-any.whl"
-    )
     for relative in ("README.md", "site/index.html"):
         text = (ROOT / relative).read_text(encoding="utf-8")
-        require(release_url in text, f"{relative} lacks the versioned release wheel")
         require(
-            "python -m pip install frontiertrials\n" not in text,
-            f"{relative} makes an unsupported PyPI install claim",
+            "python -m pip install frontiertrials" in text,
+            f"{relative} lacks the verified PyPI install path",
         )
 
 
 def check_figures() -> None:
-    for relative in ("docs/assets/hero.svg", "docs/assets/workflow.svg"):
+    for relative in (
+        "docs/assets/hero.svg",
+        "docs/assets/workflow.svg",
+        "docs/assets/blind-review-explained.svg",
+    ):
         path = ROOT / relative
         root = ET.fromstring(path.read_text(encoding="utf-8"))
         require(root.tag.endswith("svg"), f"{relative} is not SVG")

@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="docs/assets/hero.svg" alt="FrontierTrials personal workflow: paste exact AI product answers, compare them without labels, and reveal a limited decision" width="100%">
+  <img src="https://raw.githubusercontent.com/CAOShurong/frontiertrials/main/docs/assets/hero.svg" alt="FrontierTrials personal workflow: paste exact AI product answers, compare them without labels, and reveal a limited decision" width="100%">
 
   # FrontierTrials
 
@@ -11,9 +11,10 @@
 
   [![CI](https://github.com/CAOShurong/frontiertrials/actions/workflows/ci.yml/badge.svg)](https://github.com/CAOShurong/frontiertrials/actions/workflows/ci.yml)
   [![Pages](https://github.com/CAOShurong/frontiertrials/actions/workflows/pages.yml/badge.svg)](https://caoshurong.github.io/frontiertrials/)
+  [![PyPI](https://img.shields.io/pypi/v/frontiertrials?color=2b6f6b)](https://pypi.org/project/frontiertrials/)
   [![Python](https://img.shields.io/badge/Python-3.11%2B-20384a)](https://www.python.org/)
   [![Runtime dependencies](https://img.shields.io/badge/runtime_dependencies-0-28766d)](#privacy-and-trust-boundary)
-  [![License: MIT](https://img.shields.io/badge/license-MIT-a47a36)](LICENSE)
+  [![License: MIT](https://img.shields.io/badge/license-MIT-a47a36)](https://github.com/CAOShurong/frontiertrials/blob/main/LICENSE)
 </div>
 
 FrontierTrials has two deliberately different surfaces:
@@ -44,12 +45,18 @@ No account, API key, Python installation, or JSON configuration is required.
 If you prefer to serve the same application entirely from your computer:
 
 ```bash
-python -m pip install https://github.com/CAOShurong/frontiertrials/releases/download/v0.3.0/frontiertrials-0.3.0-py3-none-any.whl
+python -m pip install frontiertrials
 frontiertrials open
 ```
 
 `frontiertrials open` binds only to `127.0.0.1`, opens the Personal Lab, and applies a content
 security policy that blocks network connections from the application.
+
+For an isolated one-off run with [pipx](https://pipx.pypa.io/):
+
+```bash
+pipx run frontiertrials open
+```
 
 ## What a personal result means
 
@@ -164,8 +171,8 @@ after the review gate closes, and publishes a portable report.
 - [Revealed interactive report](https://caoshurong.github.io/frontiertrials/demo/trial-report.html)
 - [Offline blind judging packet](https://caoshurong.github.io/frontiertrials/demo/reviewer-one.html)
 - [Blind adjudication queue](https://caoshurong.github.io/frontiertrials/demo/adjudication.md)
-- [Ranking CSV](examples/demo/reports/ranking.csv)
-- [Protocol snapshot](examples/demo/reports/protocol.md)
+- [Ranking CSV](https://github.com/CAOShurong/frontiertrials/blob/main/examples/demo/reports/ranking.csv)
+- [Protocol snapshot](https://github.com/CAOShurong/frontiertrials/blob/main/examples/demo/reports/protocol.md)
 
 Every candidate, response, ballot, timing, and result in this committed demonstration is
 fictional. It validates mechanics and packaging, not the performance of a real product.
@@ -173,7 +180,7 @@ fictional. It validates mechanics and packaging, not the performance of a real p
 ### Study workflow
 
 <p align="center">
-  <img src="docs/assets/workflow.svg" alt="Six stages: define tasks, save exact answers, hide product names, collect reviews, resolve close cases, and reveal and test the result" width="100%">
+  <img src="https://raw.githubusercontent.com/CAOShurong/frontiertrials/main/docs/assets/workflow.svg" alt="Six stages: define tasks, save exact answers, hide product names, collect reviews, resolve close cases, and reveal and test the result" width="100%">
 </p>
 
 ```text
@@ -205,7 +212,7 @@ confidence, and a written reason. Product identities and stability checks appear
 assigned ballot is complete.
 
 <p align="center">
-  <img src="docs/assets/blind-review-explained.svg" alt="Before reveal, reviewers see a task and two anonymous complete answers; after reveal, the report adds product identities, uncertainty, position checks, panel stability, and scope" width="100%">
+  <img src="https://raw.githubusercontent.com/CAOShurong/frontiertrials/main/docs/assets/blind-review-explained.svg" alt="Before reveal, reviewers see a task and two anonymous complete answers; after reveal, the report adds product identities, uncertainty, position checks, panel stability, and scope" width="100%">
 </p>
 
 ### Create a study
@@ -310,7 +317,7 @@ trial/
 └── frontiertrials-seal.json  # content-addressed evidence snapshot
 ```
 
-Seven published [JSON Schemas](schemas/) document the interchange format.
+Seven published [JSON Schemas](https://github.com/CAOShurong/frontiertrials/tree/main/schemas) document the interchange format.
 
 ## Commands
 
@@ -347,7 +354,7 @@ model ranking. Existing tools cover important neighboring workflows:
 
 FrontierTrials combines a zero-config personal subscription decision surface with an optional
 file-native, multi-reviewer, no-API study workflow. See
-[competitive landscape](docs/competitive-landscape.md) for the detailed boundary.
+[competitive landscape](https://github.com/CAOShurong/frontiertrials/blob/main/docs/competitive-landscape.md) for the detailed boundary.
 
 ## Validation
 
@@ -365,24 +372,31 @@ environment, serves the packaged Personal Lab, and executes the complete fiction
 
 ## Documentation
 
-- [Protocol design](docs/protocol-design.md)
-- [Blinding and order balance](docs/blinding.md)
-- [Statistical analysis](docs/statistics.md)
-- [Capture integrity](docs/capture-integrity.md)
-- [Personal and study privacy](docs/privacy.md)
-- [Competitive landscape](docs/competitive-landscape.md)
-- [Validation evidence](docs/validation.md)
-- [Roadmap](docs/roadmap.md)
+- [Protocol design](https://github.com/CAOShurong/frontiertrials/blob/main/docs/protocol-design.md)
+- [Blinding and order balance](https://github.com/CAOShurong/frontiertrials/blob/main/docs/blinding.md)
+- [Statistical analysis](https://github.com/CAOShurong/frontiertrials/blob/main/docs/statistics.md)
+- [Capture integrity](https://github.com/CAOShurong/frontiertrials/blob/main/docs/capture-integrity.md)
+- [Personal and study privacy](https://github.com/CAOShurong/frontiertrials/blob/main/docs/privacy.md)
+- [Competitive landscape](https://github.com/CAOShurong/frontiertrials/blob/main/docs/competitive-landscape.md)
+- [Validation evidence](https://github.com/CAOShurong/frontiertrials/blob/main/docs/validation.md)
+- [Roadmap](https://github.com/CAOShurong/frontiertrials/blob/main/docs/roadmap.md)
 
 ## Contributing
 
 Product and methodology proposals are welcome when they include a concrete workflow, evidence, and
-the impact on the trust boundary. Read [CONTRIBUTING.md](CONTRIBUTING.md) and the
-[Code of Conduct](CODE_OF_CONDUCT.md).
+the impact on the trust boundary. Read
+[CONTRIBUTING.md](https://github.com/CAOShurong/frontiertrials/blob/main/CONTRIBUTING.md) and the
+[Code of Conduct](https://github.com/CAOShurong/frontiertrials/blob/main/CODE_OF_CONDUCT.md).
 
 ## License and citation
 
-FrontierTrials is released under the [MIT License](LICENSE). Cite a versioned release using
-[CITATION.cff](CITATION.cff).
+FrontierTrials is released under the
+[MIT License](https://github.com/CAOShurong/frontiertrials/blob/main/LICENSE). Cite a versioned
+release using
+[CITATION.cff](https://github.com/CAOShurong/frontiertrials/blob/main/CITATION.cff).
+
+Questions, use cases, and design proposals belong in
+[Discussions](https://github.com/CAOShurong/frontiertrials/discussions). Reproducible bugs belong
+in [Issues](https://github.com/CAOShurong/frontiertrials/issues).
 
 Created and maintained by **Shurong Cao**.

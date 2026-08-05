@@ -1,6 +1,6 @@
 # Validation evidence
 
-Version 0.3.0 has six validation layers.
+Version 0.3.1 has six validation layers.
 
 ## Behavioral tests
 
@@ -56,4 +56,4 @@ URL into a new virtual environment and reruns the full demonstration.
 - Windows and Ubuntu
 - Python 3.11 and 3.13
 
-Other systems may work but are not claimed by version 0.3.0.
+Other systems may work but are not claimed by version 0.3.1.

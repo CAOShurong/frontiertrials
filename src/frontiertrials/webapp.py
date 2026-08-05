@@ -38,7 +38,7 @@ def asset_text(name: str) -> str:
 class PersonalLabHandler(BaseHTTPRequestHandler):
     """Minimal asset-only handler with an intentionally closed network policy."""
 
-    server_version = "FrontierTrialsPersonalLab/0.3"
+    server_version = "FrontierTrialsPersonalLab/0.3.1"
 
     def do_GET(self) -> None:  # noqa: N802
         asset = ASSET_TYPES.get(self.path.split("?", 1)[0])
