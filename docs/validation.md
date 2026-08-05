@@ -1,10 +1,10 @@
 # Validation evidence
 
-Version 0.2.0 has five validation layers.
+Version 0.3.0 has six validation layers.
 
 ## Behavioral tests
 
-Ninety-four standard-library tests cover:
+Ninety-eight standard-library tests cover:
 
 - identifiers, deterministic digests, escaping, word counts, and descriptive statistics;
 - all seven artifact validators;
@@ -15,6 +15,14 @@ Ninety-four standard-library tests cover:
 - offline packets, public report guards, CSV and Markdown exports, seals, and the full demo.
 - frozen-state analysis rejection, complete-ballot reveal gating, blind-safe adjudication exports,
   panel summaries, and leave-one-rater-out ranking sensitivity.
+- packaged Personal Lab assets, its loopback-only server, network-blocking browser policy, and
+  command-line launcher.
+
+## Browser workflow
+
+The Personal Lab is exercised in a real browser from capture through anonymous review, reveal,
+local save, and history. The hosted homepage and narrow-screen layout are visually inspected before
+release.
 
 ## Static checks
 
@@ -38,7 +46,7 @@ regenerates reports and packets.
 
 ## Repository and publication audit
 
-`python scripts/audit_repository.py` checks the package version surfaces, required project files,
+`python scripts/check_repository.py` checks the package version surfaces, required project files,
 README links, public-install instructions, sole authorship metadata, workflow coverage, SVG
 viewports, and forbidden legacy visual tokens. Release validation then installs the public wheel
 URL into a new virtual environment and reruns the full demonstration.
@@ -48,4 +56,4 @@ URL into a new virtual environment and reruns the full demonstration.
 - Windows and Ubuntu
 - Python 3.11 and 3.13
 
-Other systems may work but are not claimed by version 0.2.0.
+Other systems may work but are not claimed by version 0.3.0.

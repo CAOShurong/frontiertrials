@@ -1,0 +1,330 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A private, no-API blind comparison lab for the AI subscriptions you already use.">
+  <meta name="theme-color" content="#f4f1e8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <title>FrontierTrials Personal Lab</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to the comparison</a>
+
+  <header class="masthead">
+    <a class="brand" href="#capture" aria-label="FrontierTrials Personal Lab home">
+      <span class="brand-mark">FT</span>
+      <span>FrontierTrials <small>Personal Lab</small></span>
+    </a>
+    <nav aria-label="Primary navigation">
+      <button class="nav-link active" type="button" data-view-target="capture">New comparison</button>
+      <button class="nav-link" type="button" data-view-target="history">History</button>
+      <a class="nav-link" href="https://github.com/CAOShurong/frontiertrials">Study mode ↗</a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="view active" id="capture" data-view="capture">
+      <div class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">Private comparison · no API keys · browser-local data</p>
+          <h1>Which AI subscription earns a place in your workflow?</h1>
+          <p class="lede">
+            Paste answers from ChatGPT, Claude, Gemini, Kimi, GLM, or any product you already use.
+            FrontierTrials masks the names while you compare the work, then reveals a result with
+            its limits.
+          </p>
+          <div class="privacy-note">
+            <span aria-hidden="true">●</span>
+            <p><strong>Your text stays in this browser.</strong> This page makes no model or analytics requests. Export a file if you want a portable copy.</p>
+          </div>
+        </div>
+
+        <aside class="hero-card" aria-label="How the personal comparison works">
+          <p class="figure-label">A personal trial in three steps</p>
+          <ol>
+            <li><b>01</b><span><strong>Paste</strong> the same task and each product's exact answer.</span></li>
+            <li><b>02</b><span><strong>Compare</strong> anonymous pairs without product labels on screen.</span></li>
+            <li><b>03</b><span><strong>Decide</strong> using your own task history, not a global leaderboard.</span></li>
+          </ol>
+          <p class="boundary">Masking labels reduces on-screen brand cues. It cannot erase identities you already remember from writing or capturing the answers.</p>
+        </aside>
+      </div>
+
+      <div class="workspace-shell">
+        <ol class="stepper" aria-label="Comparison progress">
+          <li class="active" data-step="capture"><span>1</span> Capture</li>
+          <li data-step="review"><span>2</span> Blind review</li>
+          <li data-step="result"><span>3</span> Decision</li>
+        </ol>
+
+        <section class="workspace-panel active" data-stage="capture" aria-labelledby="capture-title">
+          <div class="panel-heading">
+            <div>
+              <p class="eyebrow">Quick compare</p>
+              <h2 id="capture-title">Record one task and its answers.</h2>
+            </div>
+            <button class="text-button" type="button" id="load-example">Load a fictional example</button>
+          </div>
+
+          <div class="task-grid">
+            <label>
+              <span>Task title</span>
+              <input id="task-title" type="text" maxlength="120" placeholder="e.g. Explain a paper figure">
+            </label>
+            <label>
+              <span>Category</span>
+              <select id="task-category">
+                <option value="research">Research</option>
+                <option value="engineering">Engineering</option>
+                <option value="coding">Coding</option>
+                <option value="analysis">Analysis</option>
+                <option value="writing">Writing</option>
+                <option value="multilingual">Multilingual</option>
+                <option value="reasoning">Reasoning</option>
+                <option value="other">Other</option>
+              </select>
+            </label>
+          </div>
+
+          <label class="field-block">
+            <span>Exact prompt or task</span>
+            <textarea id="task-prompt" rows="5" placeholder="Paste the same prompt you used in each product. Remove private details before sharing an exported report."></textarea>
+          </label>
+
+          <div class="candidate-heading">
+            <div>
+              <p class="eyebrow">Candidate answers</p>
+              <h3>Paste two to four exact outputs.</h3>
+            </div>
+            <button class="secondary-button" type="button" id="add-candidate">Add another product</button>
+          </div>
+          <div class="candidate-grid" id="candidate-grid"></div>
+
+          <div class="form-message" id="capture-message" role="alert" aria-live="polite"></div>
+          <div class="panel-actions">
+            <p>Start with one task. Save several comparisons to build a personal, category-specific history.</p>
+            <button class="primary-button" type="button" id="start-review">Start blind review <span aria-hidden="true">→</span></button>
+          </div>
+        </section>
+
+        <section class="workspace-panel" data-stage="review" aria-labelledby="review-title" hidden>
+          <div class="review-header">
+            <div>
+              <p class="eyebrow" id="review-progress">Comparison 1 of 1</p>
+              <h2 id="review-title">Which answer would you rather use?</h2>
+            </div>
+            <button class="text-button" type="button" id="exit-review">Return to capture</button>
+          </div>
+
+          <article class="prompt-card">
+            <p class="figure-label">Task under review</p>
+            <h3 id="review-task-title"></h3>
+            <p id="review-prompt"></p>
+          </article>
+
+          <div class="answer-grid">
+            <article class="answer-card">
+              <header><span>Response A</span><strong id="left-alias"></strong></header>
+              <pre id="left-answer"></pre>
+              <dl>
+                <div><dt>Observed latency</dt><dd id="left-latency"></dd></div>
+                <div><dt>Length</dt><dd id="left-length"></dd></div>
+              </dl>
+            </article>
+            <div class="versus" aria-hidden="true">versus</div>
+            <article class="answer-card">
+              <header><span>Response B</span><strong id="right-alias"></strong></header>
+              <pre id="right-answer"></pre>
+              <dl>
+                <div><dt>Observed latency</dt><dd id="right-latency"></dd></div>
+                <div><dt>Length</dt><dd id="right-length"></dd></div>
+              </dl>
+            </article>
+          </div>
+
+          <fieldset class="reason-fieldset">
+            <legend>What mattered most? <span>Optional</span></legend>
+            <div class="reason-options">
+              <label><input type="checkbox" name="reason" value="correctness"> Correctness</label>
+              <label><input type="checkbox" name="reason" value="instruction-fit"> Instruction fit</label>
+              <label><input type="checkbox" name="reason" value="actionability"> Actionability</label>
+              <label><input type="checkbox" name="reason" value="clarity"> Clarity</label>
+              <label><input type="checkbox" name="reason" value="evidence"> Evidence discipline</label>
+            </div>
+          </fieldset>
+
+          <label class="field-block compact">
+            <span>Decision note <small>Optional</small></span>
+            <textarea id="review-note" rows="2" placeholder="Record the concrete reason for your choice."></textarea>
+          </label>
+
+          <div class="vote-grid" aria-label="Choose the better answer">
+            <button type="button" data-vote="left"><b>A</b><span>Response A is better</span></button>
+            <button type="button" data-vote="tie"><b>=</b><span>About equal</span></button>
+            <button type="button" data-vote="right"><b>B</b><span>Response B is better</span></button>
+            <button class="skip-vote" type="button" data-vote="skip"><b>—</b><span>Cannot judge</span></button>
+          </div>
+        </section>
+
+        <section class="workspace-panel" data-stage="result" aria-labelledby="result-title" hidden>
+          <div class="result-head">
+            <div>
+              <p class="eyebrow">Identity reveal</p>
+              <h2 id="result-title">What this task supports.</h2>
+            </div>
+            <span class="result-seal">Local result · <span id="result-date"></span></span>
+          </div>
+
+          <div class="decision-banner">
+            <p class="figure-label">Decision note</p>
+            <h3 id="decision-title"></h3>
+            <p id="decision-copy"></p>
+          </div>
+
+          <div class="result-table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th scope="col">Product</th>
+                  <th scope="col">Pairwise score</th>
+                  <th scope="col">Record</th>
+                  <th scope="col">Monthly price (USD)</th>
+                  <th scope="col">Observed latency</th>
+                </tr>
+              </thead>
+              <tbody id="result-body"></tbody>
+            </table>
+          </div>
+
+          <div class="limits-card">
+            <p class="figure-label">Interpretation boundary</p>
+            <ul>
+              <li>This is evidence about one recorded task, interface, date, and reviewer—not general intelligence.</li>
+              <li>A single decisive comparison cannot establish a stable subscription choice.</li>
+              <li>Save varied real tasks before making a purchase or cancellation decision.</li>
+            </ul>
+          </div>
+
+          <div class="result-actions">
+            <button class="primary-button" type="button" id="save-result">Save to local history</button>
+            <button class="secondary-button" type="button" id="download-report">Download HTML report</button>
+            <button class="secondary-button" type="button" id="new-comparison">New comparison</button>
+          </div>
+          <p class="save-status" id="save-status" aria-live="polite"></p>
+        </section>
+      </div>
+    </section>
+
+    <section class="view" id="history" data-view="history" hidden>
+      <div class="history-hero">
+        <div>
+          <p class="eyebrow">Personal benchmark</p>
+          <h1>Your own evidence, accumulated task by task.</h1>
+        </div>
+        <p>
+          Global leaderboards summarize other people's prompts and preferences. This view summarizes
+          only the comparisons saved in this browser.
+        </p>
+      </div>
+
+      <section class="history-summary" aria-labelledby="history-summary-title">
+        <div class="summary-stat"><strong id="history-trials">0</strong><span>saved tasks</span></div>
+        <div class="summary-stat"><strong id="history-decisions">0</strong><span>decisions</span></div>
+        <div class="summary-stat"><strong id="history-products">0</strong><span>products seen</span></div>
+        <div class="summary-stat wide">
+          <span>Current evidence</span>
+          <strong id="history-call">No saved comparisons yet.</strong>
+        </div>
+      </section>
+
+      <section class="history-panel">
+        <div class="panel-heading">
+          <div>
+            <p class="eyebrow">Aggregate preference</p>
+            <h2>Results across your saved tasks.</h2>
+          </div>
+          <p class="table-note">Ties contribute half a win. Skipped pairs are excluded.</p>
+        </div>
+        <div class="result-table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th scope="col">Product</th>
+                <th scope="col">Preference score</th>
+                <th scope="col">Record</th>
+                <th scope="col">Task categories</th>
+                <th scope="col">Latest price (USD)</th>
+              </tr>
+            </thead>
+            <tbody id="history-ranking"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="history-panel">
+        <div class="panel-heading">
+          <div>
+            <p class="eyebrow">Evidence log</p>
+            <h2>Saved comparisons.</h2>
+          </div>
+          <div class="history-actions">
+            <button class="secondary-button" type="button" id="export-history">Export JSON</button>
+            <label class="secondary-button file-button">Import JSON<input id="import-history" type="file" accept="application/json"></label>
+            <button class="danger-button" type="button" id="clear-history">Clear local history</button>
+          </div>
+        </div>
+        <div class="trial-list" id="trial-list"></div>
+        <p class="empty-state" id="history-empty">No saved comparisons. Run a quick comparison to begin.</p>
+      </section>
+
+      <section class="method-boundary">
+        <div>
+          <p class="eyebrow">Need stronger evidence?</p>
+          <h2>Graduate from personal mode to a blinded study.</h2>
+        </div>
+        <p>
+          The full FrontierTrials CLI adds multiple reviewers, frozen assignments, blind-safe
+          adjudication, task-clustered uncertainty, panel sensitivity, hashes, and evidence seals.
+        </p>
+        <a class="primary-button" href="https://github.com/CAOShurong/frontiertrials#study-mode">Open study mode documentation ↗</a>
+      </section>
+    </section>
+  </main>
+
+  <footer>
+    <p><strong>FrontierTrials</strong> · Personal evidence before product allegiance.</p>
+    <p>Data stays in this browser unless you export it · <a href="https://github.com/CAOShurong/frontiertrials">MIT licensed source</a></p>
+  </footer>
+
+  <template id="candidate-template">
+    <article class="candidate-card">
+      <header>
+        <span class="candidate-number"></span>
+        <button class="remove-candidate" type="button" aria-label="Remove product">Remove</button>
+      </header>
+      <label>
+        <span>Product or plan</span>
+        <input class="candidate-name" type="text" maxlength="80" placeholder="e.g. ChatGPT Plus">
+      </label>
+      <div class="candidate-meta">
+        <label>
+          <span>Monthly price in USD <small>Optional</small></span>
+          <input class="candidate-price" type="number" min="0" step="0.01" placeholder="20">
+        </label>
+        <label>
+          <span>Latency in seconds <small>Optional</small></span>
+          <input class="candidate-latency" type="number" min="0" step="0.1" placeholder="35">
+        </label>
+      </div>
+      <label>
+        <span>Exact answer</span>
+        <textarea class="candidate-response" rows="12" placeholder="Paste the complete response without rewriting it."></textarea>
+      </label>
+      <p class="capture-detail"><span class="character-count">0 characters</span><span>Stored locally</span></p>
+    </article>
+  </template>
+</body>
+</html>

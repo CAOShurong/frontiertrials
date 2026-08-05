@@ -25,6 +25,7 @@ jobs:
           python -m venv clean-install
           clean-install/bin/python -m pip install dist/*.whl
           clean-install/bin/frontiertrials --version
+          clean-install/bin/frontiertrials open --help
           clean-install/bin/frontiertrials demo release-demo
           clean-install/bin/frontiertrials audit --trial release-demo
           clean-install/bin/frontiertrials adjudicate --trial release-demo --format markdown --output release-adjudication.md

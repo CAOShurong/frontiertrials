@@ -1,5 +1,21 @@
 # Privacy and safe sharing
 
+## Personal Lab
+
+The hosted and local Personal Lab performs comparisons entirely in the browser. Its JavaScript
+contains no model calls, analytics, `fetch`, or `XMLHttpRequest`. A restrictive content-security
+policy blocks network connections when the app is opened through `frontiertrials open`.
+
+Saved comparisons live in that browser's local storage. Clearing site data, changing browser
+profiles, or using a private window can remove them, so export JSON when the history matters. An
+exported JSON file or HTML report contains the prompts and answers in readable form; review it
+before sharing.
+
+The hosted GitHub Pages app necessarily downloads its static HTML, CSS, and JavaScript from GitHub
+Pages. After the page loads, the comparison text is not sent back by FrontierTrials. The repository
+cannot control browser extensions, device monitoring, or the terms of the AI products from which
+you copied the answers.
+
 ## Private prompts
 
 Real tasks may contain unpublished ideas, source code, participant information, internal documents,
@@ -30,4 +46,3 @@ FrontierTrials does not determine that status.
 The tool does not automate web collection. Manual use can still be restricted by account,
 organizational, geographic, or data-handling rules. Review the current terms that apply to each
 surface.
-
