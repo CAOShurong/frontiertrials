@@ -198,6 +198,16 @@ private tasks + rubric + observed candidate metadata
        evidence seal + portable public or private report
 ```
 
+### What blind review changes
+
+Reviewers receive complete task text and anonymous answers, then record preference, rubric scores,
+confidence, and a written reason. Product identities and stability checks appear only after every
+assigned ballot is complete.
+
+<p align="center">
+  <img src="docs/assets/blind-review-explained.svg" alt="Before reveal, reviewers see a task and two anonymous complete answers; after reveal, the report adds product identities, uncertainty, position checks, panel stability, and scope" width="100%">
+</p>
+
 ### Create a study
 
 ```bash
