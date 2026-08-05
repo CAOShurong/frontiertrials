@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import re
+import struct
 import sys
 import tomllib
 import xml.etree.ElementTree as ET
@@ -65,6 +66,22 @@ def check_figures() -> None:
         require("<filter" not in text, f"{relative} uses a decorative filter")
 
 
+def check_social_preview() -> None:
+    path = ROOT / "site" / "social-preview.png"
+    data = path.read_bytes()
+    require(data.startswith(b"\x89PNG\r\n\x1a\n"), "social preview is not a PNG")
+    require(len(data) >= 24, "social preview is truncated")
+    width, height = struct.unpack(">II", data[16:24])
+    require((width, height) == (1280, 640), "social preview must be 1280x640")
+    homepage = (ROOT / "site" / "index.html").read_text(encoding="utf-8")
+    require("social-preview.png" in homepage, "homepage lacks social-preview metadata")
+    pages = (ROOT / ".github" / "workflows" / "pages.yml").read_text(encoding="utf-8")
+    require(
+        "site/social-preview.png" in pages,
+        "Pages workflow does not publish the social preview",
+    )
+
+
 def check_personal_lab() -> None:
     for relative in (
         "src/frontiertrials/web/index.html",
@@ -116,6 +133,7 @@ def main() -> None:
     check_versions()
     check_install_claims()
     check_figures()
+    check_social_preview()
     check_personal_lab()
     check_relative_readme_links()
     check_committed_demo()
