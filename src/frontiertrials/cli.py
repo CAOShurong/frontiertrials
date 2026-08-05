@@ -22,16 +22,28 @@ from .report import build_report
 from .seal import verify_seal, write_seal
 from .store import read_json
 from .util import pretty_json
+from .webapp import serve_app
 from .workspace import Trial
 
 
 def _parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
         prog="frontiertrials",
-        description="Run reproducible blind evaluations of manually captured AI outputs.",
+        description=(
+            "Compare AI subscription outputs privately, from quick personal trials "
+            "to reproducible blinded studies."
+        ),
     )
     parser.add_argument("--version", action="version", version=f"%(prog)s {__version__}")
     subparsers = parser.add_subparsers(dest="command", required=True)
+
+    open_app = subparsers.add_parser(
+        "open",
+        help="open the private personal comparison lab in a browser",
+    )
+    open_app.add_argument("--host", default="127.0.0.1")
+    open_app.add_argument("--port", type=int, default=0)
+    open_app.add_argument("--no-browser", action="store_true")
 
     init = subparsers.add_parser("init", help="create an empty trial")
     init.add_argument("trial")
@@ -147,6 +159,9 @@ def _print_json(value: Any) -> None:
 
 
 def run(args: argparse.Namespace) -> int:
+    if args.command == "open":
+        serve_app(host=args.host, port=args.port, open_browser=not args.no_browser)
+        return 0
     if args.command == "init":
         trial = Trial.create(args.trial, title=args.title, question=args.question, owner=args.owner)
         print(trial.root)

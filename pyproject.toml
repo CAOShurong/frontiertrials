@@ -4,14 +4,22 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "frontiertrials"
-version = "0.2.0"
-description = "Reproducible blind evaluations of AI web-app outputs without API keys"
+version = "0.3.0"
+description = "Private personal benchmarks and rigorous blind studies for AI subscription outputs"
 readme = "README.md"
 requires-python = ">=3.11"
 license = "MIT"
 authors = [{ name = "Shurong Cao" }]
 dependencies = []
-keywords = ["llm-evaluation", "blind-evaluation", "human-evaluation", "no-api", "frontier-models"]
+keywords = [
+  "llm-evaluation",
+  "blind-evaluation",
+  "human-evaluation",
+  "no-api",
+  "frontier-models",
+  "personal-benchmark",
+  "ai-subscriptions",
+]
 classifiers = [
   "Development Status :: 3 - Alpha",
   "Environment :: Console",
@@ -31,6 +39,9 @@ frontiertrials = "frontiertrials.cli:main"
 
 [tool.setuptools.packages.find]
 where = ["src"]
+
+[tool.setuptools.package-data]
+frontiertrials = ["web/*.html", "web/*.css", "web/*.js"]
 
 [tool.ruff]
 line-length = 100

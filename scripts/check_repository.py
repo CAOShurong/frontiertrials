@@ -18,7 +18,7 @@ from frontiertrials.constants import APP_VERSION  # noqa: E402
 from frontiertrials.seal import verify_seal  # noqa: E402
 from frontiertrials.workspace import Trial  # noqa: E402
 
-EXPECTED_VERSION = "0.2.0"
+EXPECTED_VERSION = "0.3.0"
 
 
 def require(condition: bool, message: str) -> None:
@@ -66,6 +66,24 @@ def check_figures() -> None:
         require("<filter" not in text, f"{relative} uses a decorative filter")
 
 
+def check_personal_lab() -> None:
+    for relative in (
+        "src/frontiertrials/web/index.html",
+        "src/frontiertrials/web/styles.css",
+        "src/frontiertrials/web/app.js",
+    ):
+        require((ROOT / relative).exists(), f"personal-lab asset missing: {relative}")
+    html = (ROOT / "src/frontiertrials/web/index.html").read_text(encoding="utf-8")
+    script = (ROOT / "src/frontiertrials/web/app.js").read_text(encoding="utf-8")
+    homepage = (ROOT / "site/index.html").read_text(encoding="utf-8")
+    require("Which AI subscription earns a place" in html, "personal-lab promise missing")
+    require("Your text stays in this browser" in html, "personal-lab privacy notice missing")
+    require("localStorage" in script, "personal-lab persistence missing")
+    require("fetch(" not in script, "personal-lab script makes a network request")
+    require("XMLHttpRequest" not in script, "personal-lab script makes a network request")
+    require('href="try/"' in homepage, "homepage does not link to Personal Lab")
+
+
 def check_relative_readme_links() -> None:
     readme = (ROOT / "README.md").read_text(encoding="utf-8")
     for target in re.findall(r"\[[^\]]+\]\(([^)]+)\)", readme):
@@ -99,6 +117,7 @@ def main() -> None:
     check_versions()
     check_install_claims()
     check_figures()
+    check_personal_lab()
     check_relative_readme_links()
     check_committed_demo()
     print("repository checks: pass")

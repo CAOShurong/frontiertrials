@@ -2,6 +2,25 @@
 
 ## [Unreleased]
 
+## [0.3.0] - 2026-08-05
+
+### Added
+
+- A zero-config Personal Lab for two-to-four-product blind comparisons in the browser.
+- Browser-local task history, aggregate preference scores, category coverage, price and latency
+  context, JSON backup and restore, and self-contained HTML report export.
+- The `frontiertrials open` command, which serves the packaged Personal Lab on a loopback-only
+  local server with a closed content-security policy.
+- Packaged web assets, server and CLI tests, and release-wheel smoke coverage for Personal Lab.
+
+### Changed
+
+- Repositioned the project around private AI subscription decisions for personal users, with the
+  original rigorous workflow retained as Study Mode.
+- Rewrote the README and project website around Quick Compare, Personal Benchmark, and Study Mode.
+- Added an explicit Arena comparison and an honest masking-versus-memory limitation.
+- Replaced the hero with a plain-language personal decision workflow.
+
 ## [0.2.0] - 2026-08-05
 
 ### Added
@@ -33,6 +52,7 @@
 - A revealed portable report and a 191-artifact, fully fictional demonstration.
 - Eighty-five standard-library tests, cross-platform CI, package smoke tests, and GitHub Pages.
 
-[Unreleased]: https://github.com/CAOShurong/frontiertrials/compare/v0.2.0...HEAD
+[Unreleased]: https://github.com/CAOShurong/frontiertrials/compare/v0.3.0...HEAD
+[0.3.0]: https://github.com/CAOShurong/frontiertrials/compare/v0.2.0...v0.3.0
 [0.2.0]: https://github.com/CAOShurong/frontiertrials/releases/tag/v0.2.0
 [0.1.0]: https://github.com/CAOShurong/frontiertrials/releases/tag/v0.1.0

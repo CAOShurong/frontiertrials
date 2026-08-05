@@ -68,6 +68,7 @@ jobs:
           python -m venv .smoke
           .smoke/bin/python -m pip install dist/*.whl
           .smoke/bin/frontiertrials --version
+          .smoke/bin/frontiertrials open --help
           .smoke/bin/frontiertrials demo /tmp/frontiertrials-smoke
           .smoke/bin/frontiertrials audit --trial /tmp/frontiertrials-smoke
           .smoke/bin/frontiertrials adjudicate --trial /tmp/frontiertrials-smoke --format markdown --output /tmp/frontiertrials-adjudication.md

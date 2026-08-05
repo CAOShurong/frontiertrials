@@ -1,6 +1,6 @@
-"""FrontierTrials: no-API blind evaluation for AI web-app outputs."""
+"""FrontierTrials: private personal and study-grade AI product evaluation."""
 
-__version__ = "0.2.0"
+__version__ = "0.3.0"
 
 from .adjudication import build_adjudication_queue
 from .analysis import analyze_trial

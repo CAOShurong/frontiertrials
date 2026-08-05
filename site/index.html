@@ -3,137 +3,182 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="FrontierTrials is a local-first protocol for blind, auditable evaluations of AI web-app outputs without API keys.">
-  <meta name="theme-color" content="#24384c">
-  <title>FrontierTrials — blind AI product trials without API keys</title>
+  <meta name="description" content="FrontierTrials is a private personal benchmark and rigorous blind-study toolkit for AI subscription outputs.">
+  <meta name="theme-color" content="#f4f1e8">
+  <title>FrontierTrials — choose an AI subscription using your own work</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
   <header class="masthead">
-    <a class="brand" href="#">FrontierTrials <span>v0.2</span></a>
+    <a class="brand" href="#">FrontierTrials <span>v0.3</span></a>
     <nav aria-label="Primary navigation">
-      <a href="#method">Method</a>
-      <a href="#evidence">Evidence</a>
-      <a href="#limits">Limits</a>
+      <a href="#modes">Modes</a>
+      <a href="#arena">Arena comparison</a>
+      <a href="#method">Study mode</a>
       <a href="https://github.com/CAOShurong/frontiertrials">GitHub ↗</a>
     </nav>
   </header>
 
   <main id="main">
     <section class="hero">
-      <div>
-        <p class="kicker">Local methods toolkit · Python 3.11+ · zero runtime dependencies</p>
-        <h1>Blind-test the AI products you actually use.</h1>
+      <div class="hero-copy">
+        <p class="kicker">Private personal benchmark · no API keys · local evidence</p>
+        <h1>Which AI subscription should you keep?</h1>
         <p class="abstract">
-          Preserve responses copied from subscription interfaces, allocate balanced anonymous
-          comparisons, collect offline human judgments, resolve contested cases before reveal,
-          and publish an evidence-linked result.
+          Compare ChatGPT, Claude, Gemini, Kimi, GLM, and other products on the work you actually
+          do. Paste exact answers, review anonymous pairs, and build a private task history instead
+          of trusting a global leaderboard.
         </p>
         <div class="actions">
-          <a class="button primary" href="demo/trial-report.html">Read the demonstration report</a>
-          <a class="button" href="demo/reviewer-one.html">Open a blind review packet</a>
+          <a class="button primary" href="try/">Try Personal Lab</a>
+          <a class="button" href="https://github.com/CAOShurong/frontiertrials#study-mode">Open Study Mode</a>
         </div>
-        <p class="note">The public demonstration is entirely fictional. It validates the workflow, not any model.</p>
+        <p class="note">No account or API key. The Personal Lab makes no model or analytics requests.</p>
       </div>
 
-      <figure class="trial-figure" aria-label="Diagram of a blinded response comparison">
-        <figcaption>Figure 1 · A blinded comparison record</figcaption>
-        <div class="figure-head"><span>PAIR 017 / 048</span><b>IDENTITIES WITHHELD</b></div>
-        <div class="responses">
-          <article><h2>Left · Ember–Kite</h2><p>Exact captured response, checked against its SHA-256 digest before allocation.</p></article>
-          <div class="versus">vs</div>
-          <article><h2>Right · Moss–Orbit</h2><p>Candidate metadata remains behind the reveal boundary until assigned ballots are complete.</p></article>
+      <figure class="decision-figure" aria-label="A personal blind comparison result">
+        <figcaption>Personal trial · one recorded engineering task</figcaption>
+        <div class="question">
+          <span>Task</span>
+          <strong>Explain this paper figure and propose the next experiment.</strong>
         </div>
-        <div class="decision"><span>Left</span><strong>Tie</strong><span>Right</span></div>
-        <div class="figure-foot"><span>confidence 4 / 5</span><span>content integrity verified</span></div>
+        <div class="anonymous-pair">
+          <article>
+            <small>Response A</small>
+            <h2>Cedar</h2>
+            <i></i><i></i><i></i>
+          </article>
+          <b>versus</b>
+          <article>
+            <small>Response B</small>
+            <h2>Kestrel</h2>
+            <i></i><i></i><i></i>
+          </article>
+        </div>
+        <div class="reveal">
+          <span>After review</span>
+          <strong>This task favored Product A.</strong>
+          <small>Early signal only · add varied tasks before changing a subscription</small>
+        </div>
       </figure>
     </section>
 
-    <section class="evidence-strip" aria-label="Demonstration evidence">
-      <div><strong>8</strong><span>private tasks</span></div>
-      <div><strong>4</strong><span>fictional candidates</span></div>
-      <div><strong>48</strong><span>blind pairings</span></div>
-      <div><strong>96</strong><span>ballots</span></div>
-      <div><strong>94</strong><span>automated tests</span></div>
-      <div><strong>224</strong><span>sealed evidence files</span></div>
+    <section class="proof-strip" aria-label="Product properties">
+      <div><strong>0</strong><span>API keys</span></div>
+      <div><strong>2–4</strong><span>products per quick trial</span></div>
+      <div><strong>Local</strong><span>browser history</span></div>
+      <div><strong>HTML</strong><span>portable report</span></div>
+      <div><strong>98</strong><span>automated tests</span></div>
+    </section>
+
+    <section class="section" id="modes">
+      <header class="section-head">
+        <p class="kicker">Progressive evidence</p>
+        <h2>Start small. Add rigor only when the decision needs it.</h2>
+        <p>The original research workflow is still available, but it is no longer the first thing a personal user must learn.</p>
+      </header>
+      <div class="mode-grid">
+        <article>
+          <span>01</span>
+          <p class="kicker">Quick Compare</p>
+          <h3>One useful answer in minutes.</h3>
+          <p>Paste one task and two to four outputs. Compare anonymous pairs and reveal a limited task-level result.</p>
+          <a href="try/">Run a quick comparison →</a>
+        </article>
+        <article>
+          <span>02</span>
+          <p class="kicker">Personal Benchmark</p>
+          <h3>Your preference history, not the crowd's.</h3>
+          <p>Save research, coding, engineering, writing, and multilingual tasks. Keep quality, price, and category coverage visible together.</p>
+          <a href="try/#history">Open local history →</a>
+        </article>
+        <article>
+          <span>03</span>
+          <p class="kicker">Study Mode</p>
+          <h3>A result colleagues can inspect.</h3>
+          <p>Add multiple reviewers, frozen assignments, blind adjudication, uncertainty, panel sensitivity, hashes, and evidence seals.</p>
+          <a href="#method">Read the method →</a>
+        </article>
+      </div>
+    </section>
+
+    <section class="arena" id="arena">
+      <div class="section inner">
+        <header class="section-head">
+          <p class="kicker">A different decision boundary</p>
+          <h2>Arena is excellent. FrontierTrials solves another problem.</h2>
+          <p>Use the public arena for exploration. Use your own trial when prompts are private or the decision concerns exact subscription interfaces and recurring work.</p>
+        </header>
+        <div class="comparison-table" role="table" aria-label="Arena and FrontierTrials comparison">
+          <div class="comparison-row heading" role="row">
+            <b role="columnheader">Question</b><b role="columnheader">Arena</b><b role="columnheader">FrontierTrials</b>
+          </div>
+          <div class="comparison-row" role="row">
+            <span role="cell">Try hosted models immediately</span><strong role="cell">Best fit</strong><span role="cell">More setup</span>
+          </div>
+          <div class="comparison-row" role="row">
+            <span role="cell">Use private or unpublished tasks</span><span role="cell">Hosted boundary</span><strong role="cell">Browser-local</strong>
+          </div>
+          <div class="comparison-row" role="row">
+            <span role="cell">Compare exact subscription product outputs</span><span role="cell">Different surface</span><strong role="cell">Core workflow</strong>
+          </div>
+          <div class="comparison-row" role="row">
+            <span role="cell">Accumulate your own task history</span><span role="cell">Crowd leaderboard</span><strong role="cell">Personal benchmark</strong>
+          </div>
+          <div class="comparison-row" role="row">
+            <span role="cell">Run a controlled private study</span><span role="cell">Public arena</span><strong role="cell">Study Mode</strong>
+          </div>
+        </div>
+      </div>
     </section>
 
     <section class="section" id="method">
       <header class="section-head">
-        <p class="kicker">Methods</p>
-        <h2>A chain of custody for human evaluation.</h2>
-        <p>Every transition creates a file that another investigator can inspect, reproduce, or challenge.</p>
+        <p class="kicker">Study Mode</p>
+        <h2>When “I prefer this” must survive scrutiny.</h2>
+        <p>Every transition produces an artifact another investigator can inspect, reproduce, or challenge.</p>
       </header>
       <ol class="method-grid">
-        <li><b>01</b><h3>Pre-specify</h3><p>Define tasks, rubric, exclusions, capture settings, and the interpretation boundary.</p></li>
+        <li><b>01</b><h3>Pre-specify</h3><p>Define tasks, rubric, exclusions, settings, and interpretation boundaries.</p></li>
         <li><b>02</b><h3>Capture</h3><p>Store exact UTF-8 outputs with observed metadata and SHA-256 digests.</p></li>
-        <li><b>03</b><h3>Blind</h3><p>Create deterministic aliases, all-pairs comparisons, balanced sides, and reviewer assignments.</p></li>
-        <li><b>04</b><h3>Judge offline</h3><p>Collect scores, pairwise choice, confidence, flags, and rationale in self-contained packets.</p></li>
-        <li><b>05</b><h3>Adjudicate</h3><p>Review disagreement, low confidence, abstentions, and flags without exposing identities.</p></li>
-        <li><b>06</b><h3>Reveal and test</h3><p>Require assignment completion, then estimate ranking, uncertainty, and panel sensitivity.</p></li>
+        <li><b>03</b><h3>Blind</h3><p>Create deterministic aliases, balanced sides, and reviewer assignments.</p></li>
+        <li><b>04</b><h3>Judge offline</h3><p>Collect scores, preference, confidence, flags, and written rationales.</p></li>
+        <li><b>05</b><h3>Adjudicate</h3><p>Inspect disagreement and low confidence while identities remain hidden.</p></li>
+        <li><b>06</b><h3>Reveal and test</h3><p>Estimate ranking, uncertainty, bias, and panel sensitivity after the gate closes.</p></li>
       </ol>
-    </section>
-
-    <section class="results" id="evidence">
-      <div class="section inner">
-        <header class="section-head">
-          <p class="kicker">Complete fictional example</p>
-          <h2>A result accompanied by its reasons for doubt.</h2>
-          <p>The repository includes prompts, exact outputs, pairings, ballots, adjudication queue, analysis, report, and seal.</p>
-        </header>
-        <div class="result-layout">
-          <div class="ranking">
-            <div class="table-title"><b>Relative preference strength</b><span>Bradley–Terry estimate</span></div>
-            <div class="rank-row"><span>1 · Boreal Reasoner</span><i><b style="width:100%"></b></i><strong>2.014</strong></div>
-            <div class="rank-row"><span>2 · Aurora Large</span><i><b style="width:47.5%"></b></i><strong>0.956</strong></div>
-            <div class="rank-row"><span>3 · Delta Studio</span><i><b style="width:41.2%"></b></i><strong>0.829</strong></div>
-            <div class="rank-row"><span>4 · Cinder Chat</span><i><b style="width:10%"></b></i><strong>0.201</strong></div>
-            <p>Relative strengths are not percentages. Inspect task-clustered intervals before reading this as an order.</p>
-          </div>
-          <aside class="checks">
-            <h3>Required diagnostics</h3>
-            <dl>
-              <div><dt>Position</dt><dd>left-win rate + Wilson interval</dd></div>
-              <div><dt>Panel</dt><dd>per-reviewer tendencies</dd></div>
-              <div><dt>Sensitivity</dt><dd>leave-one-rater-out ranking</dd></div>
-              <div><dt>Adjudication</dt><dd>blind-safe trigger queue</dd></div>
-              <div><dt>Integrity</dt><dd>audit + content-addressed seal</dd></div>
-            </dl>
-          </aside>
-        </div>
-        <div class="links">
-          <a href="demo/trial-report.html">HTML report ↗</a>
-          <a href="demo/adjudication.md">Blind adjudication queue ↗</a>
-          <a href="demo/ranking.csv">Ranking CSV ↗</a>
-          <a href="demo/protocol.md">Protocol snapshot ↗</a>
-        </div>
+      <div class="study-links">
+        <a href="demo/trial-report.html">Fictional study report ↗</a>
+        <a href="demo/reviewer-one.html">Offline review packet ↗</a>
+        <a href="demo/adjudication.md">Blind adjudication queue ↗</a>
+        <a href="demo/protocol.md">Protocol snapshot ↗</a>
       </div>
+      <p class="disclosure">The committed study demonstration is entirely fictional. It validates mechanics, packaging, and trust boundaries—not real model performance.</p>
     </section>
 
     <section class="section installation">
       <header class="section-head">
-        <p class="kicker">Install a versioned artifact</p>
-        <h2>Run the full workflow locally.</h2>
-        <p>FrontierTrials is not yet published on PyPI. Install the release wheel directly or install from its Git tag.</p>
+        <p class="kicker">Local installation</p>
+        <h2>Use the personal app or the complete CLI from one wheel.</h2>
+        <p>The package has no runtime dependencies. The local Personal Lab binds only to the loopback interface.</p>
       </header>
-      <pre><code>python -m pip install \
-  https://github.com/CAOShurong/frontiertrials/releases/download/v0.2.0/frontiertrials-0.2.0-py3-none-any.whl
-frontiertrials demo my-fictional-trial
-frontiertrials audit --trial my-fictional-trial
-frontiertrials verify --trial my-fictional-trial</code></pre>
+      <pre><code>python -m pip install https://github.com/CAOShurong/frontiertrials/releases/download/v0.3.0/frontiertrials-0.3.0-py3-none-any.whl
+
+frontiertrials open
+frontiertrials demo my-fictional-study
+frontiertrials audit --trial my-fictional-study</code></pre>
     </section>
 
-    <section class="section limits" id="limits">
+    <section class="section limits">
       <header class="section-head">
         <p class="kicker">Interpretation boundary</p>
-        <h2>This trial is not a universal leaderboard.</h2>
+        <h2>Personal evidence, not a universal ranking.</h2>
       </header>
       <div class="limit-grid">
-        <p><b>Observed interface, not certified backend.</b> A displayed label does not prove internal routing.</p>
-        <p><b>Preference, not truth.</b> Human votes do not establish factual correctness, safety, or general intelligence.</p>
-        <p><b>Local evidence, not timeless behavior.</b> Web products and tool policies can change without notice.</p>
-        <p><b>Sensitivity, not reviewer grading.</b> Panel diagnostics describe the sample and do not identify a “bad” rater.</p>
+        <p><b>Masking, not amnesia.</b> Hiding labels reduces visible brand cues but cannot erase remembered identities.</p>
+        <p><b>Observed interface, not certified backend.</b> A displayed model label does not prove internal routing.</p>
+        <p><b>Preference, not truth.</b> A vote does not establish factual correctness, safety, or scientific validity.</p>
+        <p><b>Recorded moment, not timeless behavior.</b> Products, tools, and routing policies can change.</p>
       </div>
     </section>
   </main>
