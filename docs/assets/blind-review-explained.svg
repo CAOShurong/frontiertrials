@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="560" viewBox="0 0 1440 560" role="img" aria-labelledby="title desc">
+  <title id="title">What a FrontierTrials reviewer sees and what the final report adds</title>
+  <desc id="desc">A side-by-side example separates the anonymous information available during review from the identities and stability checks added after all reviews are complete.</desc>
+  <rect width="1440" height="560" rx="10" fill="#F7F6F2"/>
+  <rect x="1" y="1" width="1438" height="558" rx="9" fill="none" stroke="#D4D1C8" stroke-width="2"/>
+  <g font-family="Inter, Segoe UI, Arial, sans-serif" text-anchor="middle">
+    <text x="720" y="58" fill="#172635" font-family="Georgia, Times New Roman, serif" font-size="32" font-weight="700">What stays hidden, and what becomes visible later?</text>
+    <text x="720" y="88" fill="#65727A" font-size="14">The reveal boundary prevents product reputation from influencing the initial human judgment.</text>
+
+    <g transform="translate(70 126)">
+      <rect width="610" height="368" rx="8" fill="#FFFFFF" stroke="#C9C6BC" stroke-width="1.5"/>
+      <rect width="610" height="64" rx="8" fill="#F2E9E8"/>
+      <rect y="56" width="610" height="8" fill="#F2E9E8"/>
+      <text x="305" y="27" fill="#985047" font-size="12" font-weight="800" letter-spacing="1.5">BEFORE REVEAL</text>
+      <text x="305" y="50" fill="#172635" font-size="17" font-weight="800">The reviewer receives an offline packet</text>
+
+      <text x="305" y="102" fill="#59676F" font-size="12">TASK</text>
+      <text x="305" y="128" fill="#172635" font-family="Georgia, Times New Roman, serif" font-size="15" font-weight="700">Explain the converter ringing and propose safe checks.</text>
+
+      <g transform="translate(40 157)">
+        <rect width="250" height="104" rx="6" fill="#F7F6F2" stroke="#CBD1D4"/>
+        <text x="125" y="27" fill="#5C7489" font-size="11" font-weight="800">ANSWER EMBER</text>
+        <text x="125" y="52" fill="#354A55" font-size="11">“Check loop inductance and probe pickup.</text>
+        <text x="125" y="70" fill="#354A55" font-size="11">Use a spring ground, then compare</text>
+        <text x="125" y="88" fill="#354A55" font-size="11">two gate-resistor values.”</text>
+      </g>
+      <text x="305" y="215" fill="#985047" font-family="Georgia, Times New Roman, serif" font-size="17" font-style="italic">vs</text>
+      <g transform="translate(320 157)">
+        <rect width="250" height="104" rx="6" fill="#F7F6F2" stroke="#CBD1D4"/>
+        <text x="125" y="27" fill="#5C7489" font-size="11" font-weight="800">ANSWER MOSS</text>
+        <text x="125" y="52" fill="#354A55" font-size="11">“First rule out a measurement artifact.</text>
+        <text x="125" y="70" fill="#354A55" font-size="11">Shorten the probe loop, then inspect</text>
+        <text x="125" y="88" fill="#354A55" font-size="11">ringing at two load points.”</text>
+      </g>
+
+      <rect x="40" y="286" width="530" height="50" rx="6" fill="#E9EEF2"/>
+      <text x="305" y="307" fill="#17324D" font-size="12" font-weight="800">REVIEWER RECORDS</text>
+      <text x="305" y="327" fill="#59676F" font-size="12">preference · rubric scores · written reason · confidence</text>
+      <text x="305" y="356" fill="#985047" font-size="11" font-weight="800">NO PRODUCT OR PROVIDER NAME IS SHOWN</text>
+    </g>
+
+    <path d="M708 310H732" stroke="#985047" stroke-width="2"/>
+    <path d="M726 304L736 310 726 316" fill="none" stroke="#985047" stroke-width="2"/>
+
+    <g transform="translate(760 126)">
+      <rect width="610" height="368" rx="8" fill="#FFFFFF" stroke="#C9C6BC" stroke-width="1.5"/>
+      <rect width="610" height="64" rx="8" fill="#E9EEF2"/>
+      <rect y="56" width="610" height="8" fill="#E9EEF2"/>
+      <text x="305" y="27" fill="#5C7489" font-size="12" font-weight="800" letter-spacing="1.5">AFTER ALL BALLOTS ARE COMPLETE</text>
+      <text x="305" y="50" fill="#172635" font-size="17" font-weight="800">The final report adds identities and limits</text>
+
+      <g text-anchor="start">
+        <text x="48" y="110" fill="#59676F" font-size="13">Alias mapping</text>
+        <text x="280" y="110" fill="#172635" font-size="13" font-weight="700">EMBER = Product X · MOSS = Product Y</text>
+        <text x="48" y="157" fill="#59676F" font-size="13">Preference estimate</text>
+        <text x="280" y="157" fill="#172635" font-size="13" font-weight="700">Winner, ties, and uncertainty interval</text>
+        <text x="48" y="204" fill="#59676F" font-size="13">Position check</text>
+        <text x="280" y="204" fill="#172635" font-size="13" font-weight="700">Did appearing left or right matter?</text>
+        <text x="48" y="251" fill="#59676F" font-size="13">Panel stability</text>
+        <text x="280" y="251" fill="#172635" font-size="13" font-weight="700">Would one reviewer change the winner?</text>
+        <text x="48" y="298" fill="#59676F" font-size="13">Scope statement</text>
+        <text x="280" y="298" fill="#172635" font-size="13" font-weight="700">Which tasks, dates, settings, and users?</text>
+      </g>
+
+      <rect x="48" y="324" width="514" height="34" rx="17" fill="#17324D"/>
+      <text x="305" y="346" fill="#FFFFFF" font-size="12" font-weight="800">AUDITABLE LOCAL DECISION — NOT A UNIVERSAL LEADERBOARD</text>
+    </g>
+
+    <text x="720" y="528" fill="#65727A" font-size="12">Short fictional excerpts are shown here for readability; the generated offline packet presents each captured answer in full.</text>
+  </g>
+</svg>

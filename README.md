@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="docs/assets/hero.svg" alt="FrontierTrials turns web-app outputs into blind, reviewable model evaluations" width="100%">
+  <img src="docs/assets/hero.svg" alt="FrontierTrials worked example: collect the same task from two AI products, review anonymous answers, then reveal identities and check stability" width="100%">
 
   # FrontierTrials
 
@@ -77,7 +77,23 @@ private tasks + rubric + observed candidate metadata
         evidence seal + portable public or private report
 ```
 
-<img src="docs/assets/workflow.svg" alt="FrontierTrials evidence lifecycle from protocol design to blind adjudication, reveal, analysis, and sealing" width="100%">
+<p align="center">
+  <img src="docs/assets/workflow.svg" alt="Six plain-language stages: define tasks, save exact answers, hide product names, collect reviews, resolve close cases, and reveal and test the result" width="100%">
+</p>
+
+<p align="center"><sub>Product identities stay hidden until all assigned reviews and close-case decisions are complete.</sub></p>
+
+### What the reviewer sees — and what stays hidden
+
+The reviewer receives the full captured answers, but only under neutral aliases. Product names,
+providers, and the final ranking appear later, after the review gate has closed. The final report
+then adds uncertainty and checks whether position or a single reviewer changed the conclusion.
+
+<p align="center">
+  <img src="docs/assets/blind-review-explained.svg" alt="Before reveal, a reviewer sees the task, two complete anonymous answers, and a rubric; after reveal, the report adds product identities, uncertainty, position checks, panel stability, and scope" width="100%">
+</p>
+
+<p align="center"><sub>Blind review reduces identity bias; it does not turn a local product trial into a universal leaderboard.</sub></p>
 
 ## Quick start
 
