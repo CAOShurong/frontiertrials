@@ -1,71 +1,77 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 440" role="img" aria-labelledby="title desc">
-  <title id="title">FrontierTrials evidence lifecycle</title>
-  <desc id="desc">Six stages lead from protocol design through blind adjudication to reveal, analysis, and evidence sealing.</desc>
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="500" viewBox="0 0 1440 500" role="img" aria-labelledby="title desc">
+  <title id="title">How FrontierTrials runs a blind AI product comparison</title>
+  <desc id="desc">Six plain-language stages show how users define tasks, save exact answers, hide product names, collect human reviews, resolve close cases, and reveal results.</desc>
   <defs>
     <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
-      <path d="M0 0L10 5L0 10Z" fill="#526f87"/>
+      <path d="M0 0L10 5L0 10Z" fill="#718797"/>
     </marker>
   </defs>
-  <rect width="1200" height="440" fill="#f5f2eb"/>
-  <rect x="1" y="1" width="1198" height="438" fill="none" stroke="#cbc5b9" stroke-width="2"/>
-  <text x="55" y="57" fill="#1c252c" font-family="Georgia,serif" font-size="32" font-weight="700">An evaluation with a recorded reveal boundary</text>
-  <text x="55" y="85" fill="#5e686e" font-family="system-ui,sans-serif" font-size="13">Files, assignments, and decisions remain inspectable at every stage.</text>
+  <rect width="1440" height="500" rx="10" fill="#F7F6F2"/>
+  <rect x="1" y="1" width="1438" height="498" rx="9" fill="none" stroke="#D4D1C8" stroke-width="2"/>
+  <g font-family="Inter, Segoe UI, Arial, sans-serif" text-anchor="middle">
+    <text x="720" y="58" fill="#172635" font-family="Georgia, Times New Roman, serif" font-size="32" font-weight="700">A blind comparison with one clear reveal point</text>
+    <text x="720" y="88" fill="#65727A" font-size="14">Product names stay hidden until every assigned ballot and close-case decision is complete.</text>
 
-  <path d="M204 205H243M390 205H429M576 205H615M762 205H801M948 205H987" fill="none" stroke="#526f87" stroke-width="2" marker-end="url(#arrow)"/>
+    <path d="M252 232H280M472 232H500M692 232H720M912 232H940M1132 232H1160" fill="none" stroke="#718797" stroke-width="2" marker-end="url(#arrow)"/>
 
-  <g font-family="system-ui,sans-serif">
-    <g transform="translate(55 139)">
-      <rect width="149" height="132" fill="#fffefa" stroke="#cbc5b9"/>
-      <rect width="149" height="6" fill="#24384c"/>
-      <text x="15" y="31" fill="#934b45" font-family="ui-monospace,monospace" font-size="10" font-weight="700">01</text>
-      <text x="15" y="60" fill="#1c252c" font-family="Georgia,serif" font-size="19" font-weight="700">Pre-specify</text>
-      <text x="15" y="87" fill="#5e686e" font-size="11">Tasks, rubric, limits</text>
-      <text x="15" y="106" fill="#5e686e" font-size="11">before results</text>
+    <g transform="translate(60 132)">
+      <rect width="192" height="210" rx="7" fill="#FFFFFF" stroke="#C9C6BC"/>
+      <circle cx="96" cy="0" r="21" fill="#17324D"/><text x="96" y="6" fill="#FFFFFF" font-size="13" font-weight="800">1</text>
+      <text x="96" y="52" fill="#172635" font-size="16" font-weight="800">Define fair tasks</text>
+      <text x="96" y="86" fill="#5F6D74" font-size="12">Write the prompts, scoring</text>
+      <text x="96" y="105" fill="#5F6D74" font-size="12">rules, and exclusions first.</text>
+      <line x1="24" y1="135" x2="168" y2="135" stroke="#DDD9D0"/>
+      <text x="96" y="166" fill="#17324D" font-family="Consolas, monospace" font-size="11">tasks/ · rubrics/</text>
     </g>
-    <g transform="translate(241 139)">
-      <rect width="149" height="132" fill="#fffefa" stroke="#cbc5b9"/>
-      <rect width="149" height="6" fill="#526f87"/>
-      <text x="15" y="31" fill="#934b45" font-family="ui-monospace,monospace" font-size="10" font-weight="700">02</text>
-      <text x="15" y="60" fill="#1c252c" font-family="Georgia,serif" font-size="19" font-weight="700">Capture</text>
-      <text x="15" y="87" fill="#5e686e" font-size="11">Exact outputs</text>
-      <text x="15" y="106" fill="#5e686e" font-size="11">and SHA-256</text>
+    <g transform="translate(280 132)">
+      <rect width="192" height="210" rx="7" fill="#FFFFFF" stroke="#C9C6BC"/>
+      <circle cx="96" cy="0" r="21" fill="#5C7489"/><text x="96" y="6" fill="#FFFFFF" font-size="13" font-weight="800">2</text>
+      <text x="96" y="52" fill="#172635" font-size="16" font-weight="800">Save exact answers</text>
+      <text x="96" y="86" fill="#5F6D74" font-size="12">Copy the web outputs and</text>
+      <text x="96" y="105" fill="#5F6D74" font-size="12">record dates and settings.</text>
+      <line x1="24" y1="135" x2="168" y2="135" stroke="#DDD9D0"/>
+      <text x="96" y="166" fill="#5C7489" font-family="Consolas, monospace" font-size="11">responses/</text>
     </g>
-    <g transform="translate(427 139)">
-      <rect width="149" height="132" fill="#fffefa" stroke="#cbc5b9"/>
-      <rect width="149" height="6" fill="#526f87"/>
-      <text x="15" y="31" fill="#934b45" font-family="ui-monospace,monospace" font-size="10" font-weight="700">03</text>
-      <text x="15" y="60" fill="#1c252c" font-family="Georgia,serif" font-size="19" font-weight="700">Blind</text>
-      <text x="15" y="87" fill="#5e686e" font-size="11">Aliases, balance,</text>
-      <text x="15" y="106" fill="#5e686e" font-size="11">assignments</text>
+    <g transform="translate(500 132)">
+      <rect width="192" height="210" rx="7" fill="#FFFFFF" stroke="#C9C6BC"/>
+      <circle cx="96" cy="0" r="21" fill="#985047"/><text x="96" y="6" fill="#FFFFFF" font-size="13" font-weight="800">3</text>
+      <text x="96" y="52" fill="#172635" font-size="16" font-weight="800">Hide product names</text>
+      <text x="96" y="86" fill="#5F6D74" font-size="12">Create aliases and balance</text>
+      <text x="96" y="105" fill="#5F6D74" font-size="12">which answer appears first.</text>
+      <line x1="24" y1="135" x2="168" y2="135" stroke="#DDD9D0"/>
+      <text x="96" y="166" fill="#985047" font-family="Consolas, monospace" font-size="11">pairings/</text>
     </g>
-    <g transform="translate(613 139)">
-      <rect width="149" height="132" fill="#fffefa" stroke="#cbc5b9"/>
-      <rect width="149" height="6" fill="#a4772d"/>
-      <text x="15" y="31" fill="#934b45" font-family="ui-monospace,monospace" font-size="10" font-weight="700">04</text>
-      <text x="15" y="60" fill="#1c252c" font-family="Georgia,serif" font-size="19" font-weight="700">Judge</text>
-      <text x="15" y="87" fill="#5e686e" font-size="11">Offline packets</text>
-      <text x="15" y="106" fill="#5e686e" font-size="11">and rationales</text>
+    <g transform="translate(720 132)">
+      <rect width="192" height="210" rx="7" fill="#FFFFFF" stroke="#C9C6BC"/>
+      <circle cx="96" cy="0" r="21" fill="#B07A2A"/><text x="96" y="6" fill="#FFFFFF" font-size="13" font-weight="800">4</text>
+      <text x="96" y="52" fill="#172635" font-size="16" font-weight="800">Collect reviews</text>
+      <text x="96" y="86" fill="#5F6D74" font-size="12">Reviewers choose an answer</text>
+      <text x="96" y="105" fill="#5F6D74" font-size="12">and explain the reason.</text>
+      <line x1="24" y1="135" x2="168" y2="135" stroke="#DDD9D0"/>
+      <text x="96" y="166" fill="#9A6722" font-family="Consolas, monospace" font-size="11">packets/ · ballots/</text>
     </g>
-    <g transform="translate(799 139)">
-      <rect width="149" height="132" fill="#fffefa" stroke="#cbc5b9"/>
-      <rect width="149" height="6" fill="#934b45"/>
-      <text x="15" y="31" fill="#934b45" font-family="ui-monospace,monospace" font-size="10" font-weight="700">05</text>
-      <text x="15" y="60" fill="#1c252c" font-family="Georgia,serif" font-size="19" font-weight="700">Adjudicate</text>
-      <text x="15" y="87" fill="#5e686e" font-size="11">Disputes reviewed</text>
-      <text x="15" y="106" fill="#5e686e" font-size="11">while still blind</text>
+    <g transform="translate(940 132)">
+      <rect width="192" height="210" rx="7" fill="#FFFFFF" stroke="#C9C6BC"/>
+      <circle cx="96" cy="0" r="21" fill="#985047"/><text x="96" y="6" fill="#FFFFFF" font-size="13" font-weight="800">5</text>
+      <text x="96" y="52" fill="#172635" font-size="16" font-weight="800">Resolve close cases</text>
+      <text x="96" y="86" fill="#5F6D74" font-size="12">Review disagreements while</text>
+      <text x="96" y="105" fill="#5F6D74" font-size="12">identities are still hidden.</text>
+      <line x1="24" y1="135" x2="168" y2="135" stroke="#DDD9D0"/>
+      <text x="96" y="166" fill="#985047" font-family="Consolas, monospace" font-size="11">adjudication/</text>
     </g>
-    <g transform="translate(985 139)">
-      <rect width="160" height="132" fill="#24384c" stroke="#24384c"/>
-      <rect width="160" height="6" fill="#934b45"/>
-      <text x="15" y="31" fill="#e8cbc7" font-family="ui-monospace,monospace" font-size="10" font-weight="700">06</text>
-      <text x="15" y="60" fill="#fffefa" font-family="Georgia,serif" font-size="19" font-weight="700">Reveal + test</text>
-      <text x="15" y="87" fill="#d5dce1" font-size="11">Rank, sensitivity,</text>
-      <text x="15" y="106" fill="#d5dce1" font-size="11">report, and seal</text>
+    <g transform="translate(1160 132)">
+      <rect width="220" height="210" rx="7" fill="#17324D" stroke="#17324D"/>
+      <circle cx="110" cy="0" r="21" fill="#B07A2A"/><text x="110" y="6" fill="#FFFFFF" font-size="13" font-weight="800">6</text>
+      <text x="110" y="52" fill="#FFFFFF" font-size="16" font-weight="800">Reveal and test</text>
+      <text x="110" y="86" fill="#D9E1E5" font-size="12">Show product names, estimate</text>
+      <text x="110" y="105" fill="#D9E1E5" font-size="12">uncertainty, and test stability.</text>
+      <line x1="24" y1="135" x2="196" y2="135" stroke="#5C7489"/>
+      <text x="110" y="166" fill="#E8C9C5" font-family="Consolas, monospace" font-size="11">report.html</text>
     </g>
+
+    <path d="M60 382H1132" stroke="#985047" stroke-width="2" stroke-dasharray="7 6"/>
+    <text x="596" y="406" fill="#985047" font-size="11" font-weight="800" letter-spacing="1.1">PRODUCT IDENTITIES HIDDEN ABOVE THIS LINE</text>
+    <rect x="60" y="427" width="1320" height="40" rx="6" fill="#E9EEF2"/>
+    <text x="720" y="452" fill="#59676F" font-size="12">The result applies to the recorded tasks, interfaces, dates, settings, and reviewers — not to “general intelligence.”</text>
   </g>
-
-  <path d="M55 322H1145" stroke="#934b45" stroke-width="2" stroke-dasharray="7 6"/>
-  <text x="55" y="349" fill="#934b45" font-family="ui-monospace,monospace" font-size="10" font-weight="700" letter-spacing="1.2">IDENTITIES WITHHELD ABOVE THIS LINE UNTIL ASSIGNED BALLOTS ARE COMPLETE</text>
-  <rect x="55" y="374" width="1090" height="34" fill="#e9e5dc"/>
-  <text x="600" y="396" text-anchor="middle" fill="#5e686e" font-family="system-ui,sans-serif" font-size="11">Preference evidence is conditional on the recorded tasks, interfaces, settings, dates, and reviewer panel.</text>
 </svg>

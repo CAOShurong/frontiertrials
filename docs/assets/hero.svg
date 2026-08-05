@@ -1,53 +1,80 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 500" role="img" aria-labelledby="title desc">
-  <title id="title">FrontierTrials blind evaluation protocol</title>
-  <desc id="desc">Two anonymous responses are reviewed before an identity reveal boundary and an uncertainty-aware result.</desc>
-  <rect width="1200" height="500" fill="#f5f2eb"/>
-  <rect x="1" y="1" width="1198" height="498" fill="none" stroke="#cbc5b9" stroke-width="2"/>
-  <rect x="0" y="0" width="1200" height="12" fill="#24384c"/>
-  <text x="58" y="62" fill="#934b45" font-family="ui-monospace,monospace" font-size="13" font-weight="700" letter-spacing="2.4">LOCAL METHODS TOOLKIT · BLIND HUMAN EVALUATION</text>
-  <text x="56" y="125" fill="#1c252c" font-family="Georgia,serif" font-size="54" font-weight="700">FrontierTrials</text>
-  <text x="58" y="161" fill="#5e686e" font-family="system-ui,sans-serif" font-size="18">Evaluate observed AI product outputs without API keys or a hosted judge.</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="620" viewBox="0 0 1440 620" role="img" aria-labelledby="title desc">
+  <title id="title">FrontierTrials: compare AI products without knowing which answer came from which product</title>
+  <desc id="desc">A concrete three-step example shows exact web-app answers being saved, reviewed under anonymous labels, and revealed only after voting is complete.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0 0L10 5L0 10Z" fill="#5C7489"/>
+    </marker>
+  </defs>
+  <rect width="1440" height="620" rx="10" fill="#F7F6F2"/>
+  <rect x="1" y="1" width="1438" height="618" rx="9" fill="none" stroke="#D4D1C8" stroke-width="2"/>
+  <rect width="1440" height="12" rx="10" fill="#17324D"/>
 
-  <g transform="translate(58 211)">
-    <rect width="300" height="154" fill="#fffefa" stroke="#cbc5b9"/>
-    <rect width="300" height="34" fill="#e9e5dc"/>
-    <text x="15" y="22" fill="#24384c" font-family="ui-monospace,monospace" font-size="11" font-weight="700">LEFT · EMBER–KITE</text>
-    <text x="17" y="63" fill="#1c252c" font-family="system-ui,sans-serif" font-size="12">Exact captured response</text>
-    <path d="M17 84H272M17 103H244M17 122H266" stroke="#a9afb1" stroke-width="6"/>
-    <text x="17" y="143" fill="#6c7d6c" font-family="ui-monospace,monospace" font-size="9">SHA-256 VERIFIED</text>
-  </g>
-  <g transform="translate(400 211)">
-    <rect width="300" height="154" fill="#fffefa" stroke="#cbc5b9"/>
-    <rect width="300" height="34" fill="#e9e5dc"/>
-    <text x="15" y="22" fill="#24384c" font-family="ui-monospace,monospace" font-size="11" font-weight="700">RIGHT · MOSS–ORBIT</text>
-    <text x="17" y="63" fill="#1c252c" font-family="system-ui,sans-serif" font-size="12">Exact captured response</text>
-    <path d="M17 84H258M17 103H276M17 122H230" stroke="#a9afb1" stroke-width="6"/>
-    <text x="17" y="143" fill="#6c7d6c" font-family="ui-monospace,monospace" font-size="9">SHA-256 VERIFIED</text>
-  </g>
-  <text x="379" y="293" text-anchor="middle" fill="#934b45" font-family="Georgia,serif" font-size="18" font-style="italic">vs</text>
-
-  <path d="M748 196V383" stroke="#934b45" stroke-width="2" stroke-dasharray="6 6"/>
-  <text x="760" y="211" fill="#934b45" font-family="ui-monospace,monospace" font-size="10" font-weight="700" letter-spacing="1">IDENTITY REVEAL BOUNDARY</text>
-
-  <g transform="translate(790 237)">
-    <text x="0" y="0" fill="#24384c" font-family="Georgia,serif" font-size="24" font-weight="700">Observed strength</text>
-    <text x="0" y="27" fill="#5e686e" font-family="system-ui,sans-serif" font-size="11">task-clustered 95% interval</text>
-    <path d="M30 75H312M30 126H312" stroke="#cbc5b9"/>
-    <path d="M62 75H254" stroke="#526f87" stroke-width="4"/>
-    <circle cx="173" cy="75" r="7" fill="#24384c"/>
-    <path d="M95 126H283" stroke="#a4772d" stroke-width="4"/>
-    <circle cx="209" cy="126" r="7" fill="#934b45"/>
-    <text x="0" y="80" fill="#1c252c" font-family="ui-monospace,monospace" font-size="10">A</text>
-    <text x="0" y="131" fill="#1c252c" font-family="ui-monospace,monospace" font-size="10">B</text>
+  <g font-family="Inter, Segoe UI, Arial, sans-serif" text-anchor="middle">
+    <text x="720" y="54" fill="#985047" font-size="14" font-weight="700" letter-spacing="3">BLIND HUMAN EVALUATION — NO API KEYS</text>
+    <text x="720" y="122" fill="#172635" font-family="Georgia, Times New Roman, serif" font-size="58" font-weight="700">FrontierTrials</text>
+    <text x="720" y="161" fill="#59676F" font-size="20">Compare AI web-app answers without letting product names influence the review.</text>
+    <text x="720" y="194" fill="#7A7064" font-size="13">FICTIONAL ENGINEERING-ASSISTANT TRIAL</text>
   </g>
 
-  <path d="M58 415H1142" stroke="#cbc5b9"/>
-  <g fill="#24384c" font-family="ui-monospace,monospace" font-size="11" font-weight="700">
-    <text x="58" y="449">PRIVATE TASKS</text>
-    <text x="250" y="449">OFFLINE PACKETS</text>
-    <text x="464" y="449">BLIND ADJUDICATION</text>
-    <text x="718" y="449">PANEL SENSITIVITY</text>
-    <text x="963" y="449">EVIDENCE SEAL</text>
+  <path d="M442 354H512M912 354H982" fill="none" stroke="#5C7489" stroke-width="2.5" marker-end="url(#arrow)"/>
+
+  <g font-family="Inter, Segoe UI, Arial, sans-serif" text-anchor="middle">
+    <g transform="translate(60 225)">
+      <rect width="382" height="268" rx="8" fill="#FFFFFF" stroke="#C9C6BC" stroke-width="1.5"/>
+      <rect width="382" height="52" rx="8" fill="#E9EEF2"/>
+      <rect y="44" width="382" height="8" fill="#E9EEF2"/>
+      <circle cx="191" cy="0" r="22" fill="#17324D"/>
+      <text x="191" y="6" fill="#FFFFFF" font-size="14" font-weight="800">1</text>
+      <text x="191" y="33" fill="#17324D" font-size="14" font-weight="800" letter-spacing="1.4">COLLECT THE SAME TASK</text>
+      <text x="191" y="82" fill="#59676F" font-size="13">Copy one prompt into each AI product</text>
+      <rect x="34" y="101" width="314" height="74" rx="6" fill="#F7F6F2" stroke="#DDD9D0"/>
+      <text x="191" y="127" fill="#172635" font-family="Georgia, Times New Roman, serif" font-size="14" font-weight="700">“Explain why this converter rings</text>
+      <text x="191" y="149" fill="#172635" font-family="Georgia, Times New Roman, serif" font-size="14" font-weight="700">and propose two safe checks.”</text>
+      <text x="191" y="204" fill="#354A55" font-size="13">Save both exact answers</text>
+      <text x="191" y="229" fill="#59676F" font-size="12">Record product label, date, settings, and interface</text>
+      <text x="191" y="253" fill="#5C7489" font-size="11" font-weight="800">FILES ARE HASHED AFTER CAPTURE</text>
+    </g>
+
+    <g transform="translate(529 225)">
+      <rect width="382" height="268" rx="8" fill="#FFFFFF" stroke="#C9C6BC" stroke-width="1.5"/>
+      <rect width="382" height="52" rx="8" fill="#F2E9E8"/>
+      <rect y="44" width="382" height="8" fill="#F2E9E8"/>
+      <circle cx="191" cy="0" r="22" fill="#985047"/>
+      <text x="191" y="6" fill="#FFFFFF" font-size="14" font-weight="800">2</text>
+      <text x="191" y="33" fill="#17324D" font-size="14" font-weight="800" letter-spacing="1.4">REVIEW WITHOUT NAMES</text>
+      <text x="191" y="82" fill="#59676F" font-size="13">The reviewer sees aliases, not products</text>
+      <rect x="40" y="103" width="132" height="54" rx="6" fill="#F7F6F2" stroke="#CBD1D4"/>
+      <text x="106" y="126" fill="#5C7489" font-size="11" font-weight="800">ANSWER</text>
+      <text x="106" y="146" fill="#172635" font-size="14" font-weight="800">EMBER</text>
+      <text x="191" y="136" fill="#985047" font-family="Georgia, Times New Roman, serif" font-size="17" font-style="italic">vs</text>
+      <rect x="210" y="103" width="132" height="54" rx="6" fill="#F7F6F2" stroke="#CBD1D4"/>
+      <text x="276" y="126" fill="#5C7489" font-size="11" font-weight="800">ANSWER</text>
+      <text x="276" y="146" fill="#172635" font-size="14" font-weight="800">MOSS</text>
+      <text x="191" y="194" fill="#172635" font-size="13" font-weight="700">Reviewer chooses: EMBER</text>
+      <text x="191" y="220" fill="#59676F" font-size="12">Reason: clearer diagnosis and safer checks</text>
+      <text x="191" y="251" fill="#985047" font-size="11" font-weight="800">PRODUCT IDENTITIES STILL HIDDEN</text>
+    </g>
+
+    <g transform="translate(998 225)">
+      <rect width="382" height="268" rx="8" fill="#FFFFFF" stroke="#C9C6BC" stroke-width="1.5"/>
+      <rect width="382" height="52" rx="8" fill="#F3ECDD"/>
+      <rect y="44" width="382" height="8" fill="#F3ECDD"/>
+      <circle cx="191" cy="0" r="22" fill="#B07A2A"/>
+      <text x="191" y="6" fill="#FFFFFF" font-size="14" font-weight="800">3</text>
+      <text x="191" y="33" fill="#17324D" font-size="14" font-weight="800" letter-spacing="1.4">REVEAL AND CHECK</text>
+      <text x="191" y="82" fill="#59676F" font-size="13">Only after every assigned review is complete</text>
+      <text x="191" y="119" fill="#172635" font-size="14" font-weight="700">EMBER = Product X</text>
+      <text x="191" y="146" fill="#172635" font-size="14" font-weight="700">MOSS = Product Y</text>
+      <line x1="48" y1="169" x2="334" y2="169" stroke="#DDD9D0"/>
+      <text x="191" y="198" fill="#59676F" font-size="12">Would the result change if one reviewer</text>
+      <text x="191" y="218" fill="#59676F" font-size="12">were removed from this fictional panel?</text>
+      <rect x="133" y="232" width="116" height="25" rx="12" fill="#E3EEE8"/>
+      <text x="191" y="249" fill="#2F6B55" font-size="11" font-weight="800">NO — STABLE</text>
+    </g>
+
+    <line x1="60" y1="535" x2="1380" y2="535" stroke="#D4D1C8"/>
+    <text x="720" y="572" fill="#17324D" font-size="16" font-weight="700">The tool records how a local decision was made; it does not claim a universal model ranking.</text>
+    <text x="720" y="596" fill="#69757B" font-size="12">All products and results shown above are fictional.</text>
   </g>
-  <text x="58" y="476" fill="#5e686e" font-family="system-ui,sans-serif" font-size="11">A local ranking is evidence about one recorded protocol—not general intelligence.</text>
 </svg>
