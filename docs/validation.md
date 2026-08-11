@@ -1,6 +1,6 @@
 # Validation evidence
 
-Version 0.4.0 has seven validation layers.
+Version 0.4.1 has seven validation layers.
 
 ## Behavioral tests
 
@@ -62,4 +62,4 @@ URL into a new virtual environment and reruns the full demonstration.
 - Python 3.11 and 3.13
 - Desktop and mobile Chromium
 
-Other systems may work but are not claimed by version 0.4.0.
+Other systems may work but are not claimed by version 0.4.1.

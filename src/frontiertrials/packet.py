@@ -78,7 +78,7 @@ def build_packet(trial: Trial, rater_id: str, output: str | Path) -> Path:
 <style>
 :root{{--ink:#1c252c;--muted:#626b70;--paper:#f5f2eb;--panel:#fffefa;--navy:#24384c;--brick:#934b45;
 --ochre:#a4772d;--line:#cfc9bd}}*{{box-sizing:border-box}}body{{margin:0;background:var(--paper);color:var(--ink);
-font:15px/1.55 system-ui,sans-serif}}header{{position:sticky;top:0;z-index:3;background:var(--navy);color:white;
+font:15px/1.55 system-ui,sans-serif;overflow-wrap:anywhere}}header{{position:sticky;top:0;z-index:3;background:var(--navy);color:white;
 padding:14px max(20px,calc((100vw - 1400px)/2));display:flex;justify-content:space-between;align-items:center}}
 header b{{letter-spacing:.1em}}header span{{font-size:12px;color:#d9dee2}}main{{max-width:1400px;margin:auto;padding:30px 20px 100px}}
 .notice{{background:#ece9df;border-left:5px solid var(--brick);padding:14px;margin-bottom:20px}}h1{{font:700 31px Georgia,serif}}
@@ -90,7 +90,7 @@ header b{{letter-spacing:.1em}}header span{{font-size:12px;color:#d9dee2}}main{{
 select,textarea{{width:100%;padding:9px;border:1px solid #aaa498;background:white}}.choice{{display:flex;gap:8px;flex-wrap:wrap}}
 .choice label{{padding:10px 15px;border:1px solid #aaa498;background:white;font-weight:700}}button{{border:0;
 padding:12px 17px;background:var(--navy);color:white;font-weight:800;cursor:pointer}}button.secondary{{background:white;color:var(--ink);border:1px solid #aaa498}}
-.footer{{position:fixed;bottom:0;left:0;right:0;background:#f7f4ec;border-top:1px solid var(--line);padding:12px;
+.footer{{position:fixed;z-index:4;bottom:0;left:0;right:0;background:#f7f4ec;border-top:1px solid var(--line);padding:12px;
 display:flex;justify-content:center;gap:10px}}.hidden{{display:none}}.progress{{font-size:12px;color:var(--muted)}}@media(max-width:850px){{.columns,.scores{{grid-template-columns:1fr}}}}
 </style></head><body><header><b>FRONTIERTRIALS</b><span>BLIND PACKET · {html_escape(data["rater"]["label"])}</span></header>
 <main><h1>{title}</h1><div class="notice">{html_escape(data["instructions"])}</div><div id="mount"></div></main>
@@ -99,22 +99,24 @@ display:flex;justify-content:center;gap:10px}}.hidden{{display:none}}.progress{{
 <script id="packet-data" type="application/json">{serialized}</script><script>
 const data=JSON.parse(document.querySelector("#packet-data").textContent), state={{index:0,ballots:{{}}}};
 const mount=document.querySelector("#mount"),progress=document.querySelector("#progress");
-function esc(s){{return String(s).replace(/[&<>"']/g,c=>({{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}}[c]))}}
-function options(){{return '<option value="">Select</option>'+[1,2,3,4,5].map(x=>`<option>${{x}}</option>`).join('')}}
-function render(){{const x=data.items[state.index], saved=state.ballots[x.pairing_id]||{{}};
-mount.innerHTML=`<section class="task"><h2>${{esc(x.task.title)}}</h2><div class="prompt">${{esc(x.task.prompt)}}</div></section>
-<div class="columns"><article class="answer"><h3>Left · ${{esc(x.left.alias)}}</h3><div class="content">${{esc(x.left.content)}}</div></article>
-<article class="answer"><h3>Right · ${{esc(x.right.alias)}}</h3><div class="content">${{esc(x.right.content)}}</div></article></div>
-<div class="scores"><section class="score-card"><h3>Score left independently</h3>${{x.rubric.criteria.map(c=>`<label>${{esc(c.label)}}<select data-side="left" data-id="${{c.id}}">${{options()}}</select></label>`).join('')}}</section>
-<section class="score-card"><h3>Score right independently</h3>${{x.rubric.criteria.map(c=>`<label>${{esc(c.label)}}<select data-side="right" data-id="${{c.id}}">${{options()}}</select></label>`).join('')}}</section></div>
-<section class="task"><h3>Overall preference</h3><div class="choice">${{['left','right','tie','abstain'].map(v=>`<label><input type="radio" name="choice" value="${{v}}"> ${{v}}</label>`).join('')}}</div>
-<label>Confidence (1 low · 5 high)<select id="confidence">${{options()}}</select></label><label>Decision rationale<textarea id="rationale" rows="4"></textarea></label>
-<label>Flags (comma separated)<textarea id="flags" rows="2"></textarea></label></section>`;
-if(saved.choice)document.querySelector(`[name=choice][value="${{saved.choice}}"]`).checked=true;
-document.querySelector('#confidence').value=saved.confidence||'';document.querySelector('#rationale').value=saved.rationale||'';
-document.querySelector('#flags').value=(saved.flags||[]).join(', ');
-for(const side of ['left','right'])for(const [id,val] of Object.entries(saved[side+'_scores']||{{}}))
-document.querySelector(`[data-side="${{side}}"][data-id="${{id}}"]`).value=val;
+function make(tag,className,text){{const element=document.createElement(tag);if(className)element.className=className;
+if(text!==undefined)element.textContent=String(text);return element}}
+function scoreSelect(side,id,value){{const select=make('select');select.dataset.side=side;select.dataset.id=String(id);
+for(const score of ['',1,2,3,4,5]){{const option=make('option','',score===''?'Select':score);option.value=String(score);select.append(option)}}
+select.value=value==null?'':String(value);return select}}
+function scoreCard(side,title,criteria,saved){{const card=make('section','score-card');card.append(make('h3','',title));
+for(const criterion of criteria){{const label=make('label','',criterion.label);label.append(scoreSelect(side,criterion.id,(saved||{{}})[criterion.id]));card.append(label)}}return card}}
+function answer(side,value){{const article=make('article','answer');article.append(make('h3','',side+' · '+value.alias),make('div','content',value.content));return article}}
+function render(){{const x=data.items[state.index], saved=state.ballots[x.pairing_id]||{{}};mount.replaceChildren();
+const task=make('section','task');task.append(make('h2','',x.task.title),make('div','prompt',x.task.prompt));
+const columns=make('div','columns');columns.append(answer('Left',x.left),answer('Right',x.right));
+const scores=make('div','scores');scores.append(scoreCard('left','Score left independently',x.rubric.criteria,saved.left_scores),scoreCard('right','Score right independently',x.rubric.criteria,saved.right_scores));
+const decision=make('section','task');decision.append(make('h3','','Overall preference'));const choices=make('div','choice');
+for(const value of ['left','right','tie','abstain']){{const label=make('label');const input=make('input');input.type='radio';input.name='choice';input.value=value;input.checked=value===saved.choice;label.append(input,document.createTextNode(' '+value));choices.append(label)}}decision.append(choices);
+const confidenceLabel=make('label','','Confidence (1 low · 5 high)'),confidence=scoreSelect('', 'confidence',saved.confidence);confidence.id='confidence';confidence.removeAttribute('data-side');confidence.removeAttribute('data-id');confidenceLabel.append(confidence);
+const rationaleLabel=make('label','','Decision rationale'),rationale=make('textarea');rationale.id='rationale';rationale.rows=4;rationale.value=saved.rationale||'';rationaleLabel.append(rationale);
+const flagsLabel=make('label','','Flags (comma separated)'),flags=make('textarea');flags.id='flags';flags.rows=2;flags.value=(saved.flags||[]).join(', ');flagsLabel.append(flags);
+decision.append(confidenceLabel,rationaleLabel,flagsLabel);mount.append(task,columns,scores,decision);
 progress.textContent=`${{state.index+1}} / ${{data.items.length}}`;document.querySelector('#prev').disabled=state.index===0;
 document.querySelector('#next').classList.toggle('hidden',state.index===data.items.length-1);
 document.querySelector('#download').classList.toggle('hidden',state.index!==data.items.length-1)}}
