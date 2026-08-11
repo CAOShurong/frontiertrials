@@ -2,6 +2,17 @@
 
 ## [Unreleased]
 
+## [0.4.1] - 2026-08-12
+
+### Security
+
+- Replaced the blind judging packet's dynamic HTML assembly with DOM nodes and `textContent`, so
+  task, response, alias, and rubric data are never reinterpreted as markup.
+
+### Added
+
+- Added a real Chromium workflow test that scores and advances a generated blind packet.
+
 ## [0.4.0] - 2026-08-12
 
 ### Added
@@ -91,7 +102,8 @@
 - A revealed portable report and a 191-artifact, fully fictional demonstration.
 - Eighty-five standard-library tests, cross-platform CI, package smoke tests, and GitHub Pages.
 
-[Unreleased]: https://github.com/CAOShurong/frontiertrials/compare/v0.4.0...HEAD
+[Unreleased]: https://github.com/CAOShurong/frontiertrials/compare/v0.4.1...HEAD
+[0.4.1]: https://github.com/CAOShurong/frontiertrials/compare/v0.4.0...v0.4.1
 [0.4.0]: https://github.com/CAOShurong/frontiertrials/compare/v0.3.1...v0.4.0
 [0.3.1]: https://github.com/CAOShurong/frontiertrials/compare/v0.3.0...v0.3.1
 [0.3.0]: https://github.com/CAOShurong/frontiertrials/compare/v0.2.0...v0.3.0

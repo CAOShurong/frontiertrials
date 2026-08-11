@@ -20,7 +20,7 @@ from frontiertrials.constants import APP_VERSION  # noqa: E402
 from frontiertrials.seal import verify_seal  # noqa: E402
 from frontiertrials.workspace import Trial  # noqa: E402
 
-EXPECTED_VERSION = "0.4.0"
+EXPECTED_VERSION = "0.4.1"
 
 
 def require(condition: bool, message: str) -> None:
@@ -107,6 +107,7 @@ def check_browser_acceptance() -> None:
         "package-lock.json",
         "playwright.config.js",
         "tests/browser/personal-lab.spec.js",
+        "tests/browser/blind-packet.spec.js",
     ):
         require((ROOT / relative).exists(), f"browser acceptance file missing: {relative}")
     package = json.loads((ROOT / "package.json").read_text(encoding="utf-8"))

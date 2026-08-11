@@ -33,6 +33,8 @@ class OutputDemoTests(unittest.TestCase):
             )
             self.assertIn("Download ballots", text)
             self.assertNotIn("Candidate 1", text)
+            self.assertNotIn("innerHTML", text)
+            self.assertIn("mount.replaceChildren()", text)
 
     def test_packet_requires_assignment(self) -> None:
         with tempfile.TemporaryDirectory() as directory:
