@@ -365,10 +365,16 @@ ruff format --check src tests scripts
 python -m compileall -q src tests scripts
 python scripts/check_repository.py
 python -m build
+npm ci
+npx playwright install chromium
+npm run test:browser
 ```
 
 CI runs on Windows and Ubuntu with Python 3.11 and 3.13, installs the built wheel in a clean
-environment, serves the packaged Personal Lab, and executes the complete fictional study.
+environment, serves the packaged Personal Lab, and executes the complete fictional study. A separate
+desktop/mobile Chromium job exercises keyboard focus, long-answer scrolling, local history, responsive
+layout, and automated WCAG A/AA checks. Those automated checks do not replace testing with people who
+use screen readers or other assistive technology.
 
 ## Documentation
 

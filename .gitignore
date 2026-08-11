@@ -8,5 +8,8 @@ build/
 dist/
 dist-*/
 *.egg-info/
+node_modules/
+playwright-report/
+test-results/
 scratch/
 _site/

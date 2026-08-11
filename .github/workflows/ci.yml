@@ -19,8 +19,8 @@ jobs:
         os: [ubuntu-latest, windows-latest]
         python: ["3.11", "3.13"]
     steps:
-      - uses: actions/checkout@v7
-      - uses: actions/setup-python@v7
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7
         with:
           python-version: ${{ matrix.python }}
           cache: pip
@@ -56,8 +56,8 @@ jobs:
     name: Build and install package
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v7
-      - uses: actions/setup-python@v7
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7
         with:
           python-version: "3.13"
       - run: python -m pip install --upgrade build
@@ -74,7 +74,7 @@ jobs:
           .smoke/bin/frontiertrials adjudicate --trial /tmp/frontiertrials-smoke --format markdown --output /tmp/frontiertrials-adjudication.md
           .smoke/bin/frontiertrials analyze --trial /tmp/frontiertrials-smoke --output /tmp/frontiertrials-analysis.json
           .smoke/bin/frontiertrials verify --trial /tmp/frontiertrials-smoke
-      - uses: actions/upload-artifact@v7
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
         with:
           name: frontiertrials-distributions
           path: dist/*
@@ -83,8 +83,8 @@ jobs:
     name: Validate JSON and schemas
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v7
-      - uses: actions/setup-python@v7
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7
         with:
           python-version: "3.13"
       - name: Parse every JSON document
@@ -98,3 +98,27 @@ jobs:
               json.loads(path.read_text(encoding="utf-8"))
           print(f"parsed {len(files)} JSON documents")
           PY
+
+  browser:
+    name: Personal Lab browser acceptance
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7
+        with:
+          python-version: "3.13"
+      - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
+        with:
+          node-version: "24"
+          cache: npm
+      - run: python -m pip install -e .
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
+      - run: npm run test:browser
+      - name: Preserve browser failure evidence
+        if: failure()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
+        with:
+          name: personal-lab-browser-failures
+          path: test-results/
+          if-no-files-found: ignore
