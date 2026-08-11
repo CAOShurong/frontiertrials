@@ -30,8 +30,11 @@ test("completes a multi-pair trial with predictable keyboard focus", async ({ pa
   const names = page.locator(".candidate-name");
   const answers = page.locator(".candidate-response");
   await names.nth(2).fill("Summit Max");
-  await answers.nth(0).fill(Array.from({ length: 180 }, (_, index) => `Northstar line ${index + 1}`).join("\n"));
-  await answers.nth(2).fill("A third complete fictional answer for the same task.");
+  for (let candidate = 0; candidate < 3; candidate += 1) {
+    await answers
+      .nth(candidate)
+      .fill(Array.from({ length: 180 }, (_, index) => `Candidate ${candidate + 1} line ${index + 1}`).join("\n"));
+  }
 
   await page.getByRole("button", { name: "Start blind review" }).press("Enter");
   await expect(page.getByRole("heading", { name: "Which answer would you rather use?" })).toBeFocused();

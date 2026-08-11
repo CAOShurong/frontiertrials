@@ -1,6 +1,6 @@
 """FrontierTrials: private personal and study-grade AI product evaluation."""
 
-__version__ = "0.4.0"
+__version__ = "0.4.1"
 
 from .adjudication import build_adjudication_queue
 from .analysis import analyze_trial
