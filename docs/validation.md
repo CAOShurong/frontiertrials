@@ -1,6 +1,6 @@
 # Validation evidence
 
-Version 0.3.1 has six validation layers.
+Version 0.4.0 has seven validation layers.
 
 ## Behavioral tests
 
@@ -20,9 +20,14 @@ Ninety-eight standard-library tests cover:
 
 ## Browser workflow
 
-The Personal Lab is exercised in a real browser from capture through anonymous review, reveal,
-local save, and history. The hosted homepage and narrow-screen layout are visually inspected before
-release.
+Eight Playwright runs exercise the Personal Lab in desktop and mobile Chromium. They cover field-linked
+validation errors, predictable focus through a three-pair review, keyboard scrolling of a long answer,
+reveal, local save and history, visible file-import focus, narrow-screen containment, and automated
+WCAG A/AA scans in key states. Release acceptance also captures and visually inspects desktop and
+mobile screenshots.
+
+These checks do not prove usability with NVDA, JAWS, VoiceOver, speech input, or other assistive
+technology. A study with real assistive-technology users remains open work.
 
 ## Static checks
 
@@ -55,5 +60,6 @@ URL into a new virtual environment and reruns the full demonstration.
 
 - Windows and Ubuntu
 - Python 3.11 and 3.13
+- Desktop and mobile Chromium
 
-Other systems may work but are not claimed by version 0.3.1.
+Other systems may work but are not claimed by version 0.4.0.

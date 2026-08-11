@@ -2,6 +2,31 @@
 
 ## [Unreleased]
 
+## [0.4.0] - 2026-08-12
+
+### Added
+
+- Real Playwright acceptance on desktop and mobile Chromium for keyboard validation, multi-pair
+  review, long-answer scrolling, local history, responsive layout, and key WCAG A/AA checks.
+- CodeQL analysis for Python and JavaScript, npm dependency updates, and GitHub attestations for
+  release distributions and checksums.
+
+### Changed
+
+- Pinned every third-party GitHub Action to an immutable commit while retaining version comments
+  for automated maintenance.
+- Kept all three progress labels and the Study Mode link visible on narrow screens.
+
+### Fixed
+
+- Moved keyboard focus to the first invalid field and associated its error message programmatically.
+- Moved focus predictably between capture, each blind-review pair, results, and history; announced
+  comparison and persistence changes through status regions.
+- Made long answer panes, horizontally scrolling result tables, JSON import, and all primary actions
+  visibly keyboard reachable.
+- Added distinct accessible names for destructive actions, valid progress and summary semantics,
+  and WCAG AA color contrast in the tested application states.
+
 ## [0.3.1] - 2026-08-05
 
 ### Added
@@ -66,7 +91,8 @@
 - A revealed portable report and a 191-artifact, fully fictional demonstration.
 - Eighty-five standard-library tests, cross-platform CI, package smoke tests, and GitHub Pages.
 
-[Unreleased]: https://github.com/CAOShurong/frontiertrials/compare/v0.3.1...HEAD
+[Unreleased]: https://github.com/CAOShurong/frontiertrials/compare/v0.4.0...HEAD
+[0.4.0]: https://github.com/CAOShurong/frontiertrials/compare/v0.3.1...v0.4.0
 [0.3.1]: https://github.com/CAOShurong/frontiertrials/compare/v0.3.0...v0.3.1
 [0.3.0]: https://github.com/CAOShurong/frontiertrials/compare/v0.2.0...v0.3.0
 [0.2.0]: https://github.com/CAOShurong/frontiertrials/releases/tag/v0.2.0

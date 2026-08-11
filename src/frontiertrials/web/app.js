@@ -15,6 +15,12 @@ const app = {
 const $ = (selector, root = document) => root.querySelector(selector);
 const $$ = (selector, root = document) => [...root.querySelectorAll(selector)];
 
+function focusElement(element) {
+  if (!element) return;
+  element.focus({ preventScroll: true });
+  element.scrollIntoView({ behavior: "auto", block: "center" });
+}
+
 function makeId(prefix = "id") {
   if (globalThis.crypto && typeof globalThis.crypto.randomUUID === "function") {
     return `${prefix}-${globalThis.crypto.randomUUID()}`;
@@ -102,17 +108,23 @@ function renderCandidates() {
     const node = template.content.cloneNode(true);
     const card = $(".candidate-card", node);
     card.dataset.candidateId = candidate.id;
-    $(".candidate-number", card).textContent = `Product ${String.fromCharCode(65 + index)}`;
+    const productLabel = `Product ${String.fromCharCode(65 + index)}`;
+    const candidateTitle = `candidate-${candidate.id}-title`;
+    card.setAttribute("aria-labelledby", candidateTitle);
+    $(".candidate-number", card).id = candidateTitle;
+    $(".candidate-number", card).textContent = productLabel;
     $(".candidate-name", card).value = candidate.name;
     $(".candidate-price", card).value = candidate.price;
     $(".candidate-latency", card).value = candidate.latency;
     $(".candidate-response", card).value = candidate.response;
     $(".character-count", card).textContent = `${textLength(candidate.response).toLocaleString()} characters`;
     $(".remove-candidate", card).hidden = app.candidates.length <= 2;
+    $(".remove-candidate", card).setAttribute("aria-label", `Remove ${candidate.name || productLabel}`);
     $(".remove-candidate", card).addEventListener("click", () => {
       syncCandidates();
       app.candidates = app.candidates.filter((item) => item.id !== candidate.id);
       renderCandidates();
+      focusElement($("#add-candidate"));
     });
     $(".candidate-response", card).addEventListener("input", (event) => {
       $(".character-count", card).textContent = `${textLength(event.target.value).toLocaleString()} characters`;
@@ -138,18 +150,31 @@ function captureValues() {
   };
 }
 
+function captureError(message, selector, index = 0) {
+  return { message, target: $$(selector)[index] };
+}
+
 function validateCapture(value) {
-  if (!value.title) return "Give this task a short title.";
-  if (!value.prompt) return "Paste the exact prompt or task.";
-  if (value.candidates.length < 2) return "Add at least two products.";
-  if (value.candidates.some((candidate) => !candidate.name)) return "Name every product or plan.";
-  if (new Set(value.candidates.map((candidate) => candidate.name.toLowerCase())).size !== value.candidates.length) {
-    return "Use a different name for each product.";
-  }
-  if (value.candidates.some((candidate) => !candidate.response)) return "Paste the complete answer from every product.";
-  if (value.candidates.some((candidate) => candidate.price !== null && candidate.price < 0)) return "Monthly prices cannot be negative.";
-  if (value.candidates.some((candidate) => candidate.latency !== null && candidate.latency < 0)) return "Observed latency cannot be negative.";
-  return "";
+  if (!value.title) return captureError("Give this task a short title.", "#task-title");
+  if (!value.prompt) return captureError("Paste the exact prompt or task.", "#task-prompt");
+  if (value.candidates.length < 2) return { message: "Add at least two products.", target: $("#add-candidate") };
+  const missingName = value.candidates.findIndex((candidate) => !candidate.name);
+  if (missingName >= 0) return captureError("Name every product or plan.", ".candidate-name", missingName);
+  const duplicateName = value.candidates.findIndex((candidate, index, candidates) =>
+    candidates.findIndex((other) => other.name.toLowerCase() === candidate.name.toLowerCase()) !== index);
+  if (duplicateName >= 0) return captureError("Use a different name for each product.", ".candidate-name", duplicateName);
+  const missingResponse = value.candidates.findIndex((candidate) => !candidate.response);
+  if (missingResponse >= 0) return captureError("Paste the complete answer from every product.", ".candidate-response", missingResponse);
+  const invalidPrice = value.candidates.findIndex((candidate) => candidate.price !== null && candidate.price < 0);
+  if (invalidPrice >= 0) return captureError("Monthly prices cannot be negative.", ".candidate-price", invalidPrice);
+  const invalidLatency = value.candidates.findIndex((candidate) => candidate.latency !== null && candidate.latency < 0);
+  if (invalidLatency >= 0) return captureError("Observed latency cannot be negative.", ".candidate-latency", invalidLatency);
+  return { message: "", target: null };
+}
+
+function clearCaptureErrors() {
+  $$('[aria-describedby="capture-message"]').forEach((element) => element.removeAttribute("aria-describedby"));
+  $$('[aria-invalid="true"]').forEach((element) => element.removeAttribute("aria-invalid"));
 }
 
 function buildPairs(candidates) {
@@ -166,9 +191,16 @@ function buildPairs(candidates) {
 
 function startReview() {
   const value = captureValues();
-  const message = validateCapture(value);
-  $("#capture-message").textContent = message;
-  if (message) return;
+  $("#capture-status").textContent = "";
+  clearCaptureErrors();
+  const error = validateCapture(value);
+  $("#capture-message").textContent = error.message;
+  if (error.message) {
+    error.target?.setAttribute("aria-invalid", "true");
+    error.target?.setAttribute("aria-describedby", "capture-message");
+    focusElement(error.target);
+    return;
+  }
   const aliases = shuffled(ALIASES).slice(0, value.candidates.length);
   app.trial = {
     format: FORMAT,
@@ -183,8 +215,8 @@ function startReview() {
   };
   app.pairIndex = 0;
   app.saved = false;
-  setStage("review");
   renderReview();
+  setStage("review");
 }
 
 function setStage(stage) {
@@ -198,8 +230,10 @@ function setStage(stage) {
   $$(".stepper li").forEach((item, index) => {
     item.classList.toggle("active", index === current);
     item.classList.toggle("complete", index < current);
+    if (index === current) item.setAttribute("aria-current", "step");
+    else item.removeAttribute("aria-current");
   });
-  $(".workspace-shell").scrollIntoView({ behavior: "smooth", block: "start" });
+  focusElement($(`#${stage}-title`));
 }
 
 function candidateById(id) {
@@ -244,10 +278,11 @@ function castVote(choice) {
   app.pairIndex += 1;
   if (app.pairIndex < app.trial.pairs.length) {
     renderReview();
+    focusElement($("#review-title"));
     return;
   }
-  setStage("result");
   renderResult();
+  setStage("result");
 }
 
 function summarize(trial) {
@@ -351,6 +386,7 @@ function renderResult() {
     body.append(tr);
   });
   $("#save-status").textContent = "";
+  $("#save-result").disabled = false;
 }
 
 function saveResult() {
@@ -362,6 +398,7 @@ function saveResult() {
   history.push(app.trial);
   writeHistory(history);
   app.saved = true;
+  $("#save-result").disabled = true;
   $("#save-status").textContent = "Saved in this browser. Export JSON for a portable backup.";
   renderHistory();
 }
@@ -442,6 +479,7 @@ function resetCapture() {
   createCandidate();
   createCandidate();
   $("#capture-message").textContent = "";
+  $("#capture-status").textContent = "";
   setStage("capture");
 }
 
@@ -541,9 +579,12 @@ function renderHistory() {
     const remove = document.createElement("button");
     remove.type = "button";
     remove.textContent = "Delete";
+    remove.setAttribute("aria-label", `Delete ${trial.title}`);
     remove.addEventListener("click", () => {
       writeHistory(readHistory().filter((itemInHistory) => itemInHistory.id !== trial.id));
       renderHistory();
+      $("#history-status").textContent = `Deleted ${trial.title}.`;
+      focusElement($("#trial-list button") || $("#history-title"));
     });
     aside.append(result, remove);
     item.append(copy, aside);
@@ -559,10 +600,13 @@ function showView(name) {
     view.classList.toggle("active", active);
   });
   $$("[data-view-target]").forEach((button) => {
-    button.classList.toggle("active", button.dataset.viewTarget === name);
+    const active = button.dataset.viewTarget === name;
+    button.classList.toggle("active", active);
+    if (active) button.setAttribute("aria-current", "page");
+    else button.removeAttribute("aria-current");
   });
   if (name === "history") renderHistory();
-  window.scrollTo({ top: 0, behavior: "smooth" });
+  focusElement(name === "history" ? $("#history-title") : $("#capture-title"));
 }
 
 function loadExample() {
@@ -582,7 +626,8 @@ function loadExample() {
     latency: "12",
     response: "An RC low-pass filter passes slowly changing signals and reduces rapid changes. The capacitor charges and discharges through the resistor, which smooths the voltage. Its nominal cutoff frequency is 1/(2πRC). A larger resistor or capacitor lowers the cutoff, but large component values can increase noise, loading, leakage, or settling-time problems.",
   });
-  $("#capture-message").textContent = "Fictional example loaded. Replace it with exact outputs for a real decision.";
+  $("#capture-message").textContent = "";
+  $("#capture-status").textContent = "Fictional example loaded. Replace it with exact outputs for a real decision.";
 }
 
 function exportHistory() {
@@ -606,8 +651,9 @@ async function importHistory(event) {
     });
     writeHistory([...byId.values()]);
     renderHistory();
+    $("#history-status").textContent = `Imported ${payload.trials.length} comparison${payload.trials.length === 1 ? "" : "s"}. Existing IDs were updated.`;
   } catch {
-    alert("That file is not a valid FrontierTrials personal-history export.");
+    $("#history-status").textContent = "That file is not a valid FrontierTrials personal-history export.";
   }
 }
 
@@ -619,6 +665,7 @@ function init() {
   $("#add-candidate").addEventListener("click", () => {
     syncCandidates();
     createCandidate();
+    focusElement($$(".candidate-name").at(-1));
   });
   $("#load-example").addEventListener("click", loadExample);
   $("#start-review").addEventListener("click", startReview);
@@ -634,6 +681,7 @@ function init() {
     if (confirm("Delete every FrontierTrials comparison stored in this browser? Export first if you need a backup.")) {
       localStorage.removeItem(STORAGE_KEY);
       renderHistory();
+      $("#history-status").textContent = "Local history cleared.";
     }
   });
 }

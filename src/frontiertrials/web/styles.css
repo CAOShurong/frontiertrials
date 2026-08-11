@@ -9,10 +9,11 @@
   --paper: #f4f1e8;
   --panel: #fffdf7;
   --white: #ffffff;
-  --muted: #637078;
+  --muted: #4d5a61;
   --line: #c9c5ba;
   --line-strong: #8d9494;
   --danger: #8a3f3a;
+  --focus: #005fcc;
   --shadow: 0 18px 48px rgba(24, 35, 42, .08);
   font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
@@ -24,8 +25,10 @@ button, input, textarea, select { font: inherit; }
 button, a { -webkit-tap-highlight-color: transparent; }
 a { color: inherit; text-underline-offset: 3px; }
 [hidden] { display: none !important; }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
 .skip-link { position: absolute; left: -9999px; top: 1rem; z-index: 50; padding: .8rem 1rem; background: var(--navy); color: white; }
 .skip-link:focus { left: 1rem; }
+:where(a, button, input, textarea, select, [tabindex]):focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; }
 
 .masthead {
   position: sticky;
@@ -86,6 +89,7 @@ input, textarea, select { width: 100%; border: 1px solid var(--line-strong); bor
 input, select { min-height: 44px; padding: .7rem .8rem; }
 textarea { min-height: 98px; padding: .8rem; resize: vertical; line-height: 1.55; }
 input:focus, textarea:focus, select:focus { border-color: var(--teal); box-shadow: 0 0 0 3px rgba(40, 118, 109, .13); }
+input[aria-invalid="true"], textarea[aria-invalid="true"], select[aria-invalid="true"] { border-color: var(--danger); box-shadow: 0 0 0 3px rgba(150, 82, 71, .14); }
 .task-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 1rem; }
 .field-block { display: block; margin-top: 1rem; }
 .field-block.compact { margin-top: 1.3rem; }
@@ -171,7 +175,8 @@ tbody tr:last-child td { border-bottom: 0; }
 .history-panel .panel-heading { align-items: center; }
 .table-note { max-width: 350px; margin: 0; color: var(--muted); font-size: .68rem; text-align: right; }
 .file-button { position: relative; overflow: hidden; }
-.file-button input { position: absolute; width: 1px; height: 1px; opacity: 0; }
+.file-button input { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer; }
+.file-button:focus-within { outline: 3px solid var(--focus); outline-offset: 3px; }
 .trial-list { display: grid; gap: .7rem; }
 .trial-row { display: grid; grid-template-columns: 1fr auto; gap: 1rem; align-items: center; padding: 1rem; border: 1px solid var(--line); background: #f8f6ef; }
 .trial-row h3 { margin: 0; font-size: 1.08rem; }
@@ -181,6 +186,7 @@ tbody tr:last-child td { border-bottom: 0; }
 .trial-row button { border: 0; background: transparent; color: var(--danger); font-size: .66rem; font-weight: 750; cursor: pointer; }
 .empty-state { margin: 0; padding: 2.5rem 1rem; border: 1px dashed var(--line-strong); color: var(--muted); text-align: center; font-size: .78rem; }
 .method-boundary { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem 4rem; align-items: end; max-width: 1192px; margin: 1rem auto 100px; padding: 2rem; color: white; background: var(--navy); }
+.method-boundary .eyebrow { color: #b9d2cc; }
 .method-boundary h2 { margin: .6rem 0 0; font-size: 2rem; }
 .method-boundary > p { margin: 0; color: #cbd5d9; font-size: .79rem; line-height: 1.65; }
 .method-boundary .primary-button { grid-column: 2; justify-self: start; border-color: #b9d2cc; background: transparent; }
@@ -206,11 +212,11 @@ footer p { margin: 0; }
   .masthead { align-items: flex-start; min-height: 64px; padding-block: .65rem; }
   .brand small { display: none; }
   nav .nav-link { padding: .5rem; font-size: .66rem; }
-  nav a.nav-link { display: none; }
+  nav a.nav-link { display: inline-flex; }
   h1 { font-size: 3rem; }
   .hero, .history-hero { padding-top: 50px; }
   .workspace-shell { padding-inline: 12px; }
-  .stepper li { justify-content: center; padding: .65rem .35rem; font-size: 0; }
+  .stepper li { justify-content: center; gap: .35rem; padding: .65rem .25rem; font-size: .58rem; }
   .stepper li span { font-size: .6rem; }
   .panel-heading, .candidate-heading, .review-header, .result-head, .panel-actions { align-items: stretch; flex-direction: column; gap: 1rem; }
   .task-grid, .candidate-meta { grid-template-columns: 1fr; }

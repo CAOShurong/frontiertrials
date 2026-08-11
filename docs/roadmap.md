@@ -23,9 +23,19 @@ Quick Compare → Personal Benchmark → Study Mode
 - PyPI-safe documentation links and a shareable large-image social preview.
 - Structured issue forms for bugs and real comparison use cases.
 
+## Shipped in 0.4.0
+
+- Predictable keyboard focus and status announcements across capture, blind review, results, and
+  history.
+- Keyboard-scrollable long answers and result tables, visible focus indicators, field-linked errors,
+  and narrow-screen progress labels.
+- Desktop and mobile Playwright acceptance with automated WCAG A/AA checks across key states.
+- Immutable workflow actions, CodeQL, and attested release artifacts.
+
 ## Near term
 
-- Complete a keyboard-only and screen-reader usability study for Personal Lab.
+- Complete a usability study with people who use NVDA, JAWS, or VoiceOver; automated semantics and
+  keyboard checks do not substitute for that evidence.
 - Add currency selection and subscription-plan snapshots.
 - Add category-specific history and longitudinal capture waves.
 - Import plain Markdown and known conversation-export formats.

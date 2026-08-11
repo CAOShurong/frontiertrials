@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import json
 import re
 import struct
 import sys
@@ -19,7 +20,7 @@ from frontiertrials.constants import APP_VERSION  # noqa: E402
 from frontiertrials.seal import verify_seal  # noqa: E402
 from frontiertrials.workspace import Trial  # noqa: E402
 
-EXPECTED_VERSION = "0.3.1"
+EXPECTED_VERSION = "0.4.0"
 
 
 def require(condition: bool, message: str) -> None:
@@ -100,6 +101,34 @@ def check_personal_lab() -> None:
     require('href="try/"' in homepage, "homepage does not link to Personal Lab")
 
 
+def check_browser_acceptance() -> None:
+    for relative in (
+        "package.json",
+        "package-lock.json",
+        "playwright.config.js",
+        "tests/browser/personal-lab.spec.js",
+    ):
+        require((ROOT / relative).exists(), f"browser acceptance file missing: {relative}")
+    package = json.loads((ROOT / "package.json").read_text(encoding="utf-8"))
+    require("@axe-core/playwright" in package["devDependencies"], "axe browser checks missing")
+    require("@playwright/test" in package["devDependencies"], "Playwright browser checks missing")
+    ci = (ROOT / ".github/workflows/ci.yml").read_text(encoding="utf-8")
+    require("npm run test:browser" in ci, "CI does not run browser acceptance")
+
+
+def check_workflow_pins() -> None:
+    workflows = sorted((ROOT / ".github/workflows").glob("*.yml"))
+    require((ROOT / ".github/workflows/codeql.yml") in workflows, "CodeQL workflow missing")
+    for workflow in workflows:
+        for line_number, line in enumerate(workflow.read_text(encoding="utf-8").splitlines(), 1):
+            if "uses:" not in line:
+                continue
+            require(
+                re.search(r"@[0-9a-f]{40}(?:\s+#\s+\S.*)?$", line.strip()) is not None,
+                f"workflow action is not commit-pinned: {workflow.name}:{line_number}",
+            )
+
+
 def check_relative_readme_links() -> None:
     readme = (ROOT / "README.md").read_text(encoding="utf-8")
     for target in re.findall(r"\[[^\]]+\]\(([^)]+)\)", readme):
@@ -135,6 +164,8 @@ def main() -> None:
     check_figures()
     check_social_preview()
     check_personal_lab()
+    check_browser_acceptance()
+    check_workflow_pins()
     check_relative_readme_links()
     check_committed_demo()
     print("repository checks: pass")

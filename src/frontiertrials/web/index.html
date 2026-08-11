@@ -19,13 +19,13 @@
       <span>FrontierTrials <small>Personal Lab</small></span>
     </a>
     <nav aria-label="Primary navigation">
-      <button class="nav-link active" type="button" data-view-target="capture">New comparison</button>
+      <button class="nav-link active" type="button" data-view-target="capture" aria-current="page">New comparison</button>
       <button class="nav-link" type="button" data-view-target="history">History</button>
       <a class="nav-link" href="https://github.com/CAOShurong/frontiertrials">Study mode ↗</a>
     </nav>
   </header>
 
-  <main id="main">
+  <main id="main" tabindex="-1">
     <section class="view active" id="capture" data-view="capture">
       <div class="hero">
         <div class="hero-copy">
@@ -55,7 +55,7 @@
 
       <div class="workspace-shell">
         <ol class="stepper" aria-label="Comparison progress">
-          <li class="active" data-step="capture"><span>1</span> Capture</li>
+          <li class="active" data-step="capture" aria-current="step"><span>1</span> Capture</li>
           <li data-step="review"><span>2</span> Blind review</li>
           <li data-step="result"><span>3</span> Decision</li>
         </ol>
@@ -64,7 +64,7 @@
           <div class="panel-heading">
             <div>
               <p class="eyebrow">Quick compare</p>
-              <h2 id="capture-title">Record one task and its answers.</h2>
+              <h2 id="capture-title" tabindex="-1">Record one task and its answers.</h2>
             </div>
             <button class="text-button" type="button" id="load-example">Load a fictional example</button>
           </div>
@@ -103,7 +103,8 @@
           </div>
           <div class="candidate-grid" id="candidate-grid"></div>
 
-          <div class="form-message" id="capture-message" role="alert" aria-live="polite"></div>
+          <div class="form-message" id="capture-message" role="alert" aria-atomic="true"></div>
+          <p class="save-status" id="capture-status" role="status" aria-live="polite" aria-atomic="true"></p>
           <div class="panel-actions">
             <p>Start with one task. Save several comparisons to build a personal, category-specific history.</p>
             <button class="primary-button" type="button" id="start-review">Start blind review <span aria-hidden="true">→</span></button>
@@ -113,8 +114,8 @@
         <section class="workspace-panel" data-stage="review" aria-labelledby="review-title" hidden>
           <div class="review-header">
             <div>
-              <p class="eyebrow" id="review-progress">Comparison 1 of 1</p>
-              <h2 id="review-title">Which answer would you rather use?</h2>
+              <p class="eyebrow" id="review-progress" role="status" aria-live="polite" aria-atomic="true">Comparison 1 of 1</p>
+              <h2 id="review-title" tabindex="-1">Which answer would you rather use?</h2>
             </div>
             <button class="text-button" type="button" id="exit-review">Return to capture</button>
           </div>
@@ -127,8 +128,8 @@
 
           <div class="answer-grid">
             <article class="answer-card">
-              <header><span>Response A</span><strong id="left-alias"></strong></header>
-              <pre id="left-answer"></pre>
+              <header><span id="left-answer-title">Response A</span><strong id="left-alias"></strong></header>
+              <pre id="left-answer" tabindex="0" role="region" aria-labelledby="left-answer-title"></pre>
               <dl>
                 <div><dt>Observed latency</dt><dd id="left-latency"></dd></div>
                 <div><dt>Length</dt><dd id="left-length"></dd></div>
@@ -136,8 +137,8 @@
             </article>
             <div class="versus" aria-hidden="true">versus</div>
             <article class="answer-card">
-              <header><span>Response B</span><strong id="right-alias"></strong></header>
-              <pre id="right-answer"></pre>
+              <header><span id="right-answer-title">Response B</span><strong id="right-alias"></strong></header>
+              <pre id="right-answer" tabindex="0" role="region" aria-labelledby="right-answer-title"></pre>
               <dl>
                 <div><dt>Observed latency</dt><dd id="right-latency"></dd></div>
                 <div><dt>Length</dt><dd id="right-length"></dd></div>
@@ -161,7 +162,8 @@
             <textarea id="review-note" rows="2" placeholder="Record the concrete reason for your choice."></textarea>
           </label>
 
-          <div class="vote-grid" aria-label="Choose the better answer">
+          <p class="sr-only" id="vote-label">Choose the better answer. Tab between choices, then press Enter or Space.</p>
+          <div class="vote-grid" role="group" aria-labelledby="vote-label">
             <button type="button" data-vote="left"><b>A</b><span>Response A is better</span></button>
             <button type="button" data-vote="tie"><b>=</b><span>About equal</span></button>
             <button type="button" data-vote="right"><b>B</b><span>Response B is better</span></button>
@@ -173,7 +175,7 @@
           <div class="result-head">
             <div>
               <p class="eyebrow">Identity reveal</p>
-              <h2 id="result-title">What this task supports.</h2>
+              <h2 id="result-title" tabindex="-1">What this task supports.</h2>
             </div>
             <span class="result-seal">Local result · <span id="result-date"></span></span>
           </div>
@@ -184,7 +186,7 @@
             <p id="decision-copy"></p>
           </div>
 
-          <div class="result-table-wrap">
+          <div class="result-table-wrap" tabindex="0" role="region" aria-label="Task comparison results. Scroll horizontally when needed.">
             <table>
               <thead>
                 <tr>
@@ -213,7 +215,7 @@
             <button class="secondary-button" type="button" id="download-report">Download HTML report</button>
             <button class="secondary-button" type="button" id="new-comparison">New comparison</button>
           </div>
-          <p class="save-status" id="save-status" aria-live="polite"></p>
+          <p class="save-status" id="save-status" role="status" aria-live="polite" aria-atomic="true"></p>
         </section>
       </div>
     </section>
@@ -222,7 +224,7 @@
       <div class="history-hero">
         <div>
           <p class="eyebrow">Personal benchmark</p>
-          <h1>Your own evidence, accumulated task by task.</h1>
+          <h1 id="history-title" tabindex="-1">Your own evidence, accumulated task by task.</h1>
         </div>
         <p>
           Global leaderboards summarize other people's prompts and preferences. This view summarizes
@@ -231,6 +233,7 @@
       </div>
 
       <section class="history-summary" aria-labelledby="history-summary-title">
+        <h2 class="sr-only" id="history-summary-title">Saved comparison summary</h2>
         <div class="summary-stat"><strong id="history-trials">0</strong><span>saved tasks</span></div>
         <div class="summary-stat"><strong id="history-decisions">0</strong><span>decisions</span></div>
         <div class="summary-stat"><strong id="history-products">0</strong><span>products seen</span></div>
@@ -248,7 +251,7 @@
           </div>
           <p class="table-note">Ties contribute half a win. Skipped pairs are excluded.</p>
         </div>
-        <div class="result-table-wrap">
+        <div class="result-table-wrap" tabindex="0" role="region" aria-label="Aggregate comparison results. Scroll horizontally when needed.">
           <table>
             <thead>
               <tr>
@@ -276,6 +279,7 @@
             <button class="danger-button" type="button" id="clear-history">Clear local history</button>
           </div>
         </div>
+        <p class="save-status" id="history-status" role="status" aria-live="polite" aria-atomic="true"></p>
         <div class="trial-list" id="trial-list"></div>
         <p class="empty-state" id="history-empty">No saved comparisons. Run a quick comparison to begin.</p>
       </section>
