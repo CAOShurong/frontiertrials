@@ -8,8 +8,9 @@ include package-lock.json
 include playwright.config.js
 recursive-include docs *.md *.svg
 recursive-include schemas *.json
-recursive-include site *.html *.css
+recursive-include site *.html *.css *.png
 recursive-include src/frontiertrials/web *.html *.css *.js
 recursive-include examples *.json *.html *.csv *.md
+recursive-include scripts *.py
 recursive-include tests *.py *.js
 recursive-include .github *.yml
