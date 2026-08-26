@@ -32,13 +32,19 @@ Quick Compare → Personal Benchmark → Study Mode
 - Desktop and mobile Playwright acceptance with automated WCAG A/AA checks across key states.
 - Immutable workflow actions, CodeQL, and attested release artifacts.
 
+## Shipped in 0.4.1
+
+- Bulk capture: paste every product answer in one block separated by `===` name lines
+  (optional `| $price/mo | 12s` header fields), or drop a `.txt`/`.md` file. Manual
+  per-product pasting is now the fallback, not the default.
+
 ## Near term
 
 - Complete a usability study with people who use NVDA, JAWS, or VoiceOver; automated semantics and
   keyboard checks do not substitute for that evidence.
 - Add currency selection and subscription-plan snapshots.
 - Add category-specific history and longitudinal capture waves.
-- Import plain Markdown and known conversation-export formats.
+- ~~Import plain Markdown~~ — shipped 2026-08-26: bulk paste with `===` block separators plus .txt/.md file drop. Conversation-export formats remain open.
 - Publish a real, consented case study using recurring engineering and research tasks.
 - Add optional incomplete block designs for larger Study Mode candidate sets.
 

@@ -134,6 +134,116 @@ function renderCandidates() {
   $("#add-candidate").disabled = app.candidates.length >= MAX_CANDIDATES;
 }
 
+const BULK_SPLIT = /^\s*(?:={3,}|-{3,}|#{3,}|\*{3,}|_{3,})\s*(.*)$/;
+const PRICE_RE = /\$\s?(\d+(?:\.\d+)?)\s*\/?\s*(?:mo|month|monthly|m\b)?/i;
+
+function parseBulkHeader(line) {
+  const parts = line.split("|").map((part) => part.trim());
+  const name = parts[0] || "";
+  let price = "";
+  let latency = "";
+  parts.slice(1).forEach((part) => {
+    const priceMatch = part.match(PRICE_RE);
+    if (priceMatch && !price) {
+      price = priceMatch[1];
+      return;
+    }
+    const latencyMatch = part.match(/(\d+(?:\.\d+)?)\s*s\b/i);
+    if (latencyMatch && !latency) latency = latencyMatch[1];
+  });
+  return { name, price, latency };
+}
+
+function parseBulkText(raw) {
+  const lines = raw.replace(/\r\n?/g, "\n").split("\n");
+  const blocks = [];
+  let current = null;
+  lines.forEach((line) => {
+    const split = line.match(BULK_SPLIT);
+    if (split) {
+      if (current && (current.name || current.body.trim())) blocks.push(current);
+      current = { name: "", price: "", latency: "", body: "" };
+      if (split[1]) Object.assign(current, parseBulkHeader(split[1]));
+      return;
+    }
+    if (!current) current = { name: "", price: "", latency: "", body: "" };
+    if (!current.name && !current.body.trim() && line.trim()) current.name = line.trim();
+    else current.body += `${line}\n`;
+  });
+  if (current && (current.name || current.body.trim())) blocks.push(current);
+  return blocks
+    .map((block) => ({ ...block, body: block.body.trim() }))
+    .filter((block) => block.body || block.name);
+}
+
+function applyBulkBlocks(blocks) {
+  if (blocks.length < 2 || blocks.length > MAX_CANDIDATES) {
+    return { ok: false, message: `Found ${blocks.length} answer${blocks.length === 1 ? "" : "s"}. Separate 2 to ${MAX_CANDIDATES} products with a === line.` };
+  }
+  const names = blocks.map((block) => block.name);
+  if (names.some((name) => !name)) {
+    return { ok: false, message: "Every block needs a product name on its first line (or after ===)." };
+  }
+  const lower = names.map((name) => name.toLowerCase());
+  if (new Set(lower).size !== lower.length) {
+    return { ok: false, message: "Use a different product name for each block." };
+  }
+  app.candidates = blocks.map((block) => ({
+    id: makeId("candidate"),
+    name: block.name,
+    price: block.price,
+    latency: block.latency,
+    response: block.body,
+  }));
+  renderCandidates();
+  return { ok: true, message: `Filled ${blocks.length} products. Check the answers, then start the blind review.` };
+}
+
+function bulkStatus(message, isError = false) {
+  const status = $("#bulk-status");
+  status.textContent = message;
+  status.classList.toggle("error", isError);
+}
+
+function fillFromBulkText() {
+  const raw = $("#bulk-text").value;
+  if (!raw.trim()) {
+    bulkStatus("Paste all answers first.", true);
+    focusElement($("#bulk-text"));
+    return;
+  }
+  const result = applyBulkBlocks(parseBulkText(raw));
+  bulkStatus(result.message, !result.ok);
+  if (result.ok) focusElement($("#start-review"));
+}
+
+function readFileAsText(file) {
+  if (globalThis.File && file instanceof File && file.text) return file.text();
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = () => resolve(String(reader.result || ""));
+    reader.onerror = () => reject(reader.error);
+    reader.readAsText(file);
+  });
+}
+
+async function fillFromBulkFile(file) {
+  if (!file) return;
+  let raw = "";
+  try {
+    raw = await readFileAsText(file);
+  } catch {
+    bulkStatus("That file could not be read as text.", true);
+    return;
+  }
+  if (/\.json$/i.test(file.name)) {
+    bulkStatus("History JSON belongs in History → Import JSON. Paste answers as text here.", true);
+    return;
+  }
+  $("#bulk-text").value = raw;
+  fillFromBulkText();
+}
+
 function captureValues() {
   syncCandidates();
   return {
@@ -668,6 +778,35 @@ function init() {
     focusElement($$(".candidate-name").at(-1));
   });
   $("#load-example").addEventListener("click", loadExample);
+  $("#parse-bulk").addEventListener("click", fillFromBulkText);
+  $("#bulk-file").addEventListener("change", (event) => {
+    fillFromBulkFile(event.target.files && event.target.files[0]);
+    event.target.value = "";
+  });
+  const dropZone = $("#bulk-drop");
+  dropZone.addEventListener("click", () => $("#bulk-file").click());
+  dropZone.addEventListener("keydown", (event) => {
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      $("#bulk-file").click();
+    }
+  });
+  ["dragenter", "dragover"].forEach((type) => {
+    dropZone.addEventListener(type, (event) => {
+      event.preventDefault();
+      dropZone.classList.add("dragover");
+    });
+  });
+  ["dragleave", "drop"].forEach((type) => {
+    dropZone.addEventListener(type, (event) => {
+      event.preventDefault();
+      dropZone.classList.remove("dragover");
+    });
+  });
+  dropZone.addEventListener("drop", (event) => {
+    const file = event.dataTransfer && event.dataTransfer.files && event.dataTransfer.files[0];
+    if (file) fillFromBulkFile(file);
+  });
   $("#start-review").addEventListener("click", startReview);
   $("#exit-review").addEventListener("click", () => setStage("capture"));
   $$("[data-vote]").forEach((button) => button.addEventListener("click", () => castVote(button.dataset.vote)));

@@ -94,6 +94,27 @@
             <textarea id="task-prompt" rows="5" placeholder="Paste the same prompt you used in each product. Remove private details before sharing an exported report."></textarea>
           </label>
 
+          <details class="bulk-import">
+            <summary>Paste all answers at once</summary>
+            <p class="bulk-hint">
+              Separate each product with a line of <code>===</code> or <code>---</code>.
+              The first line of each block names the product. Add price or latency after a
+              <code>|</code>, e.g. <code>=== ChatGPT Plus | $20/mo | 12s</code>.
+            </p>
+            <label class="field-block">
+              <span>All answers</span>
+              <textarea id="bulk-text" rows="10" placeholder="=== ChatGPT Plus | $20/mo&#10;Paste the full answer here...&#10;&#10;=== Claude Pro | $20/mo&#10;Paste the full answer here..."></textarea>
+            </label>
+            <div class="bulk-actions">
+              <button class="secondary-button" type="button" id="parse-bulk">Fill the products</button>
+              <label class="file-button secondary-button">
+                Or choose a file<input id="bulk-file" type="file" accept=".txt,.md,.json,text/plain,text/markdown,application/json">
+              </label>
+              <span class="bulk-status" id="bulk-status" role="status" aria-live="polite"></span>
+            </div>
+            <div class="drop-zone" id="bulk-drop" tabindex="0" role="button" aria-label="Drop a text file with all answers">Drop a .txt or .md file here</div>
+          </details>
+
           <div class="candidate-heading">
             <div>
               <p class="eyebrow">Candidate answers</p>

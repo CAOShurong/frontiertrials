@@ -35,7 +35,10 @@ Open the [Personal Lab](https://caoshurong.github.io/frontiertrials/try/). The a
 browser and does not transmit the text you enter.
 
 1. Give one real task a title and category.
-2. Paste the exact prompt and two to four complete product answers.
+2. Paste the exact prompt, then paste **all product answers at once** into
+   "Paste all answers at once" — separate each product with a `===` line that names it
+   (optionally with price and latency, e.g. `=== Claude Pro | $20/mo | 12s`).
+   You can also drop a `.txt` or `.md` file instead of pasting.
 3. Compare every anonymous pair.
 4. Reveal the task-level result.
 5. Save it locally to build your personal benchmark.

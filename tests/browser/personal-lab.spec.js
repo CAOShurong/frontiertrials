@@ -91,3 +91,67 @@ test("has no automatically detectable WCAG A or AA violations in key states", as
   await page.getByRole("button", { name: "History" }).click();
   await expectNoAutomatedWcagViolations(page);
 });
+
+test("bulk paste fills every product card in one step", async ({ page }) => {
+  await page.locator(".bulk-import summary").click();
+  await page.locator("#bulk-text").fill(
+    [
+      "=== ChatGPT Plus | $20/mo | 12s",
+      "Answer one body",
+      "",
+      "--- Claude Pro",
+      "Answer two body",
+      "",
+      "*** Gemini Advanced | $19.99/mo",
+      "Answer three body",
+    ].join("\n"),
+  );
+  await page.getByLabel("Task title").fill("Bulk pasted trial");
+  await page.getByLabel("Exact prompt or task").fill("Explain X");
+  await page.getByRole("button", { name: "Fill the products" }).click();
+  await expect(page.locator("#bulk-status")).toContainText("Filled 3 products");
+
+  const names = page.locator(".candidate-name");
+  await expect(names).toHaveCount(3);
+  await expect(names.nth(0)).toHaveValue("ChatGPT Plus");
+  await expect(names.nth(1)).toHaveValue("Claude Pro");
+  await expect(names.nth(2)).toHaveValue("Gemini Advanced");
+  await expect(page.locator(".candidate-price").nth(0)).toHaveValue("20");
+  await expect(page.locator(".candidate-price").nth(2)).toHaveValue("19.99");
+  await expect(page.locator(".candidate-latency").nth(0)).toHaveValue("12");
+  const bodies = page.locator(".candidate-response");
+  await expect(bodies.nth(0)).toHaveValue("Answer one body");
+  await expect(bodies.nth(2)).toHaveValue("Answer three body");
+
+  await page.getByRole("button", { name: "Start blind review" }).click();
+  await expect(page.getByRole("status").filter({ hasText: "Comparison 1 of 3" })).toBeVisible();
+});
+
+test("bulk paste rejects one block and duplicate names with a field-level message", async ({ page }) => {
+  await page.locator(".bulk-import summary").click();
+  await page.locator("#bulk-text").fill("Only one answer, no separators");
+  await page.getByRole("button", { name: "Fill the products" }).click();
+  await expect(page.locator("#bulk-status")).toContainText("Found 1 answer");
+
+  await page.locator("#bulk-text").fill("=== Same\nA\n\n=== Same\nB");
+  await page.getByRole("button", { name: "Fill the products" }).click();
+  await expect(page.locator("#bulk-status")).toContainText("different product name");
+});
+
+test("dropping a text file fills the products without pasting", async ({ page }) => {
+  await page.locator(".bulk-import summary").click();
+  const dataTransfer = await page.evaluateHandle(() => {
+    const transfer = new DataTransfer();
+    const file = new File(
+      ["=== Alpha\nAlpha answer body\n=== Beta\nBeta answer body"],
+      "answers.txt",
+      { type: "text/plain" },
+    );
+    transfer.items.add(file);
+    return transfer;
+  });
+  await page.locator("#bulk-drop").dispatchEvent("drop", { dataTransfer });
+  await expect(page.locator("#bulk-status")).toContainText("Filled 2 products");
+  await expect(page.locator(".candidate-name").nth(0)).toHaveValue("Alpha");
+  await expect(page.locator(".candidate-response").nth(1)).toHaveValue("Beta answer body");
+});
