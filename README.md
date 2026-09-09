@@ -12,6 +12,7 @@
   [![CI](https://github.com/CAOShurong/frontiertrials/actions/workflows/ci.yml/badge.svg)](https://github.com/CAOShurong/frontiertrials/actions/workflows/ci.yml)
   [![Pages](https://github.com/CAOShurong/frontiertrials/actions/workflows/pages.yml/badge.svg)](https://caoshurong.github.io/frontiertrials/)
   [![PyPI](https://img.shields.io/pypi/v/frontiertrials?color=2b6f6b)](https://pypi.org/project/frontiertrials/)
+  [![PyPI - Downloads](https://img.shields.io/pypi/dm/frontiertrials?color=2b6f6b&logo=pypi&logoColor=white)](https://pypi.org/project/frontiertrials/)
   [![Python](https://img.shields.io/badge/Python-3.11%2B-20384a)](https://www.python.org/)
   [![Runtime dependencies](https://img.shields.io/badge/runtime_dependencies-0-28766d)](#privacy-and-trust-boundary)
   [![License: MIT](https://img.shields.io/badge/license-MIT-a47a36)](https://github.com/CAOShurong/frontiertrials/blob/main/LICENSE)
