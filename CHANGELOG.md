@@ -2,6 +2,11 @@
 
 ## [Unreleased]
 
+### Fixed
+
+- JSON, capture files, and dropped `.txt`/`.md` answers that start with a
+  UTF-8 BOM now load.
+
 ## [0.4.1] - 2026-08-12
 
 ### Security

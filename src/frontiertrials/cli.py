@@ -193,7 +193,7 @@ def run(args: argparse.Namespace) -> int:
         seed = (
             args.seed
             if args.seed is not None
-            else Path(args.seed_file).read_text(encoding="utf-8").strip()
+            else Path(args.seed_file).read_text(encoding="utf-8-sig").strip()
         )
         _print_json(
             freeze_trial(

@@ -18,7 +18,7 @@ def import_ballot_bundle(
 ) -> dict[str, Any]:
     """Import the JSON downloaded by an offline judging packet."""
     try:
-        bundle = json.loads(Path(source).read_text(encoding="utf-8"))
+        bundle = json.loads(Path(source).read_text(encoding="utf-8-sig"))
     except json.JSONDecodeError as exc:
         raise ValidationError(f"invalid ballot bundle: {exc}") from exc
     if not isinstance(bundle, dict) or bundle.get("format") != "frontiertrials-ballots-v1":

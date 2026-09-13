@@ -49,7 +49,7 @@ def write_seal(
 
 def verify_seal(trial: Trial, source: str | Path | None = None) -> dict[str, Any]:
     path = Path(source) if source else trial.root / "frontiertrials-seal.json"
-    expected = json.loads(path.read_text(encoding="utf-8"))
+    expected = json.loads(path.read_text(encoding="utf-8-sig"))
     observed = build_seal(trial)
     return {
         "status": "verified" if expected.get("root") == observed["root"] else "changed",

@@ -49,6 +49,12 @@ No account, API key, Python installation, or JSON configuration is required.
 If you prefer to serve the same application entirely from your computer:
 
 ```bash
+uvx frontiertrials open
+```
+
+Or install persistently:
+
+```bash
 python -m pip install frontiertrials
 frontiertrials open
 ```

@@ -30,7 +30,7 @@ def capture_response(
     trial.get("task", task_id)
     trial.get("candidate", candidate_id)
     source_path = Path(source)
-    content = source_path.read_text(encoding="utf-8")
+    content = source_path.read_text(encoding="utf-8-sig")
     if not content.strip():
         raise ValidationError("captured response is empty")
     destination = trial.root / "outputs" / f"{response_id}.md"

@@ -14,7 +14,7 @@ from .util import pretty_json
 
 def read_json(path: Path) -> dict[str, Any]:
     try:
-        value = json.loads(path.read_text(encoding="utf-8"))
+        value = json.loads(path.read_text(encoding="utf-8-sig"))
     except FileNotFoundError as exc:
         raise ValidationError(f"missing file: {path}") from exc
     except json.JSONDecodeError as exc:

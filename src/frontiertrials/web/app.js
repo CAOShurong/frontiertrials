@@ -240,6 +240,7 @@ async function fillFromBulkFile(file) {
     bulkStatus("History JSON belongs in History → Import JSON. Paste answers as text here.", true);
     return;
   }
+  if (raw.charCodeAt(0) === 0xfeff) raw = raw.slice(1);
   $("#bulk-text").value = raw;
   fillFromBulkText();
 }
