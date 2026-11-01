@@ -74,7 +74,7 @@ jobs:
           .smoke/bin/frontiertrials adjudicate --trial /tmp/frontiertrials-smoke --format markdown --output /tmp/frontiertrials-adjudication.md
           .smoke/bin/frontiertrials analyze --trial /tmp/frontiertrials-smoke --output /tmp/frontiertrials-analysis.json
           .smoke/bin/frontiertrials verify --trial /tmp/frontiertrials-smoke
-      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7
         with:
           name: frontiertrials-distributions
           path: dist/*
@@ -117,7 +117,7 @@ jobs:
       - run: npm run test:browser
       - name: Preserve browser failure evidence
         if: failure()
-        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7
         with:
           name: browser-acceptance-failures
           path: test-results/
